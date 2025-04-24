@@ -73,11 +73,11 @@ const TeamSection = () => {
               className="group relative h-full"
             >
               <div className="bg-white rounded-2xl shadow-lg overflow-hidden transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl h-full">
-                <div className="relative h-72 overflow-hidden">
+                <div className="relative h-80 overflow-hidden">
                   <Image
                     src={member.image}
                     alt={member.name}
-                    className="object-cover object-center transition-transform duration-700 group-hover:scale-110"
+                    className="object-cover object-top transition-transform duration-700 group-hover:scale-110"
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     priority={member.id <= 3}

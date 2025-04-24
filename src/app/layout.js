@@ -23,6 +23,11 @@ export const metadata = {
   applicationName: "Catanzaro & Partners",
   manifest: "/manifest.json",
   themeColor: "#000000",
+  icons: {
+    icon: '/favicon-32x32.png',
+    shortcut: '/favicon-32x32.png',
+    apple: '/favicon-32x32.png',
+  },
   openGraph: {
     title: "Catanzaro & Partners | Agenzia di Sviluppo Web e Digital Marketing",
     description: "Agenzia specializzata in sviluppo web, digital marketing e soluzioni tecnologiche innovative per aziende e professionisti.",
@@ -42,6 +47,7 @@ export default function RootLayout({ children }) {
     <html lang="it">
       <head>
         <link rel="manifest" href="/manifest.json" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}

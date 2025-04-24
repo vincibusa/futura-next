@@ -1,6 +1,3 @@
-
-'use client';
-import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -57,19 +54,6 @@ const ComfortZoneSection = () => {
     },
   ];
 
-  const fadeInVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: (i) => ({
-      opacity: 1,
-      y: 0,
-      transition: {
-        delay: 0.1 * i,
-        duration: 0.7,
-        ease: "easeOut"
-      },
-    }),
-  };
-
   return (
     <section id="comfort-zone" className="py-24 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
       <div className="absolute -top-40 right-0 w-80 h-80 rounded-full bg-red-50 opacity-30"></div>
@@ -77,70 +61,35 @@ const ComfortZoneSection = () => {
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-20">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="mb-3"
-          >
+          <div className="mb-3 animate-fade-in">
             <span className="px-4 py-1 bg-red-100 text-red-700 rounded-full font-medium text-sm uppercase tracking-wider">
               La nostra terra
             </span>
-          </motion.div>
-          <motion.h2
-            initial={{ opacity: 0, y: -20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-4xl md:text-5xl font-bold text-gray-900 mb-4"
-          >
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 animate-fade-in-down">
             La nostra <span className="text-red-600">Comfort Zone</span>
-          </motion.h2>
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="w-24 h-1.5 bg-gradient-to-r from-red-500 to-red-700 mx-auto mb-8 rounded-full"
-          />
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-xl text-gray-600 max-w-3xl mx-auto font-light leading-relaxed"
-          >
+          </h2>
+          <div className="w-24 h-1.5 bg-gradient-to-r from-red-500 to-red-700 mx-auto mb-8 rounded-full animate-fade-in"></div>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto font-light leading-relaxed animate-fade-in-up">
             Siamo amanti della nostra terra e delle sue tradizioni. Tutto ciò che facciamo è per lasciare un credito di fiducia alle nuove generazioni.
-          </motion.p>
+          </p>
         </div>
 
         {/* Galleria di immagini migliorata */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="mb-24 relative"
-        >
+        <div className="mb-24 relative animate-fade-in" style={{ animationDelay: '400ms' }}>
           {/* Elementi decorativi */}
           <div className="absolute -top-10 -left-10 w-20 h-20 border-2 border-red-200 rounded-lg z-0 opacity-50"></div>
           <div className="absolute -bottom-10 -right-10 w-20 h-20 border-2 border-red-200 rounded-lg z-0 opacity-50"></div>
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3 relative z-10">
             {galleryImages.map((image, index) => (
-              <motion.div
+              <div
                 key={index}
-                custom={index}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={fadeInVariants}
-                whileHover={{ scale: 1.02 }}
                 className={`
                   ${index === 0 ? "col-span-2 row-span-2 relative h-64 md:h-96" : "relative h-40 md:h-52"}
-                  overflow-hidden rounded-lg shadow-lg
+                  overflow-hidden rounded-lg shadow-lg animate-fade-in-up hover:scale-[1.02] transition-transform duration-300
                 `}
+                style={{ animationDelay: `${index * 100}ms` }}
               >
                 <Image
                   src={image.src}
@@ -156,22 +105,16 @@ const ComfortZoneSection = () => {
                     <span className="text-white font-medium text-sm md:text-base drop-shadow-md">Sicilia</span>
                   )}
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
-        </motion.div>
+        </div>
 
         {/* Food Concept Section migliorata */}
         <div className="grid md:grid-cols-2 gap-16 items-center mb-20 relative">
           <div className="absolute -z-10 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[120%] h-80 bg-red-50/30 rounded-3xl blur-3xl"></div>
           
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="order-2 md:order-1 relative z-10"
-          >
+          <div className="order-2 md:order-1 relative z-10 animate-fade-in-left">
             <div className="mb-4">
               <span className="px-3 py-1 bg-red-100 text-red-700 text-xs rounded-full uppercase tracking-wider font-semibold">Dal 2013</span>
             </div>
@@ -180,31 +123,20 @@ const ComfortZoneSection = () => {
               Ci occupiamo di progetti di animazione territoriale scoprendo e valorizzando i prodotti tipici che caratterizzano le comunità come Bagheria e Piana degli Albanesi. Per le istituzioni creiamo e produciamo format di live marketing, comunicazione e tutto ciò che serve per realizzare eventi di successo.
             </p>
             <Link href="/servizi/event">
-              <motion.button
-                whileHover={{ scale: 1.05, boxShadow: "0 8px 20px -5px rgba(220, 38, 38, 0.4)" }}
-                whileTap={{ scale: 0.95 }}
-                className="mt-4 bg-gradient-to-r from-red-600 to-red-700 text-white py-3 px-8 rounded-full font-medium shadow-md transition-all duration-300 flex items-center"
+              <button
+                className="mt-4 bg-gradient-to-r from-red-600 to-red-700 text-white py-3 px-8 rounded-full font-medium shadow-md transition-all duration-300 hover:scale-105 hover:shadow-xl active:scale-95 flex items-center"
               >
                 Scopri i nostri eventi
                 <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
-              </motion.button>
+              </button>
             </Link>
-          </motion.div>
+          </div>
           
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="order-1 md:order-2 relative"
-          >
+          <div className="order-1 md:order-2 relative animate-fade-in-right">
             <div className="relative">
-              <motion.div
-                whileHover={{ scale: 1.03 }}
-                className="w-full h-64 md:h-96"
-              >
+              <div className="w-full h-64 md:h-96 hover:scale-[1.03] transition-transform duration-300">
                 <Image
                   src={food}
                   alt="Food Concept - Sfincione siciliano"
@@ -212,12 +144,12 @@ const ComfortZoneSection = () => {
                   sizes="(max-width: 768px) 100vw, 50vw"
                   priority
                 />
-              </motion.div>
+              </div>
               <div className="absolute inset-0 rounded-xl border-2 border-red-100 transform translate-x-4 translate-y-4 -z-10"></div>
               <div className="absolute -bottom-8 -left-8 w-16 h-16 bg-red-50 rounded-full"></div>
               <div className="absolute -top-6 -right-6 w-24 h-24 bg-red-50 rounded-full hidden md:block"></div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

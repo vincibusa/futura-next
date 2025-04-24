@@ -1,7 +1,6 @@
-
-'use client';
-import { motion } from 'framer-motion';
 import Image from 'next/image';
+import AnimatedOnScroll from '../animation/AnimatedOnScroll';
+import AnimateOnScroll from '../animation/AnimateOnScroll';
 
 // Importo le immagini dei partner
 import potenzano from '../../assets/partner/potenzano-1024x683.jpg';
@@ -121,86 +120,42 @@ const PortfolioSection = () => {
     },
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.12,
-        delayChildren: 0.3
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut"
-      },
-    },
-  };
-
   return (
     <section id="portfolio" className="py-24 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
       <div className="absolute -top-20 -right-20 w-80 h-80 rounded-full bg-red-50 opacity-30"></div>
       <div className="absolute bottom-10 -left-32 w-64 h-64 rounded-full bg-red-50 opacity-30"></div>
       
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-20">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="mb-3"
-          >
-            <span className="px-4 py-1 bg-red-100 text-red-700 rounded-full font-medium text-sm uppercase tracking-wider">
-              Talent Partner
-            </span>
-          </motion.div>
-          <motion.h2
-            initial={{ opacity: 0, y: -20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-4xl md:text-5xl font-bold text-gray-900 mb-4"
-          >
-            I Nostri <span className="text-red-600">Talent Partner</span>
-          </motion.h2>
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="w-24 h-1.5 bg-gradient-to-r from-red-500 to-red-700 mx-auto mb-8 rounded-full"
-          />
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-xl text-gray-600 max-w-3xl mx-auto font-light leading-relaxed"
-          >
-            Creiamo momenti di intrattenimento innovativi e coinvolgenti grazie alla collaborazione con i migliori talenti del panorama enogastronomico siciliano. La nostra esperienza ci permette di proporre format unici nel loro genere.
-          </motion.p>
+  
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
         </div>
 
+        <AnimatedOnScroll animation="fade-in-down">
+          <div className="text-center mb-20">
+            <div className="mb-3">
+              <span className="px-4 py-1 bg-red-100 text-red-700 rounded-full font-medium text-sm uppercase tracking-wider">
+                Talent Partner
+              </span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              I Nostri <span className="text-red-600">Talent Partner</span>
+            </h2>
+            <div className="w-24 h-1.5 bg-gradient-to-r from-red-500 to-red-700 mx-auto mb-8 rounded-full"></div>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto font-light leading-relaxed">
+              Creiamo momenti di intrattenimento innovativi e coinvolgenti grazie alla collaborazione con i migliori talenti del panorama enogastronomico siciliano. La nostra esperienza ci permette di proporre format unici nel loro genere.
+            </p>
+          </div>
+        </AnimatedOnScroll>
+
         {/* Partner Grid */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8"
-        >
-          {partners.map((partner) => (
-            <motion.div
-              key={partner.id}
-              variants={itemVariants}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+          {partners.map((partner, index) => (
+            <AnimatedOnScroll 
+              key={partner.id} 
+              animation="fade-in-up" 
+              delay={index * 100}
               className="group relative bg-white rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
             >
               <div className="aspect-w-1 aspect-h-1 w-full h-64 overflow-hidden relative">
@@ -226,26 +181,20 @@ const PortfolioSection = () => {
                 </h3>
                 <p className="text-gray-600 text-sm">{partner.description}</p>
               </div>
-            </motion.div>
+            </AnimatedOnScroll>
           ))}
-        </motion.div>
+        </div>
 
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, delay: 0.8 }}
-          className="mt-20 text-center"
-        >
-          <motion.button
-            whileHover={{ scale: 1.05, boxShadow: "0 10px 25px -5px rgba(220, 38, 38, 0.4)" }}
-            whileTap={{ scale: 0.95 }}
-            className="bg-gradient-to-r from-red-600 to-red-700 text-white py-4 px-10 rounded-full font-medium shadow-lg transition-all duration-300"
-          >
-            Collabora con noi
-          </motion.button>
-          <p className="text-gray-500 text-sm mt-4">Diventa nostro Talent Partner</p>
-        </motion.div>
+        <AnimatedOnScroll animation="fade-in-up" delay={600}>
+          <div className="mt-20 text-center">
+            <button
+              className="bg-gradient-to-r from-red-600 to-red-700 text-white py-4 px-10 rounded-full font-medium shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl active:scale-95"
+            >
+              Collabora con noi
+            </button>
+            <p className="text-gray-500 text-sm mt-4">Diventa nostro Talent Partner</p>
+          </div>
+        </AnimatedOnScroll>
       </div>
     </section>
   );

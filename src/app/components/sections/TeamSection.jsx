@@ -3,13 +3,7 @@ import TeamContactButton from '../buttons/TeamContactButton';
 import AnimatedOnScroll from '../animation/AnimatedOnScroll';
 import AnimateOnScroll from '../animation/AnimateOnScroll';
 
-// Importo le immagini dei membri del team
-import adalberto from '../../assets/images/adalberto.jpeg';
-import jessica from '../../assets/images/jessica.jpeg';
-import salvo from '../../assets/images/Salvo.jpeg';
-import vincenzo from '../../assets/images/vincenzo.jpeg';
-import aurora from '../../assets/images/aurora.jpg';
-import desire from '../../assets/images/desire.jpeg';
+
 
 const TeamSection = () => {
   const teamMembers = [
@@ -17,37 +11,37 @@ const TeamSection = () => {
       id: 1,
       name: 'Adalberto Catanzaro',
       role: 'CEO e Direttore Creativo',
-      image: adalberto
+      image: 'https://firebasestorage.googleapis.com/v0/b/catanzaroepartners-13968.firebasestorage.app/o/adalberto.jpeg?alt=media&token=d5ba9097-4070-40d6-b10a-9c8e5df4f60e'
     },
     {
       id: 2,
       name: 'Jessica Ricci',
       role: 'Senior Partner e Lawyer',
-      image: jessica
+      image: 'https://firebasestorage.googleapis.com/v0/b/catanzaroepartners-13968.firebasestorage.app/o/jessica.jpeg?alt=media&token=ef45d3bf-dc90-4330-8df3-cb985380d91b'
     },
     {
       id: 3,
       name: 'Salvo Scaduto',
       role: 'Partnering Relationship e Ufficio Stampa',
-      image: salvo
+      image: 'https://firebasestorage.googleapis.com/v0/b/catanzaroepartners-13968.firebasestorage.app/o/Salvo.jpeg?alt=media&token=103aae00-0217-4edc-85b9-d8b480b81a3f'
     },
     {
       id: 4,
       name: 'Vincenzo Busalacchi',
       role: 'Full Stack Developer',
-      image: vincenzo
+      image: 'https://firebasestorage.googleapis.com/v0/b/catanzaroepartners-13968.firebasestorage.app/o/vincenzo.jpeg?alt=media&token=dba12809-b5cb-4197-acb8-e4a1b581d0ae'
     },
     {
       id: 5,
       name: 'Aurora Corso',
       role: 'Account senior e Social Media manager',
-      image: aurora
+      image: 'https://firebasestorage.googleapis.com/v0/b/catanzaroepartners-13968.firebasestorage.app/o/aurora.jpg?alt=media&token=a77f8a1e-7619-4a58-8240-67eb5fe2eff3'
     },
     {
       id: 6,
       name: 'Desiree Chiarenza',
       role: 'Executive Assistant',
-      image: desire
+      image: 'https://firebasestorage.googleapis.com/v0/b/catanzaroepartners-13968.firebasestorage.app/o/desire.jpeg?alt=media&token=6b7fb601-f91a-4856-af4f-fb6760d138bd'
     }
   ];
 

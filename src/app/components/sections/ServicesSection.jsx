@@ -96,53 +96,53 @@ const ServicesSection = () => {
               key={service.id} 
               animation="fade-in-up" 
               delay={index * 150}
+              className="group relative h-full"
             >
-              <div className="group h-full">
-                <div className="bg-white rounded-2xl shadow-xl overflow-hidden h-full transform transition-all duration-300 hover:-translate-y-2 flex flex-col">
-                  <div className={`bg-gradient-to-r ${service.bgColor} p-8 flex items-center justify-center`}>
-                    <div className="bg-white/10 p-4 rounded-full backdrop-blur-sm">
-                      {service.icon}
-                    </div>
+              <div className="bg-white rounded-2xl shadow-xl overflow-hidden h-full transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl flex flex-col">
+                <div className={`bg-gradient-to-r ${service.bgColor} p-8 flex items-center justify-center relative overflow-hidden`}>
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300"></div>
+                  <div className="bg-white/10 p-4 rounded-full backdrop-blur-sm transform transition-transform duration-300 group-hover:scale-110 relative z-10">
+                    {service.icon}
                   </div>
+                </div>
+                
+                <div className="p-8 flex flex-col flex-grow">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-red-600 transition-colors">{service.title}</h3>
+                  <p className="text-gray-600 mb-6 leading-relaxed">{service.description}</p>
                   
-                  <div className="p-8 flex flex-col flex-grow">
-                    <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-red-600 transition-colors">{service.title}</h3>
-                    <p className="text-gray-600 mb-6 leading-relaxed">{service.description}</p>
-                    
-                    <div className="mt-auto">
-                      <h4 className="font-medium text-gray-800 mb-3">Include:</h4>
-                      <ul className="grid grid-cols-2 gap-y-2 gap-x-4 mb-6">
-                        {service.subservices.map((subservice, index) => (
-                          <li key={index} className="flex items-center text-gray-600">
-                            <svg className="w-5 h-5 mr-2 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                            </svg>
-                            <span className="text-sm">{subservice}</span>
-                          </li>
-                        ))}
-                      </ul>
-                      
-                      <Link href={`/servizi/${service.id}`} className="inline-block">
-                        <div
-                          className="flex items-center text-red-600 font-medium cursor-pointer group-hover:font-semibold hover:translate-x-1 transition-transform duration-300"
-                        >
-                          Scopri di più
-                          <svg
-                            className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth="2"
-                              d="M14 5l7 7m0 0l-7 7m7-7H3"
-                            />
+                  <div className="mt-auto">
+                    <h4 className="font-medium text-gray-800 mb-3">Include:</h4>
+                    <ul className="grid grid-cols-2 gap-y-2 gap-x-4 mb-6">
+                      {service.subservices.map((subservice, index) => (
+                        <li key={index} className="flex items-center text-gray-600 group-hover:text-gray-700 transition-colors">
+                          <svg className="w-5 h-5 mr-2 text-red-500 transition-transform duration-300 group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                           </svg>
-                        </div>
-                      </Link>
-                    </div>
+                          <span className="text-sm">{subservice}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    
+                    <Link href={`/servizi/${service.id}`} className="inline-block">
+                      <div
+                        className="flex items-center text-red-600 font-medium cursor-pointer group-hover:font-semibold hover:translate-x-1 transition-transform duration-300"
+                      >
+                        Scopri di più
+                        <svg
+                          className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M14 5l7 7m0 0l-7 7m7-7H3"
+                          />
+                        </svg>
+                      </div>
+                    </Link>
                   </div>
                 </div>
               </div>

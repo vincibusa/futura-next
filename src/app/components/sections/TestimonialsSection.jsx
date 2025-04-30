@@ -35,25 +35,25 @@ const TestimonialsSection = () => {
   return (
     <section id="testimonials" className="py-20 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
       {/* Elementi decorativi */}
-      <div className="absolute -top-24 right-0 w-64 h-64 rounded-full bg-red-50 opacity-30"></div>
-      <div className="absolute -bottom-32 -left-32 w-96 h-96 rounded-full bg-red-50 opacity-40"></div>
+      <div className="absolute -top-24 right-0 w-64 h-64 rounded-full bg-blue-50 opacity-30"></div>
+      <div className="absolute -bottom-32 -left-32 w-96 h-96 rounded-full bg-blue-50 opacity-40"></div>
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-14">
           <AnimatedOnScroll animation="fade-in" delay={200} className="mb-3">
-            <span className="px-4 py-1 bg-red-100 text-red-700 rounded-full font-medium text-sm uppercase tracking-wider">
+            <span className="px-4 py-1 bg-blue-100 text-blue-700 rounded-full font-medium text-sm uppercase tracking-wider">
               I Nostri Partner
             </span>
           </AnimatedOnScroll>
           
           <AnimatedOnScroll animation="fade-in-down" delay={300}>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              I Nostri <span className="text-red-600">Sponsor</span>
+              I Nostri <span className="text-blue-600">Sponsor</span>
             </h2>
           </AnimatedOnScroll>
           
           <AnimatedOnScroll animation="fade-in" delay={400}>
-            <div className="w-24 h-1 bg-gradient-to-r from-red-500 to-red-700 mx-auto mb-6 rounded-full" />
+            <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-blue-700 mx-auto mb-6 rounded-full" />
           </AnimatedOnScroll>
           
           <AnimateOnScroll animation="fade-up" delay={500}>

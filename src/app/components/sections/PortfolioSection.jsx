@@ -104,25 +104,25 @@ const PortfolioSection = () => {
 
   return (
     <section id="portfolio" className="py-24 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
-      <div className="absolute -top-20 -right-20 w-80 h-80 rounded-full bg-red-50 opacity-30"></div>
-      <div className="absolute bottom-10 -left-32 w-64 h-64 rounded-full bg-red-50 opacity-30"></div>
+      <div className="absolute -top-20 -right-20 w-80 h-80 rounded-full bg-blue-50 opacity-30"></div>
+      <div className="absolute bottom-10 -left-32 w-64 h-64 rounded-full bg-blue-50 opacity-30"></div>
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-20">
           <AnimatedOnScroll animation="fade-in" delay={200} className="mb-3">
-            <span className="px-4 py-1 bg-red-100 text-red-700 rounded-full font-medium text-sm uppercase tracking-wider">
+            <span className="px-4 py-1 bg-blue-100 text-blue-700 rounded-full font-medium text-sm uppercase tracking-wider">
               Talent Partner
             </span>
           </AnimatedOnScroll>
           
           <AnimatedOnScroll animation="fade-in-down" delay={300}>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              I Nostri <span className="text-red-600">Talent Partner</span>
+              I Nostri <span className="text-blue-600">Talent Partner</span>
             </h2>
           </AnimatedOnScroll>
           
           <AnimatedOnScroll animation="fade-in" delay={400}>
-            <div className="w-24 h-1.5 bg-gradient-to-r from-red-500 to-red-700 mx-auto mb-8 rounded-full"></div>
+            <div className="w-24 h-1.5 bg-gradient-to-r from-blue-500 to-blue-700 mx-auto mb-8 rounded-full"></div>
           </AnimatedOnScroll>
           
           <AnimateOnScroll animation="fade-up" delay={500}>
@@ -158,8 +158,8 @@ const PortfolioSection = () => {
                 </div>
               </div>
               
-              <div className="p-4 group-hover:bg-red-50 transition-colors duration-300">
-                <h3 className="text-gray-900 font-bold group-hover:text-red-600 transition-colors duration-300">
+              <div className="p-4 group-hover:bg-blue-50 transition-colors duration-300">
+                <h3 className="text-gray-900 font-bold group-hover:text-blue-600 transition-colors duration-300">
                   {partner.name}
                 </h3>
                 <p className="text-gray-600 text-sm">{partner.description}</p>
@@ -171,7 +171,7 @@ const PortfolioSection = () => {
         <AnimatedOnScroll animation="fade-in-up" delay={600}>
           <div className="mt-20 text-center">
             <button
-              className="bg-gradient-to-r from-red-600 to-red-700 text-white py-4 px-10 rounded-full font-medium shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl active:scale-95"
+              className="bg-gradient-to-r from-blue-600 to-blue-700 text-white py-4 px-10 rounded-full font-medium shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl active:scale-95"
             >
               Collabora con noi
             </button>

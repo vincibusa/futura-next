@@ -1,5 +1,6 @@
 {
-  "name": "catanzaro-next",
+  "type": "module",
+  "name": "futuracompany-next",
   "version": "0.1.0",
   "private": true,
   "scripts": {

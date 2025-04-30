@@ -7,27 +7,27 @@ import { FaPaintBrush, FaBox, FaTrademark, FaAd, FaCalendarAlt, FaClipboardList,
 // Mapping of service IDs to icon components
 const serviceIcons = {
   'branding': {
-    'Naming': <FaTrademark className="text-red-600 text-2xl" />,
-    'Packaging': <FaBox className="text-red-600 text-2xl" />,
-    'Registrazione marchi': <FaTrademark className="text-red-600 text-2xl" />,
-    'Grafica Pubblicitaria': <FaAd className="text-red-600 text-2xl" />
+    'Naming': <FaTrademark className="text-blue-600 text-2xl" />,
+    'Packaging': <FaBox className="text-blue-600 text-2xl" />,
+    'Registrazione marchi': <FaTrademark className="text-blue-600 text-2xl" />,
+    'Grafica Pubblicitaria': <FaAd className="text-blue-600 text-2xl" />
   },
   'event': {
-    'Ideazione e organizzazione': <FaCalendarAlt className="text-red-600 text-2xl" />,
-    'Segreteria': <FaClipboardList className="text-red-600 text-2xl" />,
-    'Promozione': <FaBullhorn className="text-red-600 text-2xl" />
+    'Ideazione e organizzazione': <FaCalendarAlt className="text-blue-600 text-2xl" />,
+    'Segreteria': <FaClipboardList className="text-blue-600 text-2xl" />,
+    'Promozione': <FaBullhorn className="text-blue-600 text-2xl" />
   },
   'marketing': {
-    'Social Media': <FaFacebookSquare className="text-red-600 text-2xl" />,
-    'Ufficio Stampa': <FaNewspaper className="text-red-600 text-2xl" />,
-    'Video': <FaVideo className="text-red-600 text-2xl" />,
-    'Foto': <FaCamera className="text-red-600 text-2xl" />
+    'Social Media': <FaFacebookSquare className="text-blue-600 text-2xl" />,
+    'Ufficio Stampa': <FaNewspaper className="text-blue-600 text-2xl" />,
+    'Video': <FaVideo className="text-blue-600 text-2xl" />,
+    'Foto': <FaCamera className="text-blue-600 text-2xl" />
   },
   'web-multimedia': {
-    'Web design': <FaLaptopCode className="text-red-600 text-2xl" />,
-    'Hosting': <FaServer className="text-red-600 text-2xl" />,
-    'Creazione App': <FaMobileAlt className="text-red-600 text-2xl" />,
-    'E-Commerce': <FaShoppingCart className="text-red-600 text-2xl" />
+    'Web design': <FaLaptopCode className="text-blue-600 text-2xl" />,
+    'Hosting': <FaServer className="text-blue-600 text-2xl" />,
+    'Creazione App': <FaMobileAlt className="text-blue-600 text-2xl" />,
+    'E-Commerce': <FaShoppingCart className="text-blue-600 text-2xl" />
   }
 };
 
@@ -168,7 +168,7 @@ export default function ServiceDetail({ params }) {
   return (
     <div className="pt-24 pb-20">
       {/* Header con sfondo gradiente */}
-      <div className="bg-gradient-to-r from-red-900 to-red-600 py-16 mb-12 relative overflow-hidden">
+      <div className="bg-gradient-to-r from-blue-900 to-blue-600 py-16 mb-12 relative overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full opacity-10">
           <div className="absolute right-0 bottom-0 transform translate-x-1/4 translate-y-1/4">
             <svg width="404" height="404" fill="none" viewBox="0 0 404 404">
@@ -208,7 +208,7 @@ export default function ServiceDetail({ params }) {
               <ul className="space-y-2">
                 {serviceData.benefits.map((benefit, index) => (
                   <li key={index} className="flex items-start">
-                    <svg className="w-5 h-5 text-red-600 mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-5 h-5 text-blue-600 mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                     </svg>
                     <span className="text-gray-700">{benefit}</span>
@@ -229,7 +229,7 @@ export default function ServiceDetail({ params }) {
 
         <div className="animate-fade-in-up mb-16">
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8 text-center">
-            I nostri servizi di <span className="text-red-600">{serviceData.title}</span>
+            I nostri servizi di <span className="text-blue-600">{serviceData.title}</span>
           </h2>
           <div className="grid md:grid-cols-2 gap-8">
             {serviceData.subservices.map((subservice, index) => (
@@ -239,7 +239,7 @@ export default function ServiceDetail({ params }) {
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className="flex items-center mb-4">
-                  <div className="mr-4 p-3 bg-red-50 rounded-full group-hover:bg-red-100 transition-colors duration-300">
+                  <div className="mr-4 p-3 bg-blue-50 rounded-full group-hover:bg-blue-100 transition-colors duration-300">
                     {serviceIcons[serviceId] && serviceIcons[serviceId][subservice.name]}
                   </div>
                   <h3 className="text-xl font-bold text-gray-900">{subservice.name}</h3>
@@ -259,7 +259,7 @@ export default function ServiceDetail({ params }) {
             Siamo pronti ad aiutarti a raggiungere i tuoi obiettivi con soluzioni personalizzate.
             Contattaci per una consulenza gratuita.
           </p>
-          <Link href="/contatti" className="bg-red-600 hover:bg-red-700 text-white py-3 px-8 rounded-full transition-all duration-300 hover:scale-105 active:scale-95 font-medium inline-block">
+          <Link href="/contatti" className="bg-blue-600 hover:bg-blue-700 text-white py-3 px-8 rounded-full transition-all duration-300 hover:scale-105 active:scale-95 font-medium inline-block">
             Contattaci
           </Link>
         </div>

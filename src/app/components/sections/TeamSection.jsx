@@ -48,9 +48,9 @@ const TeamSection = () => {
   return (
     <section id="team" className="py-24 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
       {/* Elementi decorativi */}
-      <div className="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-red-50 opacity-30"></div>
-      <div className="absolute -bottom-20 -left-20 w-64 h-64 rounded-full bg-red-50 opacity-40"></div>
-      <div className="absolute top-1/3 right-0 w-20 h-20 rounded-full bg-red-100 opacity-20"></div>
+      <div className="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-blue-50 opacity-30"></div>
+      <div className="absolute -bottom-20 -left-20 w-64 h-64 rounded-full bg-blue-50 opacity-40"></div>
+      <div className="absolute top-1/3 right-0 w-20 h-20 rounded-full bg-blue-100 opacity-20"></div>
       
       <div className="container mx-auto px-4 relative z-10">
         <AnimateOnScroll delay={200}>
@@ -82,13 +82,13 @@ const TeamSection = () => {
                   {/* Info overlay che appare al passaggio del mouse */}
                   <div className="absolute bottom-0 left-0 right-0 p-6 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0">
                     <h3 className="text-white text-xl font-bold mb-1">{member.name}</h3>
-                    <p className="text-red-200 text-sm font-medium">{member.role}</p>
+                    <p className="text-blue-200 text-sm font-medium">{member.role}</p>
                   </div>
                 </div>
                 
                 <div className="p-6 bg-white">
-                  <h3 className="text-lg font-bold text-gray-900 mb-1 group-hover:text-red-600 transition-colors">{member.name}</h3>
-                  <p className="text-red-500 text-sm font-medium">{member.role}</p>
+                  <h3 className="text-lg font-bold text-gray-900 mb-1 group-hover:text-blue-600 transition-colors">{member.name}</h3>
+                  <p className="text-blue-500 text-sm font-medium">{member.role}</p>
                 </div>
               </div>
             </AnimateOnScroll>
@@ -98,7 +98,7 @@ const TeamSection = () => {
         <AnimatedOnScroll animation="fade-in-up" delay={400}>
           <div className="text-center mt-20 relative">
             {/* Elemento decorativo */}
-            <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 w-40 h-1 bg-red-100 rounded-full opacity-50"></div>
+            <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 w-40 h-1 bg-blue-100 rounded-full opacity-50"></div>
             
             <p className="text-gray-600 max-w-2xl mx-auto mb-8 text-lg leading-relaxed">
               Sei interessato a unirti al nostro team di esperti appassionati? 

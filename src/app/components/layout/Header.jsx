@@ -115,7 +115,7 @@ const Header = () => {
             <button
               key={item.name}
               onClick={() => scrollToSection(item.id)}
-              className="text-gray-600 hover:text-red-600 transition-colors duration-300 cursor-pointer text-sm lg:text-base"
+              className="text-gray-600 hover:text-blue-600 transition-colors duration-300 cursor-pointer text-sm lg:text-base"
             >
               {item.name}
             </button>
@@ -124,7 +124,7 @@ const Header = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => scrollToSection('contatti')}
-            className="bg-red-600 text-white py-2 px-4 lg:px-6 rounded-full font-medium hover:bg-red-700 transition-colors duration-300 text-sm lg:text-base"
+            className="bg-blue-600 text-white py-2 px-4 lg:px-6 rounded-full font-medium hover:bg-blue-700 transition-colors duration-300 text-sm lg:text-base"
           >
             Contattaci
           </motion.button>
@@ -169,7 +169,7 @@ const Header = () => {
               <button
                 key={item.name}
                 onClick={() => scrollToSection(item.id)}
-                className="flex items-center text-gray-600 hover:text-red-600 transition-colors duration-300 py-2 text-left text-sm"
+                className="flex items-center text-gray-600 hover:text-blue-600 transition-colors duration-300 py-2 text-left text-sm"
               >
                 {item.icon}
                 {item.name}
@@ -179,7 +179,7 @@ const Header = () => {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               onClick={() => scrollToSection('contatti')}
-              className="bg-red-600 text-white py-2 px-4 rounded-full font-medium hover:bg-red-700 transition-colors duration-300 self-start flex items-center mt-2 text-sm"
+              className="bg-blue-600 text-white py-2 px-4 rounded-full font-medium hover:bg-blue-700 transition-colors duration-300 self-start flex items-center mt-2 text-sm"
             >
               <svg 
                 className="w-4 h-4 mr-2" 

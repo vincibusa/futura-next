@@ -55,14 +55,14 @@ const ComfortZoneSection = () => {
 
   return (
     <section id="comfort-zone" className="py-24 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
-      <div className="absolute -top-40 right-0 w-80 h-80 rounded-full bg-red-50 opacity-30"></div>
-      <div className="absolute top-1/3 -left-20 w-40 h-40 rounded-full bg-red-50 opacity-20"></div>
+      <div className="absolute -top-40 right-0 w-80 h-80 rounded-full bg-blue-50 opacity-30"></div>
+      <div className="absolute top-1/3 -left-20 w-40 h-40 rounded-full bg-blue-50 opacity-20"></div>
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-20">
           <AnimatedOnScroll animation="fade-in" delay={200}>
             <div className="mb-3">
-              <span className="px-4 py-1 bg-red-100 text-red-700 rounded-full font-medium text-sm uppercase tracking-wider">
+              <span className="px-4 py-1 bg-blue-100 text-blue-700 rounded-full font-medium text-sm uppercase tracking-wider">
                 La nostra terra
               </span>
             </div>
@@ -70,12 +70,12 @@ const ComfortZoneSection = () => {
           
           <AnimatedOnScroll animation="fade-in-down" delay={300}>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              La nostra <span className="text-red-600">Comfort Zone</span>
+              La nostra <span className="text-blue-600">Comfort Zone</span>
             </h2>
           </AnimatedOnScroll>
           
           <AnimatedOnScroll animation="fade-in" delay={400}>
-            <div className="w-24 h-1.5 bg-gradient-to-r from-red-500 to-red-700 mx-auto mb-8 rounded-full"></div>
+            <div className="w-24 h-1.5 bg-gradient-to-r from-blue-500 to-blue-700 mx-auto mb-8 rounded-full"></div>
           </AnimatedOnScroll>
           
           <AnimateOnScroll animation="fade-up" delay={500}>
@@ -88,8 +88,8 @@ const ComfortZoneSection = () => {
         {/* Galleria di immagini migliorata */}
         <AnimatedOnScroll animation="fade-in" delay={400} className="mb-24 relative">
           {/* Elementi decorativi */}
-          <div className="absolute -top-10 -left-10 w-20 h-20 border-2 border-red-200 rounded-lg z-0 opacity-50"></div>
-          <div className="absolute -bottom-10 -right-10 w-20 h-20 border-2 border-red-200 rounded-lg z-0 opacity-50"></div>
+          <div className="absolute -top-10 -left-10 w-20 h-20 border-2 border-blue-200 rounded-lg z-0 opacity-50"></div>
+          <div className="absolute -bottom-10 -right-10 w-20 h-20 border-2 border-blue-200 rounded-lg z-0 opacity-50"></div>
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3 relative z-10">
             {galleryImages.map((image, index) => (
@@ -116,7 +116,7 @@ const ComfortZoneSection = () => {
                 {/* Info overlay che appare al passaggio del mouse */}
                 <div className="absolute bottom-0 left-0 right-0 p-3 md:p-4 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0">
                   <h3 className="text-white text-base md:text-lg font-bold drop-shadow-md">{image.title}</h3>
-                  <p className="text-red-200 text-xs md:text-sm font-medium">{image.alt}</p>
+                  <p className="text-blue-200 text-xs md:text-sm font-medium">{image.alt}</p>
                 </div>
               </AnimatedOnScroll>
             ))}
@@ -125,11 +125,11 @@ const ComfortZoneSection = () => {
 
         {/* Food Concept Section migliorata */}
         <div className="grid md:grid-cols-2 gap-16 items-center mb-20 relative">
-          <div className="absolute -z-10 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[120%] h-80 bg-red-50/30 rounded-3xl blur-3xl"></div>
+          <div className="absolute -z-10 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[120%] h-80 bg-blue-50/30 rounded-3xl blur-3xl"></div>
           
           <AnimateOnScroll animation="fade-left" delay={200} className="order-2 md:order-1 relative z-10">
             <div className="mb-4">
-              <span className="px-3 py-1 bg-red-100 text-red-700 text-xs rounded-full uppercase tracking-wider font-semibold">Dal 2013</span>
+              <span className="px-3 py-1 bg-blue-100 text-blue-700 text-xs rounded-full uppercase tracking-wider font-semibold">Dal 2013</span>
             </div>
             <h3 className="text-3xl font-bold text-gray-900 mb-6">Food Concept</h3>
             <p className="text-lg text-gray-600 leading-relaxed mb-8">
@@ -137,7 +137,7 @@ const ComfortZoneSection = () => {
             </p>
             <Link href="/servizi/event">
               <button
-                className="mt-4 bg-gradient-to-r from-red-600 to-red-700 text-white py-3 px-8 rounded-full font-medium shadow-md transition-all duration-300 hover:scale-105 hover:shadow-xl active:scale-95 flex items-center"
+                className="mt-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white py-3 px-8 rounded-full font-medium shadow-md transition-all duration-300 hover:scale-105 hover:shadow-xl active:scale-95 flex items-center"
               >
                 Scopri i nostri eventi
                 <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -161,9 +161,9 @@ const ComfortZoneSection = () => {
                 {/* Overlay gradient */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-60 transition-all duration-300"></div>
               </div>
-              <div className="absolute inset-0 rounded-xl border-2 border-red-100 transform translate-x-4 translate-y-4 -z-10"></div>
-              <div className="absolute -bottom-8 -left-8 w-16 h-16 bg-red-50 rounded-full"></div>
-              <div className="absolute -top-6 -right-6 w-24 h-24 bg-red-50 rounded-full hidden md:block"></div>
+              <div className="absolute inset-0 rounded-xl border-2 border-blue-100 transform translate-x-4 translate-y-4 -z-10"></div>
+              <div className="absolute -bottom-8 -left-8 w-16 h-16 bg-blue-50 rounded-full"></div>
+              <div className="absolute -top-6 -right-6 w-24 h-24 bg-blue-50 rounded-full hidden md:block"></div>
             </div>
           </AnimateOnScroll>
         </div>

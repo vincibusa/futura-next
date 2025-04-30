@@ -31,7 +31,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-red-950 text-white pt-12 pb-8">
+    <footer className="bg-blue-950 text-white pt-12 pb-8">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Colonna 1 - Informazioni sull'agenzia */}
@@ -55,7 +55,7 @@ const Footer = () => {
           {/* Colonna 2 - Link Utili */}
           <div>
             <h3 className="text-xl font-bold mb-4">Link Utili</h3>
-            <div className="w-12 h-1 bg-red-500 mb-4"></div>
+            <div className="w-12 h-1 bg-blue-500 mb-4"></div>
             <ul className="space-y-2">
               {[
                 { name: 'Home', id: 'hero' },
@@ -69,7 +69,7 @@ const Footer = () => {
                 <li key={item.name}>
                   <button
                     onClick={() => scrollToSection(item.id)}
-                    className="text-gray-300 hover:text-red-400 transition-colors duration-300"
+                    className="text-gray-300 hover:text-blue-400 transition-colors duration-300"
                   >
                     {item.name}
                   </button>
@@ -81,7 +81,7 @@ const Footer = () => {
           {/* Colonna 3 - Servizi */}
           <div>
             <h3 className="text-xl font-bold mb-4">I Nostri Servizi</h3>
-            <div className="w-12 h-1 bg-red-500 mb-4"></div>
+            <div className="w-12 h-1 bg-blue-500 mb-4"></div>
             <ul className="space-y-2">
               {[
                 { name: 'Branding', path: '/servizi/branding' },
@@ -95,14 +95,14 @@ const Footer = () => {
                   {service.path ? (
                     <Link
                       href={service.path}
-                      className="text-gray-300 hover:text-red-400 transition-colors duration-300"
+                      className="text-gray-300 hover:text-blue-400 transition-colors duration-300"
                     >
                       {service.name}
                     </Link>
                   ) : (
                     <button
                       onClick={() => scrollToSection(service.id)}
-                      className="text-gray-300 hover:text-red-400 transition-colors duration-300"
+                      className="text-gray-300 hover:text-blue-400 transition-colors duration-300"
                     >
                       {service.name}
                     </button>
@@ -115,11 +115,11 @@ const Footer = () => {
           {/* Colonna 4 - Contatti */}
           <div>
             <h3 className="text-xl font-bold mb-4">Contattaci</h3>
-            <div className="w-12 h-1 bg-red-500 mb-4"></div>
+            <div className="w-12 h-1 bg-blue-500 mb-4"></div>
             <ul className="space-y-2">
               <li className="flex items-start">
                 <svg
-                  className="h-6 w-6 text-red-500 mr-2 mt-1"
+                  className="h-6 w-6 text-blue-500 mr-2 mt-1"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -143,7 +143,7 @@ const Footer = () => {
               </li>
               <li className="flex items-start">
                 <svg
-                  className="h-6 w-6 text-red-500 mr-2 mt-1"
+                  className="h-6 w-6 text-blue-500 mr-2 mt-1"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -159,7 +159,7 @@ const Footer = () => {
               </li>
               <li className="flex items-start">
                 <svg
-                  className="h-6 w-6 text-red-500 mr-2 mt-1"
+                  className="h-6 w-6 text-blue-500 mr-2 mt-1"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -177,7 +177,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-red-900 mt-10 pt-6">
+        <div className="border-t border-blue-900 mt-10 pt-6">
           <div className="flex flex-col md:flex-row justify-center items-center">
             <p className="text-gray-300 text-sm">
               © {currentYear} Catanzaro & Partners. Tutti i diritti riservati.

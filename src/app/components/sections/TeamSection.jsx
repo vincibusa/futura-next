@@ -15,7 +15,7 @@ const TeamSection = () => {
     },
     {
       id: 2,
-      name: 'Jessica Ricci',
+      name: 'Jessica Fici',
       role: 'Senior Partner e Lawyer',
       image: 'https://firebasestorage.googleapis.com/v0/b/catanzaroepartners-13968.firebasestorage.app/o/jessica.jpeg?alt=media&token=ef45d3bf-dc90-4330-8df3-cb985380d91b'
     },

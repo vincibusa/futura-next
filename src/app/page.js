@@ -1,12 +1,12 @@
-
 import HeroSection from './components/sections/HeroSection';
 import AboutSection from './components/sections/EditoriaSection';
-import ServicesSection from './components/sections/ServicesSection';
+
 import ComfortZoneSection from './components/sections/ComfortZoneSection';
-import PortfolioSection from './components/sections/PortfolioSection';
+
 import TeamSection from './components/sections/TeamSection';
 import ContactSection from './components/sections/ContactSection';
 import TestimonialsSection from './components/sections/TestimonialsSection';
+import AdvSection from './components/sections/AdvSection';
 
 const HomePage = () => {
   return (
@@ -15,9 +15,9 @@ const HomePage = () => {
       <HeroSection />
       <AboutSection />
       <ComfortZoneSection />
-      <ServicesSection />
- 
-      <PortfolioSection />
+
+      <AdvSection />
+
       <TeamSection />
       <TestimonialsSection />
       <ContactSection />

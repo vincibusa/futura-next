@@ -1,11 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
   images: {
     unoptimized: true,
-    domains: ['images.unsplash.com', 'plus.unsplash.com'],
+    domains: ['images.unsplash.com', 'plus.unsplash.com', 'firebasestorage.googleapis.com'],
   },
   reactStrictMode: true,
+  experimental: {
+    appDir: true,
+  },
 };
 
 module.exports = nextConfig; 

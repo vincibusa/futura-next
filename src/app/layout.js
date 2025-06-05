@@ -14,6 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
+  metadataBase: new URL('https://futuracompany.it'),
   title: "Futura Company | Gruppo Editoriale Siciliano - 5 Testate Giornalistiche Online",
   description: "Futura Company è il principale gruppo editoriale siciliano con 5 testate specializzate: All Food Sicily, Sicilia Mag, Fermento Pizza, Travel Notizie e Vinup. Editoria digitale, eventi gastronomici e turismo in Sicilia dal 2020.",
   keywords: [
@@ -45,9 +46,6 @@ export const metadata = {
   classification: "Editorial Group",
   generator: "Next.js",
   referrer: "origin-when-cross-origin",
-  colorScheme: "light",
-  themeColor: "#2563eb",
-  viewport: "width=device-width, initial-scale=1",
   manifest: "/manifest.json",
   alternates: {
     canonical: "https://futuracompany.it",
@@ -117,6 +115,14 @@ export const metadata = {
   },
 };
 
+// Export separato per viewport (Next.js 15+)
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  colorScheme: 'light',
+  themeColor: '#2563eb',
+};
+
 export default function RootLayout({ children }) {
   return (
     <html lang="it">
@@ -125,7 +131,6 @@ export default function RootLayout({ children }) {
         <link rel="icon" href="/favicon.ico" />
         <link rel="canonical" href="https://futuracompany.it" />
         <meta name="format-detection" content="telephone=no" />
-        <meta name="theme-color" content="#2563eb" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta name="apple-mobile-web-app-title" content="Futura Company" />

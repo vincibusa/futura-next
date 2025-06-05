@@ -3,7 +3,7 @@ import TeamContactButton from '../buttons/TeamContactButton';
 import AnimatedOnScroll from '../animation/AnimatedOnScroll';
 import AnimateOnScroll from '../animation/AnimateOnScroll';
 
-
+import micheleImg from '../../assets/images/michele.jpg';
 
 const TeamSection = () => {
   const teamMembers = [
@@ -41,7 +41,7 @@ const TeamSection = () => {
       id: 6,
       name: 'Michele Currado',
       role: 'Collaboratore di Redazione',
-      image: 'https://firebasestorage.googleapis.com/v0/b/catanzaroepartners-13968.firebasestorage.app/o/desire.jpeg?alt=media&token=6b7fb601-f91a-4856-af4f-fb6760d138bd'
+      image: micheleImg,
     }
   ];
 

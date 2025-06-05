@@ -101,9 +101,9 @@ const Header = () => {
             <Image 
               src={logo} 
               alt="Catanzaro & Partners" 
-              className="h-10 w-auto" 
-              width={120} 
-              height={40}
+              className="h-14 w-full" 
+              width={200} 
+              height={86}
               priority // Logo è un elemento importante, carichiamo subito
             />
           </motion.div>

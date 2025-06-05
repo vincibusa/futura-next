@@ -1,0 +1,30 @@
+User-agent: *
+Allow: /
+
+# Disallow admin and internal pages
+Disallow: /admin/
+Disallow: /api/
+Disallow: /_next/
+Disallow: /private/
+
+# Allow search engines to crawl images
+Allow: /images/
+Allow: /assets/
+
+# Sitemap location
+Sitemap: https://futuracompany.it/sitemap.xml
+
+# Crawl delay to be respectful
+Crawl-delay: 1
+
+# Specific rules for major search engines
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: facebookexternalhit
+Allow: / 

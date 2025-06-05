@@ -10,37 +10,37 @@ const TeamSection = () => {
     {
       id: 1,
       name: 'Adalberto Catanzaro',
-      role: 'CEO e Direttore Creativo',
+      role: 'Presidente e Direttore Marketing',
       image: 'https://firebasestorage.googleapis.com/v0/b/catanzaroepartners-13968.firebasestorage.app/o/adalberto.jpeg?alt=media&token=d5ba9097-4070-40d6-b10a-9c8e5df4f60e'
     },
     {
       id: 2,
-      name: 'Jessica Fici',
-      role: 'Senior Partner e Lawyer',
+      name: 'Gianni Paternò',
+      role: 'Vice Presidente e Direttore Operativo',
       image: 'https://firebasestorage.googleapis.com/v0/b/catanzaroepartners-13968.firebasestorage.app/o/jessica.jpeg?alt=media&token=ef45d3bf-dc90-4330-8df3-cb985380d91b'
     },
     {
       id: 3,
       name: 'Salvo Scaduto',
-      role: 'Partnering Relationship e Ufficio Stampa',
+      role: 'Consiglio CDA e Direttore Responsabile',
       image: 'https://firebasestorage.googleapis.com/v0/b/catanzaroepartners-13968.firebasestorage.app/o/Salvo.jpeg?alt=media&token=103aae00-0217-4edc-85b9-d8b480b81a3f'
     },
     {
       id: 4,
-      name: 'Vincenzo Busalacchi',
-      role: 'Full Stack Developer',
+      name: 'Emma Governali',
+      role: 'Coordinatrice di Relazione',
       image: 'https://firebasestorage.googleapis.com/v0/b/catanzaroepartners-13968.firebasestorage.app/o/vincenzo.jpeg?alt=media&token=dba12809-b5cb-4197-acb8-e4a1b581d0ae'
     },
     {
       id: 5,
-      name: 'Aurora Corso',
-      role: 'Account senior e Social Media manager',
+      name: 'Serena Pantaleo',
+      role: 'Social Media Manager',
       image: 'https://firebasestorage.googleapis.com/v0/b/catanzaroepartners-13968.firebasestorage.app/o/aurora.jpg?alt=media&token=a77f8a1e-7619-4a58-8240-67eb5fe2eff3'
     },
     {
       id: 6,
-      name: 'Desiree Chiarenza',
-      role: 'Executive Assistant',
+      name: 'Michele Currado',
+      role: 'Collaboratore di Redazione',
       image: 'https://firebasestorage.googleapis.com/v0/b/catanzaroepartners-13968.firebasestorage.app/o/desire.jpeg?alt=media&token=6b7fb601-f91a-4856-af4f-fb6760d138bd'
     }
   ];

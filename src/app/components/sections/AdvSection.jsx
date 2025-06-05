@@ -3,6 +3,9 @@ import Image from 'next/image';
 import AnimatedOnScroll from '../animation/AnimatedOnScroll';
 import AnimateOnScroll from '../animation/AnimateOnScroll';
 
+// Import dell'immagine Hero2
+import Hero2 from '../../assets/images/Hero2.jpeg';
+
 const AdvSection = () => {
   const events = [
     {
@@ -115,7 +118,7 @@ const AdvSection = () => {
           <AnimateOnScroll animation="fade-right" delay={400} className="relative h-[450px] shadow-2xl rounded-xl overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/20 to-transparent z-10"></div>
             <Image
-              src="https://images.unsplash.com/photo-1531058020387-3be344556be6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80"
+              src={Hero2}
               alt="Futura Company Eventi"
               fill
               className="object-cover"

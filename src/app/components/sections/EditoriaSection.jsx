@@ -3,6 +3,13 @@ import Image from 'next/image';
 import AnimatedOnScroll from '../animation/AnimatedOnScroll';
 import AnimateOnScroll from '../animation/AnimateOnScroll';
 
+// Import delle immagini locali
+import AllFoodSicilyLogo from '../../assets/images/AllFoodSicily.png';
+import SiciliaMagLogo from '../../assets/images/SiciliaMag.png';
+import FermentoPizzaLogo from '../../assets/images/FermentoPizza.png';
+import VinUpLogo from '../../assets/images/VinUp.png';
+import TravelNotizieLogo from '../../assets/images/TravelNotizie.png';
+
 const AboutSection = () => {
   const newspapers = [
     {
@@ -10,70 +17,65 @@ const AboutSection = () => {
       description: 'Primo giornale siciliano online ad avere una diffusione capillare, nato nel 2020 sotto la direzione di Salvo Scaduto.',
       icon: (
         <Image
-          src="/images/logos/all-food-sicily-logo.png"
+          src={AllFoodSicilyLogo}
           alt="All Food Sicily Logo"
-          width={64}
-          height={64}
-          className="w-16 h-16 object-contain"
+          width={96}
+          height={96}
+          className="w-24 h-24 object-contain"
         />
       ),
-      bgColor: 'from-blue-600 to-blue-800',
     },
     {
       title: 'Sicilia Mag',
       description: 'Testata giornalistica dedicata al territorio siciliano, alla sua cultura e alle sue eccellenze.',
       icon: (
         <Image
-          src="/images/logos/sicilia-mag-logo.png"
+          src={SiciliaMagLogo}
           alt="Sicilia Mag Logo"
-          width={64}
-          height={64}
-          className="w-16 h-16 object-contain"
+          width={96}
+          height={96}
+          className="w-24 h-24 object-contain"
         />
       ),
-      bgColor: 'from-blue-500 to-blue-700',
     },
     {
       title: 'Fermento Pizza',
       description: 'Pubblicazione dedicata al mondo della pizza, alle sue innovazioni e ai suoi protagonisti.',
       icon: (
         <Image
-          src="/images/logos/fermento-pizza-logo.png"
+          src={FermentoPizzaLogo}
           alt="Fermento Pizza Logo"
-          width={64}
-          height={64}
-          className="w-16 h-16 object-contain"
+          width={96}
+          height={96}
+          className="w-24 h-24 object-contain"
         />
       ),
-      bgColor: 'from-blue-600 to-blue-800',
     },
     {
       title: 'Travel Notizie',
       description: 'Giornale online che racconta le tendenze del turismo, i luoghi da scoprire e le esperienze di viaggio.',
       icon: (
         <Image
-          src="/images/logos/travel-notizie-logo.png"
+          src={TravelNotizieLogo}
           alt="Travel Notizie Logo"
-          width={64}
-          height={64}
-          className="w-16 h-16 object-contain"
+          width={96}
+          height={96}
+          className="w-24 h-24 object-contain"
         />
       ),
-      bgColor: 'from-blue-500 to-blue-700',
     },
     {
       title: 'Vinup',
       description: 'Testata specializzata nel mondo del vino, con focus sulle eccellenze enologiche siciliane e italiane.',
       icon: (
         <Image
-          src="/images/logos/vinup-logo.png"
+          src={VinUpLogo}
           alt="Vinup Logo"
-          width={64}
-          height={64}
-          className="w-16 h-16 object-contain"
+          width={96}
+          height={96}
+          className="w-24 h-24 object-contain"
         />
       ),
-      bgColor: 'from-blue-600 to-blue-800',
     },
   ];
 
@@ -155,46 +157,21 @@ const AboutSection = () => {
           </h3>
         </AnimatedOnScroll>
 
-        <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
-          {newspapers.slice(0, 3).map((newspaper, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8 lg:gap-12">
+          {newspapers.map((newspaper, index) => (
             <AnimatedOnScroll
               key={newspaper.title}
               animation="fade-in-up"
               delay={index * 150 + 400}
               className="group"
             >
-              <div className="bg-white rounded-2xl shadow-xl overflow-hidden transform transition-all duration-300 hover:-translate-y-2 h-full flex flex-col">
-                <div className={`bg-gradient-to-r ${newspaper.bgColor} p-8 flex items-center justify-center`}>
-                  <div className="bg-white p-4 rounded-full backdrop-blur-sm">
-                    {newspaper.icon}
-                  </div>
+              <div className=" transform transition-all duration-300  h-full flex flex-col">
+                <div className="p-8 flex items-center justify-center border-b border-gray-100 min-h-[120px]">
+                  {newspaper.icon}
                 </div>
-                <div className="p-8">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors">{newspaper.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{newspaper.description}</p>
-                </div>
-              </div>
-            </AnimatedOnScroll>
-          ))}
-        </div>
-        
-        <div className="grid md:grid-cols-2 gap-8 lg:gap-12 mt-8">
-          {newspapers.slice(3, 5).map((newspaper, index) => (
-            <AnimatedOnScroll
-              key={newspaper.title}
-              animation="fade-in-up"
-              delay={(index + 3) * 150 + 400}
-              className="group"
-            >
-              <div className="bg-white rounded-2xl shadow-xl overflow-hidden transform transition-all duration-300 hover:-translate-y-2 h-full flex flex-col">
-                <div className={`bg-gradient-to-r ${newspaper.bgColor} p-8 flex items-center justify-center`}>
-                  <div className="bg-white p-4 rounded-full backdrop-blur-sm">
-                    {newspaper.icon}
-                  </div>
-                </div>
-                <div className="p-8">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors">{newspaper.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{newspaper.description}</p>
+                <div className="p-8 flex-1">
+                  <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors">{newspaper.title}</h3>
+                  <p className="text-gray-600 leading-relaxed text-sm">{newspaper.description}</p>
                 </div>
               </div>
             </AnimatedOnScroll>

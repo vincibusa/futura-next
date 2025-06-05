@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import AnimateOnScroll from '../animation/AnimateOnScroll';
 import AnimatedOnScroll from '../animation/AnimatedOnScroll';
+import premio from '../../assets/images/premioAllFood.jpeg'
 
 const ComfortZoneSection = () => {
   // Immagini per la galleria - mantenuta la stessa struttura
@@ -231,7 +232,7 @@ const ComfortZoneSection = () => {
             <div className="relative">
               <div className="w-full h-64 md:h-96 hover:scale-[1.03] transition-transform duration-300 relative overflow-hidden rounded-xl shadow-2xl">
                 <Image
-                  src='https://firebasestorage.googleapis.com/v0/b/catanzaroepartners-13968.firebasestorage.app/o/food.png?alt=media&token=0221877e-b771-4b65-84e8-ec39fa42af9b'
+                  src={premio}
                   alt="Mappa delle eccellenze siciliane"
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                   fill
@@ -242,8 +243,8 @@ const ComfortZoneSection = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-60 transition-all duration-300"></div>
               </div>
               <div className="absolute inset-0 rounded-xl border-2 border-blue-100 transform translate-x-4 translate-y-4 -z-10"></div>
-              <div className="absolute -bottom-8 -left-8 w-16 h-16 bg-blue-50 rounded-full"></div>
-              <div className="absolute -top-6 -right-6 w-24 h-24 bg-blue-50 rounded-full hidden md:block"></div>
+
+
             </div>
           </AnimateOnScroll>
         </div>

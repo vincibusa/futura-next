@@ -1,28 +1,57 @@
+'use client'
 import Link from 'next/link';
+import Image from 'next/image';
+import { useState, useEffect } from 'react';
 import AnimateOnScroll from '../animation/AnimateOnScroll';
 import AnimatedOnScroll from '../animation/AnimatedOnScroll';
 
+// Import delle immagini hero
+import Hero1 from '../../assets/images/Hero1.jpeg';
+import Hero2 from '../../assets/images/Hero2.jpeg';
+import Hero3 from '../../assets/images/Hero3.jpeg';
+
 const HeroSection = () => {
-  const videoUrl="https://firebasestorage.googleapis.com/v0/b/catanzaroepartners-13968.firebasestorage.app/o/videoBackopt.mp4?alt=media&token=99c1193d-ea1b-4974-85ce-fbdcc76ffaa3"
+  const [currentSlide, setCurrentSlide] = useState(0);
+  
+  const heroImages = [
+    { src: Hero1, alt: "Hero Image 1" },
+    { src: Hero2, alt: "Hero Image 2" },
+    { src: Hero3, alt: "Hero Image 3" }
+  ];
+
+  // Auto-scroll del carosello ogni 5 secondi
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % heroImages.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [heroImages.length]);
 
   return (
-    <section id="hero" className="relative bg-gray-900 text-white h-screen flex items-center">
+    <section id="hero" className="relative bg-gray-900 text-white h-screen flex items-center overflow-hidden">
       {/* Overlay con gradiente */}
-      <div className="absolute inset-0 z-10"></div>
+      <div className="absolute inset-0 z-10 bg-black/40"></div>
       
-      {/* Background Video */}
-      <div className="absolute inset-0 z-0 overflow-hidden">
-        <video
-          className="w-full h-full object-cover"
-          autoPlay
-          loop
-          muted
-          playsInline
-          style={{ filter: 'brightness(0.6)' }}
-        >
-          <source src={videoUrl} type="video/mp4" />
-          Il tuo browser non supporta il tag video.
-        </video>
+      {/* Background Carousel */}
+      <div className="absolute inset-0 z-0">
+        {heroImages.map((image, index) => (
+          <div
+            key={index}
+            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+              index === currentSlide ? 'opacity-100' : 'opacity-0'
+            }`}
+          >
+            <Image
+              src={image.src}
+              alt={image.alt}
+              fill
+              className="object-cover"
+              priority={index === 0}
+              quality={90}
+            />
+          </div>
+        ))}
       </div>
       
       {/* Content */}
@@ -57,8 +86,6 @@ const HeroSection = () => {
           </AnimatedOnScroll>
         </div>
       </div>
-      
-
     </section>
   );
 };

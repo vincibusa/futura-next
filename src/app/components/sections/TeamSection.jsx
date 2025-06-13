@@ -5,6 +5,7 @@ import AnimateOnScroll from '../animation/AnimateOnScroll';
 
 import micheleImg from '../../assets/images/michele.jpg';
 import serenaImg from '../../assets/images/serena.jpg';
+import emmaImg from '../../assets/images/emma.jpeg';
 
 const TeamSection = () => {
   const teamMembers = [
@@ -30,7 +31,7 @@ const TeamSection = () => {
       id: 4,
       name: 'Emma Governali',
       role: 'Coordinatrice di Relazione',
-      image: 'https://firebasestorage.googleapis.com/v0/b/catanzaroepartners-13968.firebasestorage.app/o/vincenzo.jpeg?alt=media&token=dba12809-b5cb-4197-acb8-e4a1b581d0ae'
+      image: emmaImg
     },
     {
       id: 5,

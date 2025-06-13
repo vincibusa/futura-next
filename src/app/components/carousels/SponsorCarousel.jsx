@@ -72,7 +72,7 @@ const SponsorCarousel = ({ sponsorGroups }) => {
                 >
                   <Image
                     src={sponsor.image}
-                    alt={`Sponsor ${sponsor.id}`}
+                    alt={`Logo ${sponsor.name}`}
                     className="object-contain"
                     fill
                     sizes="(max-width: 768px) 50vw, (max-width: 1200px) 30vw, 20vw"

@@ -51,8 +51,8 @@ const Header = () => {
       )
     },
     { 
-      name: 'Servizi', 
-      id: 'servizi',
+      name: 'Progetti', 
+      id: 'progetti',
       icon: (
         <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -60,23 +60,15 @@ const Header = () => {
       )
     },
     { 
-      name: 'Comfort Zone', 
-      id: 'comfort-zone',
+      name: 'Eventi', 
+      id: 'adv',
       icon: (
         <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
         </svg>
       )
     },
-    { 
-      name: 'Portfolio', 
-      id: 'portfolio',
-      icon: (
-        <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-        </svg>
-      )
-    },
+
     { 
       name: 'Team', 
       id: 'team',
@@ -100,8 +92,8 @@ const Header = () => {
           >
             <Image 
               src={logo} 
-              alt="Catanzaro & Partners" 
-              className="h-14 w-full" 
+              alt="Futura Company Logo" 
+              className="h-14 w-auto" 
               width={200} 
               height={86}
               priority // Logo è un elemento importante, carichiamo subito

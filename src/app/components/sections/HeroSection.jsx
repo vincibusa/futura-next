@@ -14,9 +14,9 @@ const HeroSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   
   const heroImages = [
-    { src: Hero1, alt: "Hero Image 1" },
-    { src: Hero2, alt: "Hero Image 2" },
-    { src: Hero3, alt: "Hero Image 3" }
+    { src: Hero1, alt: "Futura Company - Editoria digitale in Sicilia" },
+    { src: Hero2, alt: "Eventi enogastronomici in Sicilia - Futura Company" },
+    { src: Hero3, alt: "Promozione del turismo siciliano - Futura Company" }
   ];
 
   // Auto-scroll del carosello ogni 5 secondi
@@ -59,22 +59,22 @@ const HeroSection = () => {
         <div className="max-w-3xl">
           <AnimatedOnScroll animation="fade-in-up" delay={200}>
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Trasformiamo le idee in risultati tangibili
+              Futura Company: L'Evoluzione dell'Editoria Siciliana
             </h1>
           </AnimatedOnScroll>
           
           <AnimatedOnScroll animation="fade-in-up" delay={400}>
             <p className="text-xl md:text-2xl mb-10 text-gray-200">
-              Sviluppiamo i tuoi progetti con creatività e innovazione per far crescere il tuo business.
+              Siamo un gruppo editoriale innovativo con 5 testate online. Raccontiamo la Sicilia attraverso l'enogastronomia, il turismo e la cultura.
             </p>
           </AnimatedOnScroll>
           
           <AnimatedOnScroll animation="fade-in-up" delay={600} className="flex flex-col sm:flex-row gap-4">
             <Link 
-              href="#servizi" 
+              href="#chi-siamo" 
               className="bg-blue-600 hover:bg-blue-700 text-white py-3 px-8 rounded-full font-medium text-lg transition-all duration-300 hover:scale-105 active:scale-95 text-center"
             >
-              Scopri i nostri servizi
+              Scopri chi siamo
             </Link>
             
             <Link 

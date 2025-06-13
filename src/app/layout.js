@@ -103,9 +103,9 @@ export const metadata = {
     },
   },
   verification: {
-    google: "your-google-verification-code",
-    yandex: "your-yandex-verification-code",
-    yahoo: "your-yahoo-verification-code",
+    // Incolla qui il tuo codice di verifica di Google Search Console
+    // Esempio: google: 'AbCdEfGhIjKlMnOpQrStUvWxYz1234567890',
+    google: "DA_INSERIRE_CODICE_GOOGLE", 
   },
   other: {
     'geo.region': 'IT-82',

@@ -39,7 +39,7 @@ const Footer = () => {
             <div className="mb-4 flex items-center justify-center"> 
               <Image 
                 src={logo} 
-                alt="Catanzaro & Partners" 
+                alt="Futura Company Logo" 
                 className="h-24 mb-4 w-auto"
                 width={240}
                 height={96}
@@ -47,8 +47,7 @@ const Footer = () => {
               />
             </div>
             <p className="text-gray-300 mb-4 text-center">
-              Agenzia di marketing innovativa specializzata in strategie digitali 
-              per aiutare le aziende a crescere nel mercato competitivo di oggi.
+              Gruppo editoriale siciliano con 5 testate online specializzate in enogastronomia, turismo e cultura.
             </p>
           </div>
 
@@ -60,9 +59,8 @@ const Footer = () => {
               {[
                 { name: 'Home', id: 'hero' },
                 { name: 'Chi Siamo', id: 'chi-siamo' },
-                { name: 'Servizi', id: 'servizi' },
-                { name: 'Comfort Zone', id: 'comfort-zone' },
-                { name: 'Portfolio', id: 'portfolio' },
+                { name: 'Progetti', id: 'progetti' },
+                { name: 'Eventi', id: 'adv' },
                 { name: 'Team', id: 'team' },
                 { name: 'Contatti', id: 'contatti' }
               ].map((item) => (
@@ -78,35 +76,22 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Colonna 3 - Servizi */}
+          {/* Colonna 3 - Le nostre testate */}
           <div>
-            <h3 className="text-xl font-bold mb-4">I Nostri Servizi</h3>
+            <h3 className="text-xl font-bold mb-4">Le Nostre Testate</h3>
             <div className="w-12 h-1 bg-blue-500 mb-4"></div>
             <ul className="space-y-2">
               {[
-                { name: 'Branding', path: '/servizi/branding' },
-                { name: 'Event', path: '/servizi/event' },
-                { name: 'Marketing', path: '/servizi/marketing' },
-                { name: 'Web e Multimedia', path: '/servizi/web-multimedia' },
-                { name: 'Food Concept', id: 'comfort-zone' },
-                { name: 'Talent Partner', id: 'comfort-zone' }
+                { name: 'All Food Sicily' },
+                { name: 'Sicilia Mag' },
+                { name: 'Fermento Pizza' },
+                { name: 'Travel Notizie' },
+                { name: 'Vinup' },
               ].map((service) => (
                 <li key={service.name}>
-                  {service.path ? (
-                    <Link
-                      href={service.path}
-                      className="text-gray-300 hover:text-blue-400 transition-colors duration-300"
-                    >
-                      {service.name}
-                    </Link>
-                  ) : (
-                    <button
-                      onClick={() => scrollToSection(service.id)}
-                      className="text-gray-300 hover:text-blue-400 transition-colors duration-300"
-                    >
-                      {service.name}
-                    </button>
-                  )}
+                  <span className="text-gray-300">
+                    {service.name}
+                  </span>
                 </li>
               ))}
             </ul>
@@ -180,7 +165,7 @@ const Footer = () => {
         <div className="border-t border-blue-900 mt-10 pt-6">
           <div className="flex flex-col md:flex-row justify-center items-center">
             <p className="text-gray-300 text-sm">
-              © {currentYear} Catanzaro & Partners. Tutti i diritti riservati.
+              © {currentYear} Futura Company. Tutti i diritti riservati.
             </p>
 
           </div>

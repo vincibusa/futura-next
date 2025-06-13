@@ -1,3 +1,4 @@
+'use client'
 import Link from 'next/link';
 import Image from 'next/image';
 import AnimateOnScroll from '../animation/AnimateOnScroll';
@@ -216,16 +217,23 @@ const ComfortZoneSection = () => {
               quattro categorie e consente di mappare i luoghi e le persone che fanno interesse nei settori del
               turismo, food e imprenditoria.
             </p>
-            <Link href="/progetti">
-              <button
-                className="mt-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white py-3 px-8 rounded-full font-medium shadow-md transition-all duration-300 hover:scale-105 hover:shadow-xl active:scale-95 flex items-center"
-              >
-                Scopri tutti i progetti
-                <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                </svg>
-              </button>
-            </Link>
+            <button
+              onClick={() => {
+                const section = document.getElementById('contatti');
+                if (section) {
+                  window.scrollTo({
+                    top: section.offsetTop - 80,
+                    behavior: 'smooth'
+                  });
+                }
+              }}
+              className="mt-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white py-3 px-8 rounded-full font-medium shadow-md transition-all duration-300 hover:scale-105 hover:shadow-xl active:scale-95 flex items-center"
+            >
+              Contattaci per saperne di più
+              <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+              </svg>
+            </button>
           </AnimateOnScroll>
           
           <AnimateOnScroll animation="fade-right" delay={400} className="order-1 md:order-2 relative group">

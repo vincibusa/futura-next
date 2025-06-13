@@ -2,6 +2,16 @@
 import Image from 'next/image';
 import AnimatedOnScroll from '../animation/AnimatedOnScroll';
 import AnimateOnScroll from '../animation/AnimateOnScroll';
+import diospyros from '../../assets/images/diospyros.jpg';
+import sanPellegrino from '../../assets/images/sanPellegrino.jpg';
+import sagraCannolo from '../../assets/images/sagraCannolo.jpg';
+import sfincione from '../../assets/images/sfincione.jpg';
+import cynara from '../../assets/images/cynara.jpg';
+import cannolofest from '../../assets/images/cannolofest.jpg';
+import beerCatania from '../../assets/images/BeerCatania.jpeg';
+import spumantiEtna from '../../assets/images/spumantiEtna.jpeg';
+import festivalCinema from '../../assets/images/festivalcinema.jpeg';
+import taobuk from '../../assets/images/taobuk.jpeg';
 
 // Import dell'immagine Hero2
 import Hero2 from '../../assets/images/Hero2.jpeg';
@@ -11,74 +21,52 @@ const AdvSection = () => {
     {
       title: 'Diospyros Festival',
       description: 'La celebrazione del frutto del kaki, con eventi gastronomici e culturali dedicati.',
-      icon: '/images/icons/event-icon.svg',
-      bgColor: 'from-orange-500 to-orange-700',
+      image: diospyros,
     },
     {
       title: 'San Pellegrino Chef Table',
       description: 'Un esclusivo evento gastronomico con i migliori chef del panorama siciliano e nazionale.',
-      icon: '/images/icons/chef-icon.svg',
-      bgColor: 'from-blue-500 to-blue-700',
+      image: sanPellegrino,
     },
     {
       title: 'Sagra del Cannolo',
       description: 'La manifestazione dedicata al dolce simbolo della Sicilia, con degustazioni e concorsi.',
-      icon: '/images/icons/cannolo-icon.svg',
-      bgColor: 'from-green-500 to-green-700',
+      image: sagraCannolo,
     },
     {
       title: 'Sfincione Fest',
       description: 'Festival dedicato allo sfincione, tipica specialità palermitana, con stand e workshop.',
-      icon: '/images/icons/food-icon.svg',
-      bgColor: 'from-red-500 to-red-700',
+      image: sfincione,
     },
     {
       title: 'Cynara Festival',
       description: 'Evento dedicato al carciofo e alle eccellenze agricole siciliane.',
-      icon: '/images/icons/vegetable-icon.svg',
-      bgColor: 'from-purple-500 to-purple-700',
+      image: cynara,
     },
     {
       title: 'Cous Cous Fest',
       description: 'La celebrazione internazionale del cous cous, con chef da tutto il Mediterraneo.',
-      icon: '/images/icons/international-icon.svg',
-      bgColor: 'from-yellow-500 to-yellow-700',
+      image: cannolofest,
     },
     {
       title: 'Beer Catania',
       description: 'Festival delle birre artigianali etnee e siciliane, con degustazioni e incontri.',
-      icon: '/images/icons/beer-icon.svg',
-      bgColor: 'from-amber-500 to-amber-700',
+      image: beerCatania,
     },
     {
       title: 'Spumanti dell\'Etna',
       description: 'Evento dedicato alle bollicine prodotte sul vulcano attivo più alto d\'Europa.',
-      icon: '/images/icons/wine-icon.svg',
-      bgColor: 'from-blue-600 to-blue-800',
+      image: spumantiEtna,
     },
     {
       title: 'Festival del Cinema 2023',
       description: 'Rassegna cinematografica con proiezioni, incontri e ospiti internazionali.',
-      icon: '/images/icons/cinema-icon.svg',
-      bgColor: 'from-indigo-500 to-indigo-700',
+      image: festivalCinema,
     },
     {
       title: 'Taobuk',
       description: 'Festival letterario internazionale che unisce letteratura, arte e cultura.',
-      icon: '/images/icons/book-icon.svg',
-      bgColor: 'from-teal-500 to-teal-700',
-    },
-    {
-      title: 'Sfincione Festival',
-      description: 'La celebrazione della specialità palermitana, con concorsi tra i migliori panificatori.',
-      icon: '/images/icons/food-icon.svg',
-      bgColor: 'from-red-500 to-red-700',
-    },
-    {
-      title: 'Cannolo Festival',
-      description: 'Manifestazione dedicata al cannolo siciliano, con pasticceri da tutta l\'isola.',
-      icon: '/images/icons/cannolo-icon.svg',
-      bgColor: 'from-green-500 to-green-700',
+      image: taobuk,
     },
   ];
 
@@ -169,17 +157,18 @@ const AdvSection = () => {
               delay={index * 100 + 400}
               className="group"
             >
-              <div className="bg-white rounded-2xl shadow-md overflow-hidden transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl h-full flex flex-col">
-                <div className={`bg-gradient-to-r ${event.bgColor} p-6 flex items-center justify-center h-24`}>
-                  <h3 className="text-xl font-bold text-white group-hover:scale-105 transition-transform">{event.title}</h3>
+              <div className="bg-white rounded-2xl shadow-lg overflow-hidden transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl h-full flex flex-col">
+                <div className="relative h-48">
+                  <Image
+                    src={event.image}
+                    alt={event.title}
+                    fill
+                    className="object-cover"
+                  />
                 </div>
-                <div className="p-6 flex-grow">
-                  <p className="text-gray-600 leading-relaxed">{event.description}</p>
-                </div>
-                <div className="p-4 border-t border-gray-100">
-                  <button className="w-full py-2 text-blue-600 font-medium text-sm hover:text-blue-800 transition-colors">
-                    Scopri di più →
-                  </button>
+                <div className="p-6 flex flex-col flex-grow">
+                  <h3 className="text-xl font-bold text-gray-800 mb-2">{event.title}</h3>
+                  <p className="text-gray-600 leading-relaxed flex-grow mb-4">{event.description}</p>
                 </div>
               </div>
             </AnimatedOnScroll>
@@ -187,24 +176,25 @@ const AdvSection = () => {
         </div>
 
         <div className="grid md:grid-cols-3 gap-6 lg:gap-8 mt-8">
-          {events.slice(6, 12).map((event, index) => (
+          {events.slice(6, 10).map((event, index) => (
             <AnimatedOnScroll
               key={event.title}
               animation="fade-in-up"
               delay={(index + 6) * 100 + 400}
               className="group"
             >
-              <div className="bg-white rounded-2xl shadow-md overflow-hidden transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl h-full flex flex-col">
-                <div className={`bg-gradient-to-r ${event.bgColor} p-6 flex items-center justify-center h-24`}>
-                  <h3 className="text-xl font-bold text-white group-hover:scale-105 transition-transform">{event.title}</h3>
+               <div className="bg-white rounded-2xl shadow-lg overflow-hidden transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl h-full flex flex-col">
+                <div className="relative h-48">
+                  <Image
+                    src={event.image}
+                    alt={event.title}
+                    fill
+                    className="object-cover"
+                  />
                 </div>
-                <div className="p-6 flex-grow">
-                  <p className="text-gray-600 leading-relaxed">{event.description}</p>
-                </div>
-                <div className="p-4 border-t border-gray-100">
-                  <button className="w-full py-2 text-blue-600 font-medium text-sm hover:text-blue-800 transition-colors">
-                    Scopri di più →
-                  </button>
+                <div className="p-6 flex flex-col flex-grow">
+                  <h3 className="text-xl font-bold text-gray-800 mb-2">{event.title}</h3>
+                  <p className="text-gray-600 leading-relaxed flex-grow mb-4">{event.description}</p>
                 </div>
               </div>
             </AnimatedOnScroll>

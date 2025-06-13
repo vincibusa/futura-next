@@ -4,6 +4,7 @@ import AnimatedOnScroll from '../animation/AnimatedOnScroll';
 import AnimateOnScroll from '../animation/AnimateOnScroll';
 
 import micheleImg from '../../assets/images/michele.jpg';
+import serenaImg from '../../assets/images/serena.jpg';
 
 const TeamSection = () => {
   const teamMembers = [
@@ -35,7 +36,7 @@ const TeamSection = () => {
       id: 5,
       name: 'Serena Pantaleo',
       role: 'Social Media Manager',
-      image: 'https://firebasestorage.googleapis.com/v0/b/catanzaroepartners-13968.firebasestorage.app/o/aurora.jpg?alt=media&token=a77f8a1e-7619-4a58-8240-67eb5fe2eff3'
+      image: serenaImg
     },
     {
       id: 6,

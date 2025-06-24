@@ -1,7 +1,8 @@
 'use client';
 import Image from 'next/image';
-import AnimatedOnScroll from '../animation/AnimatedOnScroll';
+import { useState, useEffect, useRef } from 'react';
 import AnimateOnScroll from '../animation/AnimateOnScroll';
+import Counter from '../counter';
 
 // Import delle immagini locali
 import AllFoodSicilyLogo from '../../assets/images/AllFoodSicily.png';
@@ -11,6 +12,35 @@ import VinUpLogo from '../../assets/images/VinUp.png';
 import TravelNotizieLogo from '../../assets/images/TravelNotizie.png';
 
 const AboutSection = () => {
+  const [startCounting, setStartCounting] = useState(false);
+  const statsRef = useRef(null);
+
+  // Usa IntersectionObserver per rilevare quando le statistiche sono visibili
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !startCounting) {
+          // Aggiungi un piccolo delay per un effetto più naturale
+          setTimeout(() => {
+            setStartCounting(true);
+          }, 300);
+        }
+      },
+      { threshold: 0.3 } // Il contatore parte quando il 30% della sezione è visibile
+    );
+
+    const currentRef = statsRef.current;
+    if (currentRef) {
+      observer.observe(currentRef);
+    }
+
+    return () => {
+      if (currentRef) {
+        observer.unobserve(currentRef);
+      }
+    };
+  }, [startCounting]);
+
   const newspapers = [
     {
       title: 'All Food Sicily',
@@ -79,106 +109,175 @@ const AboutSection = () => {
     },
   ];
 
+  const galleryImages = [
+    { src: '/premioAllFood.jpeg', alt: 'Premiazione durante l\'evento All Food Sicily, un momento di riconoscimento per l\'eccellenza enogastronomica.' },
+    { src: '/Hero1.jpeg', alt: 'Momento di celebrazione del gruppo editoriale siciliano.' },
+    { src: '/Hero2.jpeg', alt: 'Team del gruppo editoriale durante un evento di presentazione.' },
+    { src: '/Hero3.jpeg', alt: 'Copertina di una delle nostre pubblicazioni editoriali.' },
+    { src: '/cannolo.jpg', alt: 'Cannolo siciliano, simbolo delle eccellenze raccontate dalle nostre testate.' },
+    { src: '/couscous.jpg', alt: 'Couscous siciliano, tradizione culinaria documentata nei nostri giornali.' },
+    { src: '/spumantietna.jpeg', alt: 'Spumanti dell\'Etna, eccellenze enologiche promosse dalle nostre pubblicazioni.' },
+    { src: '/taobuk.jpeg', alt: 'Evento Taobuk, esempio di manifestazione culturale coperta dalle nostre testate.' },
+  ];
+
   return (
-    <section id="chi-siamo" className="py-24 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
-      <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-gray-100 to-transparent"></div>
-      <div className="absolute -top-32 -right-32 w-64 h-64 rounded-full bg-blue-100 opacity-30"></div>
-      <div className="absolute -bottom-32 -left-32 w-80 h-80 rounded-full bg-blue-100 opacity-40"></div>
-      
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-20">
-          <AnimatedOnScroll animation="fade-in" delay={200} className="mb-3">
-            <span className="px-4 py-1 bg-blue-100 text-blue-700 rounded-full font-medium text-sm uppercase tracking-wider">
-              EDITORIA
-            </span>
-          </AnimatedOnScroll>
-          
-          <AnimatedOnScroll animation="fade-in-down" delay={300}>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Il Nostro <span className="text-blue-600">Gruppo Editoriale</span>
-            </h2>
-          </AnimatedOnScroll>
-          
-          <AnimatedOnScroll animation="fade-in" delay={400}>
-            <div className="w-24 h-1.5 bg-gradient-to-r from-blue-500 to-blue-700 mx-auto mb-8 rounded-full"></div>
-          </AnimatedOnScroll>
-          
-          <AnimateOnScroll animation="fade-up" delay={500}>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto font-light leading-relaxed">
-              La sintesi di esperienze editoriali, testate e professioni che hanno fatto la storia del giornalismo siciliano nel campo dell'enogastronomia.
-            </p>
-          </AnimateOnScroll>
-        </div>
+    <>
+      <section id="editoria" className="py-20 bg-white relative overflow-hidden">
+        <div className="absolute -top-32 -right-32 w-64 h-64 rounded-full bg-blue-100 opacity-30"></div>
+        <div className="absolute -bottom-32 -left-32 w-80 h-80 rounded-full bg-blue-100 opacity-40"></div>
 
-        <div className="grid md:grid-cols-2 gap-16 items-center mb-24">
-          <AnimateOnScroll animation="fade-left" delay={300} className="space-y-6">
-            <p className="text-lg text-gray-700 leading-relaxed">
-              Nato nel 2020 dall'incontro di Giovanni Paternò, Adalberto Catanzaro e Salvatore Scaduto che ha permesso di far nascere un gruppo con 5 quotidiani all'attivo.
-            </p>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              L'evoluzione tecnologica e l'applicazione di soluzioni innovative caratterizzano da sempre la nostra storia: nel 2020 si parte con All Food Sicily, quotidiano nato sotto la direzione di Salvo Scaduto, è stato il primo giornale siciliano online ad avere una diffusione capillare.
-            </p>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              L'attenzione alla qualità dei contenuti è il cuore di progetti editoriali che hanno portato alla nascita di varie testate, e ultimi in ordine di tempo Vinup, Fermento Pizza, Sicilia Mag, Travel Notizie. La tensione costante verso il futuro e l'attitudine per l'innovazione continuano oggi a guidare lo sviluppo di nuove iniziative digitali, rendendo ancora più ricca la proposta che si offre ai lettori.
-            </p>
-            
-            <div className="grid grid-cols-3 gap-6 pt-4 mt-8 border-t border-gray-200">
-              {[
-                { value: '2020', label: 'Anno di fondazione' },
-                { value: '5', label: 'Testate giornalistiche' },
-                { value: '3', label: 'Fondatori' }
-              ].map((stat, i) => (
-                <AnimatedOnScroll key={stat.label} animation="fade-in-up" delay={i * 100 + 600}>
-                  <div className="text-center">
-                    <p className="text-3xl font-bold text-blue-600 mb-1">{stat.value}</p>
-                    <p className="text-sm text-gray-500">{stat.label}</p>
-                  </div>
-                </AnimatedOnScroll>
-              ))}
-            </div>
-          </AnimateOnScroll>
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="grid md:grid-cols-2 gap-16 items-center mb-24">
+            {/* Colonna sinistra - Titolo */}
+            <div>
+              <AnimateOnScroll animation="fade-down" delay={300}>
+                <h2 className="text-3xl md:text-3xl font-bold text-blue-700 mb-4">
+                  Il Nostro Gruppo Editoriale
+                </h2>
+              </AnimateOnScroll>
 
-          <AnimateOnScroll animation="fade-right" delay={400} className="relative h-[450px] shadow-2xl rounded-xl overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/20 to-transparent z-10"></div>
-            <Image
-              src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80"
-              alt="Gruppo Editoriale Siciliano"
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, 50vw"
-              priority
-            />
-          </AnimateOnScroll>
-        </div>
-
-        <AnimatedOnScroll animation="fade-in-up" delay={300}>
-          <h3 className="text-2xl md:text-3xl font-bold text-center text-gray-900 mb-16">
-            LE NOSTRE TESTATE GIORNALISTICHE
-          </h3>
-        </AnimatedOnScroll>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8 lg:gap-12">
-          {newspapers.map((newspaper, index) => (
-            <AnimatedOnScroll
-              key={newspaper.title}
-              animation="fade-in-up"
-              delay={index * 150 + 400}
-              className="group"
-            >
-              <div className=" transform transition-all duration-300  h-full flex flex-col">
-                <div className="p-8 flex items-center justify-center border-b border-gray-100 min-h-[120px]">
-                  {newspaper.icon}
-                </div>
-                <div className="p-8 flex-1">
-                  <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors">{newspaper.title}</h3>
-                  <p className="text-gray-600 leading-relaxed text-sm">{newspaper.description}</p>
-                </div>
+              <AnimateOnScroll animation="fade-up" delay={500}>
+                <p className="text-xl text-gray-600 font-light leading-relaxed">
+                  La sintesi di esperienze editoriali, <strong className="font-bold text-blue-700">testate</strong> e <strong className="font-bold text-blue-700">professioni</strong> che hanno fatto la storia del <strong className="font-bold text-blue-700">giornalismo siciliano</strong>.
+                </p>
+              </AnimateOnScroll>
+       
+              <div ref={statsRef} className="grid grid-cols-3 gap-6 pt-4 mt-8 border-t border-gray-200">
+                {[
+                  { value: 2020, label: 'Anno di fondazione' },
+                  { value: 5, label: 'Testate giornalistiche' },
+                  { value: 3, label: 'Fondatori' }
+                ].map((stat, i) => (
+                  <AnimateOnScroll key={stat.label} animation="fade-up" delay={i * 100 + 600}>
+                    <div className="text-center flex flex-col items-center">
+                      <div className="flex items-baseline justify-center mb-2 h-10">
+                        <Counter
+                          value={startCounting ? stat.value : 0}
+                          fontSize={28}
+                          textColor="#2563eb"
+                          fontWeight="bold"
+                          places={stat.value >= 100 ? [1000, 100, 10, 1] : [10, 1]}
+                          gap={2}
+                          padding={0}
+                          gradientHeight={0}
+                          gradientFrom="transparent"
+                          gradientTo="transparent"
+                          containerStyle={{ display: 'flex', alignItems: 'baseline' }} />
+                      </div>
+                      <p className="text-sm text-gray-500 leading-tight">{stat.label}</p>
+                    </div>
+                  </AnimateOnScroll>
+                ))}
               </div>
-            </AnimatedOnScroll>
-          ))}
+            </div>
+            
+            {/* Colonna destra - Testo */}
+            <div className="space-y-4">
+              <AnimateOnScroll animation="fade-right" delay={300}>
+                <p className="text-lg text-gray-700 leading-relaxed">
+                  Nato nel 2020 dall'incontro di <strong className="font-bold text-blue-700">Giovanni Paternò, Adalberto Catanzaro e Salvatore Scaduto</strong> che ha permesso di far nascere un gruppo con <strong className="font-bold text-blue-700">5 quotidiani</strong> all'attivo.
+                </p>
+              </AnimateOnScroll>
+              <AnimateOnScroll animation="fade-right" delay={450}>
+                <p className="text-lg text-gray-700 leading-relaxed">
+                  L'evoluzione tecnologica e l'applicazione di <strong className="font-bold text-blue-700">soluzioni innovative</strong> caratterizzano da sempre la nostra storia: nel 2020 si parte con <strong className="font-bold text-blue-700">All Food Sicily</strong>, quotidiano nato sotto la direzione di Salvo Scaduto, è stato il primo giornale siciliano online ad avere una <strong className="font-bold text-blue-700">diffusione capillare</strong>.
+                </p>
+              </AnimateOnScroll>
+              <AnimateOnScroll animation="fade-right" delay={600}>
+                <p className="text-lg text-gray-700 leading-relaxed">
+                  L'attenzione alla <strong className="font-bold text-blue-700">qualità dei contenuti</strong> è il cuore di progetti editoriali che hanno portato alla nascita di varie testate, e ultimi in ordine di tempo <strong className="font-bold text-blue-700">Vinup, Fermento Pizza, Sicilia Mag, Travel Notizie</strong>.
+                </p>
+              </AnimateOnScroll>
+              <AnimateOnScroll animation="fade-right" delay={750}>
+                <p className="text-lg text-gray-700 leading-relaxed">
+                  La tensione costante verso il futuro e l'attitudine per l'<strong className="font-bold text-blue-700">innovazione</strong> continuano oggi a guidare lo sviluppo di nuove iniziative digitali, rendendo ancora più ricca la proposta che si offre ai lettori.
+                </p>
+              </AnimateOnScroll>
+            </div>
+          </div>
         </div>
-      </div>
-    </section>
+
+        <div className="relative my-16">
+          <div className="absolute inset-0 flex items-center" aria-hidden="true">
+            <div className="w-full border-t border-gray-200" />
+          </div>
+          <div className="relative flex justify-center">
+            <span className="bg-white px-3 text-blue-700">
+              <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+              </svg>
+            </span>
+          </div>
+        </div>
+
+        <div className="container mx-auto px-4 relative z-10">
+          <AnimateOnScroll animation="fade-up" delay={300}>
+            <h3 className="text-2xl md:text-3xl font-bold text-center text-gray-800 mb-12 max-w-4xl mx-auto">
+              <strong className="font-bold text-blue-700">LE NOSTRE TESTATE GIORNALISTICHE</strong> raccontano l'<strong className="font-bold text-blue-700">enogastronomia siciliana</strong> e le sue <strong className="font-bold text-blue-700">eccellenze</strong> con passione e professionalità.
+            </h3>
+          </AnimateOnScroll>
+
+          <div className="grid md:grid-cols-2 gap-16 items-start mt-16">
+            <div className='flex flex-col items-center justify-center gap-4 text-left h-full'>
+              <AnimateOnScroll animation="fade-right" delay={400}>
+                <h4 className="text-2xl font-bold text-gray-800">
+                  Un <span className="text-blue-700">network editoriale</span> che valorizza il territorio siciliano
+                </h4>
+              </AnimateOnScroll>
+              <AnimateOnScroll animation="fade-right" delay={550}>
+                <h2 className='text-xl font-bold text-gray-800'>
+                  <strong className="text-black">Informazione di qualità</strong> per raccontare la <strong className="text-blue-700">cultura enogastronomica</strong> e le <strong className="text-blue-700">tradizioni del territorio</strong>.
+                </h2>
+              </AnimateOnScroll>
+            </div>
+
+            <div className="space-y-4 text-lg text-gray-700 leading-relaxed">
+              <AnimateOnScroll animation="fade-left" delay={500}>
+                <p>
+                  Le nostre <strong className="font-bold text-blue-700">cinque testate giornalistiche</strong> rappresentano un punto di riferimento nel panorama dell'<strong className="font-bold text-blue-700">informazione specializzata</strong>, coprendo settori dall'enogastronomia al turismo, dalla pizza al vino.
+                </p>
+              </AnimateOnScroll>
+              <AnimateOnScroll animation="fade-left" delay={650}>
+                <p>
+                  Ogni pubblicazione è curata da <strong className="font-bold text-blue-700">giornalisti specializzati</strong> e <strong className="font-bold text-blue-700">esperti del settore</strong>, garantendo contenuti di alta qualità e approfondimenti esclusivi sulle eccellenze del territorio siciliano e italiano.
+                </p>
+              </AnimateOnScroll>
+              <AnimateOnScroll animation="fade-left" delay={800}>
+                <p>
+                  Attraverso un <strong className="font-bold text-blue-700">approccio digitale innovativo</strong>, raggiungiamo migliaia di lettori appassionati, contribuendo alla valorizzazione e promozione delle tradizioni culinarie e culturali della Sicilia.
+                </p>
+              </AnimateOnScroll>
+            </div>
+          </div>
+        </div>
+
+        {/* Sezione Testate Giornalistiche */}
+        <div className="container mx-auto px-4 relative z-10 mt-24">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8 lg:gap-12 mb-16">
+            {newspapers.map((newspaper, index) => (
+              <AnimateOnScroll
+                key={newspaper.title}
+                animation="fade-up"
+                delay={index * 150 + 400}
+                className="group"
+              >
+                <div className="transform transition-all duration-300 h-full flex flex-col">
+                  <div className="p-8 flex items-center justify-center border-b border-gray-100 min-h-[120px]">
+                    {newspaper.icon}
+                  </div>
+                  <div className="p-8 flex-1">
+                    <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors">{newspaper.title}</h3>
+                    <p className="text-gray-600 leading-relaxed text-sm">{newspaper.description}</p>
+                  </div>
+                </div>
+              </AnimateOnScroll>
+            ))}
+          </div>
+
+       
+        </div>
+      </section>
+    </>
   );
 };
 

@@ -1,11 +1,43 @@
+'use client';
 import Image from 'next/image';
+import { useState, useEffect, useRef } from 'react';
 import TeamContactButton from '../buttons/TeamContactButton';
-import AnimatedOnScroll from '../animation/AnimatedOnScroll';
 import AnimateOnScroll from '../animation/AnimateOnScroll';
+import Counter from '../counter';
+import TitleCard from '../cards/TitleCard';
 
-import micheleImg from '../../assets/images/michele.jpg';
+
 
 const TeamSection = () => {
+  const [startCounting, setStartCounting] = useState(false);
+  const statsRef = useRef(null);
+
+  // Usa IntersectionObserver per rilevare quando le statistiche sono visibili
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !startCounting) {
+          // Aggiungi un piccolo delay per un effetto più naturale
+          setTimeout(() => {
+            setStartCounting(true);
+          }, 300);
+        }
+      },
+      { threshold: 0.3 } // Il contatore parte quando il 30% della sezione è visibile
+    );
+
+    const currentRef = statsRef.current;
+    if (currentRef) {
+      observer.observe(currentRef);
+    }
+
+    return () => {
+      if (currentRef) {
+        observer.unobserve(currentRef);
+      }
+    };
+  }, [startCounting]);
+
   const teamMembers = [
     {
       id: 1,
@@ -17,7 +49,7 @@ const TeamSection = () => {
       id: 2,
       name: 'Gianni Paternò',
       role: 'Vice Presidente e Direttore Operativo',
-      image: 'https://firebasestorage.googleapis.com/v0/b/catanzaroepartners-13968.firebasestorage.app/o/jessica.jpeg?alt=media&token=ef45d3bf-dc90-4330-8df3-cb985380d91b'
+      image: 'https://pbs.twimg.com/profile_images/1640678727/calice_in_mano_400x400.JPG'
     },
     {
       id: 3,
@@ -29,74 +61,125 @@ const TeamSection = () => {
       id: 4,
       name: 'Emma Governali',
       role: 'Coordinatrice di Relazione',
-      image: 'https://firebasestorage.googleapis.com/v0/b/catanzaroepartners-13968.firebasestorage.app/o/vincenzo.jpeg?alt=media&token=dba12809-b5cb-4197-acb8-e4a1b581d0ae'
+      image: '/emma.jpeg'
     },
     {
       id: 5,
       name: 'Serena Pantaleo',
       role: 'Social Media Manager',
-      image: 'https://firebasestorage.googleapis.com/v0/b/catanzaroepartners-13968.firebasestorage.app/o/aurora.jpg?alt=media&token=a77f8a1e-7619-4a58-8240-67eb5fe2eff3'
+      image: '/serena.jpg'
     },
     {
       id: 6,
       name: 'Michele Currado',
       role: 'Collaboratore di Redazione',
-      image: micheleImg,
+      image: '/michele.jpg',
     }
   ];
 
   return (
-    <section id="team" className="py-24 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
-      {/* Elementi decorativi */}
-      <div className="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-blue-50 opacity-30"></div>
-      <div className="absolute -bottom-20 -left-20 w-64 h-64 rounded-full bg-blue-50 opacity-40"></div>
-      <div className="absolute top-1/3 right-0 w-20 h-20 rounded-full bg-blue-100 opacity-20"></div>
+    <section id="team" className="py-20 bg-white relative overflow-hidden">
+      <div className="absolute -top-32 -right-32 w-64 h-64 rounded-full bg-blue-100 opacity-30"></div>
+      <div className="absolute -bottom-32 -left-32 w-80 h-80 rounded-full bg-blue-100 opacity-40"></div>
       
       <div className="container mx-auto px-4 relative z-10">
-        <AnimateOnScroll delay={200}>
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-            Il Nostro Team
-          </h2>
-        </AnimateOnScroll>
+        <div className="grid md:grid-cols-2 gap-16 items-center mb-24">
+          {/* Colonna sinistra - Titolo */}
+          <div>
+            <AnimateOnScroll animation="fade-down" delay={300}>
+              <h2 className="text-3xl md:text-3xl font-bold text-blue-700 mb-4">
+                Il Nostro Team
+              </h2>
+            </AnimateOnScroll>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8">
+            <AnimateOnScroll animation="fade-up" delay={500}>
+              <p className="text-xl text-gray-600 font-light leading-relaxed">
+                Un team di <strong className="font-bold text-blue-700">professionisti esperti</strong> e appassionati che lavora con dedizione per valorizzare le <strong className="font-bold text-blue-700">eccellenze siciliane</strong>.
+              </p>
+            </AnimateOnScroll>
+
+            <div ref={statsRef} className="grid grid-cols-3 gap-6 pt-4 mt-8 border-t border-gray-200">
+              {[
+                { value: 6, label: 'Membri del team' },
+                { value: 15, label: 'Anni di esperienza' },
+                { value: 100, label: 'Progetti realizzati' }
+              ].map((stat, i) => (
+                <AnimateOnScroll key={stat.label} animation="fade-up" delay={i * 100 + 600}>
+                  <div className="text-center flex flex-col items-center">
+                    <div className="flex items-baseline justify-center mb-2 h-10">
+                      <Counter
+                        value={startCounting ? stat.value : 0}
+                        fontSize={28}
+                        textColor="#2563eb"
+                        fontWeight="bold"
+                        places={stat.value >= 100 ? [100, 10, 1] : stat.value >= 10 ? [10, 1] : [1]}
+                        gap={2}
+                        padding={0}
+                        gradientHeight={0}
+                        gradientFrom="transparent"
+                        gradientTo="transparent"
+                        containerStyle={{ display: 'flex', alignItems: 'baseline' }} />
+                    </div>
+                    <p className="text-sm text-gray-500 leading-tight">{stat.label}</p>
+                  </div>
+                </AnimateOnScroll>
+              ))}
+            </div>
+          </div>
+          
+          {/* Colonna destra - Testo */}
+          <div className="space-y-4">
+            <AnimateOnScroll animation="fade-right" delay={300}>
+              <p className="text-lg text-gray-700 leading-relaxed">
+                Il nostro team è composto da <strong className="font-bold text-blue-700">professionisti qualificati</strong> con competenze complementari nel campo del <strong className="font-bold text-blue-700">marketing, comunicazione e relazioni pubbliche</strong>.
+              </p>
+            </AnimateOnScroll>
+            <AnimateOnScroll animation="fade-right" delay={450}>
+              <p className="text-lg text-gray-700 leading-relaxed">
+                Ogni membro porta la propria <strong className="font-bold text-blue-700">esperienza unica</strong> e la passione per la valorizzazione del territorio siciliano, lavorando insieme per raggiungere obiettivi comuni di <strong className="font-bold text-blue-700">eccellenza e innovazione</strong>.
+              </p>
+            </AnimateOnScroll>
+            <AnimateOnScroll animation="fade-right" delay={600}>
+              <p className="text-lg text-gray-700 leading-relaxed">
+                La nostra forza risiede nella <strong className="font-bold text-blue-700">collaborazione</strong> e nell'approccio multidisciplinare, che ci permette di affrontare ogni progetto con <strong className="font-bold text-blue-700">competenza e creatività</strong>.
+              </p>
+            </AnimateOnScroll>
+            <AnimateOnScroll animation="fade-right" delay={750}>
+              <p className="text-lg text-gray-700 leading-relaxed">
+                Insieme, costruiamo <strong className="font-bold text-blue-700">strategie efficaci</strong> e realizziamo iniziative che fanno la differenza nel panorama dell'enogastronomia e del turismo siciliano.
+              </p>
+            </AnimateOnScroll>
+          </div>
+        </div>
+
+        {/* Griglia membri del team */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8 mb-20">
           {teamMembers.map((member, index) => (
             <AnimateOnScroll 
               key={member.id} 
               delay={index * 100}
-              className="group relative h-full"
+              className="h-full"
             >
-              <div className="bg-white rounded-2xl shadow-lg overflow-hidden transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl h-full">
-                <div className="relative h-80 overflow-hidden">
-                  <Image
-                    src={member.image}
-                    alt={member.name}
-                    className="object-cover object-top transition-transform duration-700 group-hover:scale-110"
-                    fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    priority={member.id <= 3}
-                  />
-                  {/* Overlay gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
-                  
-                  {/* Info overlay che appare al passaggio del mouse */}
-                  <div className="absolute bottom-0 left-0 right-0 p-6 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0">
-                    <h3 className="text-white text-xl font-bold mb-1">{member.name}</h3>
-                    <p className="text-blue-200 text-sm font-medium">{member.role}</p>
-                  </div>
-                </div>
-                
-                <div className="p-6 bg-white">
-                  <h3 className="text-lg font-bold text-gray-900 mb-1 group-hover:text-blue-600 transition-colors">{member.name}</h3>
-                  <p className="text-blue-500 text-sm font-medium">{member.role}</p>
-                </div>
-              </div>
+              <TitleCard
+                imageSrc={member.image}
+                altText={member.name}
+                captionText={member.name}
+                description={member.role}
+                containerHeight="400px"
+                imageHeight="400px"
+                imageWidth="100%"
+                scaleOnHover={1.05}
+                rotateAmplitude={12}
+                showMobileWarning={false}
+                showTooltip={false}
+              />
             </AnimateOnScroll>
           ))}
         </div>
 
-        <AnimatedOnScroll animation="fade-in-up" delay={400}>
-          <div className="text-center mt-20 relative">
+        {/* Sezione contatto */}
+        <AnimateOnScroll animation="fade-in-up" delay={400}>
+          <div className="text-center relative">
             {/* Elemento decorativo */}
             <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 w-40 h-1 bg-blue-100 rounded-full opacity-50"></div>
             
@@ -107,7 +190,7 @@ const TeamSection = () => {
             <TeamContactButton />
             <p className="text-gray-500 text-sm mt-4">Invia la tua candidatura</p>
           </div>
-        </AnimatedOnScroll>
+        </AnimateOnScroll>
       </div>
     </section>
   );

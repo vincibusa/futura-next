@@ -70,12 +70,7 @@ const HeroSection = () => {
           </AnimatedOnScroll>
           
           <AnimatedOnScroll animation="fade-in-up" delay={600} className="flex flex-col sm:flex-row gap-4">
-            <Link 
-              href="#servizi" 
-              className="bg-blue-600 hover:bg-blue-700 text-white py-3 px-8 rounded-full font-medium text-lg transition-all duration-300 hover:scale-105 active:scale-95 text-center"
-            >
-              Scopri i nostri servizi
-            </Link>
+
             
             <Link 
               href="#contatti" 

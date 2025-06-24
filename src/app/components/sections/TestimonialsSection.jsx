@@ -1,6 +1,5 @@
-import SponsorCarousel from '../carousels/SponsorCarousel';
-import AnimatedOnScroll from '../animation/AnimatedOnScroll';
 import AnimateOnScroll from '../animation/AnimateOnScroll';
+import Image from 'next/image';
 
 const TestimonialsSection = () => {
   const sponsors = [
@@ -26,48 +25,59 @@ const TestimonialsSection = () => {
     { id: 20, image: "https://firebasestorage.googleapis.com/v0/b/catanzaroepartners-13968.firebasestorage.app/o/sprint-02.png?alt=media&token=d3afb69a-c165-4840-8e54-40c5dd20e945" },
   ];
 
-  // Suddividi gli sponsor in gruppi di 5 per mostrarne diversi contemporaneamente
-  const sponsorGroups = [];
-  for (let i = 0; i < sponsors.length; i += 5) {
-    sponsorGroups.push(sponsors.slice(i, i + 5));
-  }
-
   return (
-    <section id="testimonials" className="py-20 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
-      {/* Elementi decorativi */}
-      <div className="absolute -top-24 right-0 w-64 h-64 rounded-full bg-blue-50 opacity-30"></div>
-      <div className="absolute -bottom-32 -left-32 w-96 h-96 rounded-full bg-blue-50 opacity-40"></div>
-      
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-14">
-          <AnimatedOnScroll animation="fade-in" delay={200} className="mb-3">
-            <span className="px-4 py-1 bg-blue-100 text-blue-700 rounded-full font-medium text-sm uppercase tracking-wider">
-              I Nostri Partner
-            </span>
-          </AnimatedOnScroll>
-          
-          <AnimatedOnScroll animation="fade-in-down" delay={300}>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              I Nostri <span className="text-blue-600">Sponsor</span>
-            </h2>
-          </AnimatedOnScroll>
-          
-          <AnimatedOnScroll animation="fade-in" delay={400}>
-            <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-blue-700 mx-auto mb-6 rounded-full" />
-          </AnimatedOnScroll>
-          
-          <AnimateOnScroll animation="fade-up" delay={500}>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-10">
-              Collaboriamo con i migliori brand e istituzioni per creare esperienze di valore e promuovere l'eccellenza enogastronomica siciliana.
-            </p>
-          </AnimateOnScroll>
+    <>
+      <div className="relative">
+        <div className="absolute inset-0 flex items-center" aria-hidden="true">
+          <div className="w-full border-t border-gray-200" />
         </div>
-
-        <AnimateOnScroll animation="fade-up" delay={600}>
-          <SponsorCarousel sponsorGroups={sponsorGroups} />
-        </AnimateOnScroll>
+        <div className="relative flex justify-center">
+          <span className="bg-white px-3 text-red-700">
+            <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19.428 11.072l-3.2-6.4a1 1 0 00-1.78-.22l-1.4 4.2-4.2-1.4a1 1 0 00-1.22.54l-3.2 6.4a1 1 0 001.22 1.22l4.2-1.4 1.4 4.2a1 1 0 001.78.22l3.2-6.4a1 1 0 00-.22-1.22z" />
+            </svg>
+          </span>
+        </div>
       </div>
-    </section>
+      <section id="testimonials" className="py-20 bg-white relative overflow-hidden">
+        {/* Elementi decorativi */}
+        <div className="absolute -top-24 right-0 w-64 h-64 rounded-full bg-red-50 opacity-30"></div>
+        <div className="absolute -bottom-32 -left-32 w-96 h-96 rounded-full bg-red-50 opacity-40"></div>
+
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="text-center mb-14">
+            <AnimateOnScroll animation="fade-up" delay={500}>
+              <h3 className="text-2xl md:text-3xl font-bold text-center text-gray-800 mb-12 max-w-4xl mx-auto">
+                Collaboriamo con i <strong className="font-bold text-red-700">migliori brand e istituzioni pubblico private</strong>.
+              </h3>
+            </AnimateOnScroll>
+          </div>
+
+          {/* Griglia degli sponsor */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 md:gap-8">
+            {sponsors.map((sponsor, index) => (
+              <AnimateOnScroll
+                key={sponsor.id}
+                animation="fade-up"
+                delay={index * 50 + 200}
+                className="group"
+              >
+                <div className="overflow-hidden transform transition-all duration-300 hover:-translate-y-2 p-6 h-32 flex items-center justify-center">
+                  <div className="relative w-full h-full">
+                    <Image
+                      src={sponsor.image}
+                      alt={`Logo di ${sponsor.name}, nostro partner.`}
+                      fill
+                      className="object-contain transition-transform duration-300 group-hover:scale-110"
+                      sizes="(max-width: 768px) 50vw, (max-width: 1200px) 25vw, 20vw" />
+                  </div>
+                </div>
+              </AnimateOnScroll>
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
   );
 };
 

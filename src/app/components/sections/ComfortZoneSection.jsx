@@ -1,10 +1,41 @@
+'use client';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useState, useEffect, useRef } from 'react';
 import AnimateOnScroll from '../animation/AnimateOnScroll';
-import AnimatedOnScroll from '../animation/AnimatedOnScroll';
+import Counter from '../counter';
 import premio from '../../assets/images/premioAllFood.jpeg'
 
 const ComfortZoneSection = () => {
+  const [startCounting, setStartCounting] = useState(false);
+  const statsRef = useRef(null);
+
+  // Usa IntersectionObserver per rilevare quando le statistiche sono visibili
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !startCounting) {
+          // Aggiungi un piccolo delay per un effetto più naturale
+          setTimeout(() => {
+            setStartCounting(true);
+          }, 300);
+        }
+      },
+      { threshold: 0.3 } // Il contatore parte quando il 30% della sezione è visibile
+    );
+
+    const currentRef = statsRef.current;
+    if (currentRef) {
+      observer.observe(currentRef);
+    }
+
+    return () => {
+      if (currentRef) {
+        observer.unobserve(currentRef);
+      }
+    };
+  }, [startCounting]);
+
   // Immagini per la galleria - mantenuta la stessa struttura
   const galleryImages = [
     {
@@ -95,85 +126,139 @@ const ComfortZoneSection = () => {
   ];
 
   return (
-    <section id="progetti" className="py-24 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
-      <div className="absolute -top-40 right-0 w-80 h-80 rounded-full bg-blue-50 opacity-30"></div>
-      <div className="absolute top-1/3 -left-20 w-40 h-40 rounded-full bg-blue-50 opacity-20"></div>
-      
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-20">
-          <AnimatedOnScroll animation="fade-in" delay={200}>
-            <div className="mb-3">
-              <span className="px-4 py-1 bg-blue-100 text-blue-700 rounded-full font-medium text-sm uppercase tracking-wider">
-                PROGETTI
-              </span>
+    <>
+      <section id="progetti" className="py-20 bg-white relative overflow-hidden">
+        <div className="absolute -top-32 -right-32 w-64 h-64 rounded-full bg-blue-100 opacity-30"></div>
+        <div className="absolute -bottom-32 -left-32 w-80 h-80 rounded-full bg-blue-100 opacity-40"></div>
+
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="grid md:grid-cols-2 gap-16 items-center mb-24">
+            {/* Colonna sinistra - Titolo */}
+            <div>
+              <AnimateOnScroll animation="fade-down" delay={300}>
+                <h2 className="text-3xl md:text-3xl font-bold text-blue-700 mb-4">
+                  Le Nostre Iniziative
+                </h2>
+              </AnimateOnScroll>
+
+              <AnimateOnScroll animation="fade-up" delay={500}>
+                <p className="text-xl text-gray-600 font-light leading-relaxed">
+                  L'approccio del gruppo si fonda sui <strong className="font-bold text-blue-700">valori</strong> che definiscono l'identità della nostra terra: l'obiettivo è <strong className="font-bold text-blue-700">premiare le migliori eccellenze</strong> siciliane e non.
+                </p>
+              </AnimateOnScroll>
+       
+              <div ref={statsRef} className="grid grid-cols-3 gap-6 pt-4 mt-8 border-t border-gray-200">
+                {[
+                  { value: 4, label: 'Categorie di progetti' },
+                  { value: 9, label: 'Iniziative attive' },
+                  { value: 50, label: 'Eccellenze premiate' }
+                ].map((stat, i) => (
+                  <AnimateOnScroll key={stat.label} animation="fade-up" delay={i * 100 + 600}>
+                    <div className="text-center flex flex-col items-center">
+                      <div className="flex items-baseline justify-center mb-2 h-10">
+                        <Counter
+                          value={startCounting ? stat.value : 0}
+                          fontSize={28}
+                          textColor="#2563eb"
+                          fontWeight="bold"
+                          places={stat.value >= 10 ? [10, 1] : [1]}
+                          gap={2}
+                          padding={0}
+                          gradientHeight={0}
+                          gradientFrom="transparent"
+                          gradientTo="transparent"
+                          containerStyle={{ display: 'flex', alignItems: 'baseline' }} />
+                      </div>
+                      <p className="text-sm text-gray-500 leading-tight">{stat.label}</p>
+                    </div>
+                  </AnimateOnScroll>
+                ))}
+              </div>
             </div>
-          </AnimatedOnScroll>
-          
-          <AnimatedOnScroll animation="fade-in-down" delay={300}>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Le Nostre <span className="text-blue-600">Iniziative</span>
-            </h2>
-          </AnimatedOnScroll>
-          
-          <AnimatedOnScroll animation="fade-in" delay={400}>
-            <div className="w-24 h-1.5 bg-gradient-to-r from-blue-500 to-blue-700 mx-auto mb-8 rounded-full"></div>
-          </AnimatedOnScroll>
-          
-          <AnimateOnScroll animation="fade-up" delay={500}>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto font-light leading-relaxed">
-              L'approccio del gruppo si fonda sui valori che definiscono l'identità della nostra terra:
-              l'obiettivo è premiare le migliori eccellenze siciliane e non.
-            </p>
-          </AnimateOnScroll>
+            
+            {/* Colonna destra - Testo */}
+            <div className="space-y-4">
+              <AnimateOnScroll animation="fade-right" delay={300}>
+                <p className="text-lg text-gray-700 leading-relaxed">
+                  Questa sezione riporta le <strong className="font-bold text-blue-700">iniziative</strong> che il Gruppo ha realizzato e sta sviluppando in <strong className="font-bold text-blue-700">quattro categorie</strong> e consente di mappare i luoghi e le persone che fanno interesse nei settori del <strong className="font-bold text-blue-700">turismo, food e imprenditoria</strong>.
+                </p>
+              </AnimateOnScroll>
+              <AnimateOnScroll animation="fade-right" delay={450}>
+                <p className="text-lg text-gray-700 leading-relaxed">
+                  Le nostre <strong className="font-bold text-blue-700">Guide</strong> raccontano le eccellenze del territorio, i <strong className="font-bold text-blue-700">Premi</strong> riconoscono le migliori realtà, le <strong className="font-bold text-blue-700">Classifiche</strong> mappano i protagonisti del settore e i <strong className="font-bold text-blue-700">Gran Tour</strong> valorizzano i territori.
+                </p>
+              </AnimateOnScroll>
+              <AnimateOnScroll animation="fade-right" delay={600}>
+                <p className="text-lg text-gray-700 leading-relaxed">
+                  Ogni progetto è studiato per <strong className="font-bold text-blue-700">valorizzare</strong> e <strong className="font-bold text-blue-700">promuovere</strong> le eccellenze siciliane, creando una rete di connessioni tra territorio, tradizioni e innovazione nel panorama enogastronomico e turistico.
+                </p>
+              </AnimateOnScroll>
+              <AnimateOnScroll animation="fade-right" delay={750}>
+                <p className="text-lg text-gray-700 leading-relaxed">
+                  Attraverso un <strong className="font-bold text-blue-700">approccio integrato</strong> tra comunicazione digitale ed eventi, costruiamo ponti tra produttori, operatori del settore e consumatori finali, contribuendo alla crescita dell'intero ecosistema territoriale.
+                </p>
+              </AnimateOnScroll>
+            </div>
+          </div>
         </div>
 
-        {/* Galleria di immagini migliorata */}
-        <AnimatedOnScroll animation="fade-in" delay={400} className="mb-24 relative">
-          {/* Elementi decorativi */}
-          <div className="absolute -top-10 -left-10 w-20 h-20 border-2 border-blue-200 rounded-lg z-0 opacity-50"></div>
-          <div className="absolute -bottom-10 -right-10 w-20 h-20 border-2 border-blue-200 rounded-lg z-0 opacity-50"></div>
-          
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3 relative z-10">
-            {galleryImages.map((image, index) => (
-              <AnimatedOnScroll
-                key={index}
-                animation="fade-in-up"
-                delay={index * 100 + 500}
-                className={`
-                  ${index === 0 ? "col-span-2 row-span-2 relative h-64 md:h-96" : "relative h-40 md:h-52"}
-                  overflow-hidden rounded-lg shadow-lg group hover:shadow-xl transition-all duration-300
-                `}
-              >
-                <Image
-                  src={image.src}
-                  alt={image.alt}
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-110"
-                  sizes={index === 0 ? "(max-width: 768px) 100vw, 50vw" : "(max-width: 768px) 50vw, 25vw"}
-                  priority={index <= 2}
-                />
-                {/* Overlay gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
-                
-                {/* Info overlay che appare al passaggio del mouse */}
-                <div className="absolute bottom-0 left-0 right-0 p-3 md:p-4 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0">
-                  <h3 className="text-white text-base md:text-lg font-bold drop-shadow-md">{image.title}</h3>
-                  <p className="text-blue-200 text-xs md:text-sm font-medium">{image.alt}</p>
-                </div>
-              </AnimatedOnScroll>
-            ))}
+        <div className="relative my-16">
+          <div className="absolute inset-0 flex items-center" aria-hidden="true">
+            <div className="w-full border-t border-gray-200" />
           </div>
-        </AnimatedOnScroll>
+          <div className="relative flex justify-center">
+            <span className="bg-white px-3 text-blue-700">
+              <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+              </svg>
+            </span>
+          </div>
+        </div>
+
+        <div className="container mx-auto px-4 relative z-10">
+          <AnimateOnScroll animation="fade-up" delay={300}>
+            <h3 className="text-2xl md:text-3xl font-bold text-center text-gray-800 mb-12 max-w-4xl mx-auto">
+              <strong className="font-bold text-blue-700">LE CATEGORIE DEI NOSTRI PROGETTI</strong> mappano le <strong className="font-bold text-blue-700">eccellenze siciliane</strong> in ogni settore del <strong className="font-bold text-blue-700">territorio</strong>.
+            </h3>
+          </AnimateOnScroll>
+
+          <div className="grid md:grid-cols-2 gap-16 items-start mt-16">
+            <div className='flex flex-col items-center justify-center gap-4 text-left h-full'>
+              <AnimateOnScroll animation="fade-right" delay={400}>
+                <h4 className="text-2xl font-bold text-gray-800">
+                  <span className="text-blue-700">Mappare Eccellenze</span> per valorizzare il territorio siciliano
+                </h4>
+              </AnimateOnScroll>
+              <AnimateOnScroll animation="fade-right" delay={550}>
+                <h2 className='text-xl font-bold text-gray-800'>
+                  <strong className="text-black">Iniziative mirate</strong> per riconoscere e promuovere le <strong className="text-blue-700">migliori realtà</strong> del panorama <strong className="text-blue-700">enogastronomico e turistico</strong>.
+                </h2>
+              </AnimateOnScroll>
+            </div>
+
+            <div className="space-y-4 text-lg text-gray-700 leading-relaxed">
+              <AnimateOnScroll animation="fade-left" delay={500}>
+                <p>
+                  I nostri <strong className="font-bold text-blue-700">progetti</strong> nascono dalla volontà di creare una <strong className="font-bold text-blue-700">mappa completa</strong> delle eccellenze siciliane, dal settore food&wine al turismo esperienziale, valorizzando tradizioni e innovazioni del territorio.
+                </p>
+              </AnimateOnScroll>
+              <AnimateOnScroll animation="fade-left" delay={650}>
+                <p>
+                  Attraverso <strong className="font-bold text-blue-700">Guide specializzate</strong>, <strong className="font-bold text-blue-700">Premi di settore</strong>, <strong className="font-bold text-blue-700">Classifiche autorevoli</strong> e <strong className="font-bold text-blue-700">Gran Tour territoriali</strong>, costruiamo un network di connessioni tra produttori, operatori e consumatori.
+                </p>
+              </AnimateOnScroll>
+              <AnimateOnScroll animation="fade-left" delay={800}>
+                <p>
+                  Ogni iniziativa è progettata per generare <strong className="font-bold text-blue-700">valore aggiunto</strong> al territorio, combinando la forza della comunicazione digitale con l'impatto degli eventi dal vivo per massimizzare visibilità e risultati.
+                </p>
+              </AnimateOnScroll>
+            </div>
+          </div>
+        </div>
 
         {/* Sezione Categorie di Progetti */}
-        <div className="mb-16">
-          <AnimatedOnScroll animation="fade-in-up" delay={300}>
-            <h3 className="text-2xl md:text-3xl font-bold text-center text-gray-900 mb-16">
-              Le Categorie dei Nostri Progetti
-            </h3>
-          </AnimatedOnScroll>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="container mx-auto px-4 relative z-10 mt-24">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
             {projectCategories.map((category, index) => (
               <AnimateOnScroll 
                 key={category.title} 
@@ -200,56 +285,89 @@ const ComfortZoneSection = () => {
               </AnimateOnScroll>
             ))}
           </div>
-        </div>
 
-        {/* Descrizione Progetti */}
-        <div className="grid md:grid-cols-2 gap-16 items-center mb-20 relative">
-          <div className="absolute -z-10 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[120%] h-80 bg-blue-50/30 rounded-3xl blur-3xl"></div>
-          
-          <AnimateOnScroll animation="fade-left" delay={200} className="order-2 md:order-1 relative z-10">
-            <div className="mb-4">
-              <span className="px-3 py-1 bg-blue-100 text-blue-700 text-xs rounded-full uppercase tracking-wider font-semibold">Il nostro impegno</span>
+          {/* Galleria di immagini con layout migliorato */}
+          <AnimateOnScroll animation="fade-up" delay={400} className="relative mb-16">
+            <div className="absolute -top-10 -left-10 w-20 h-20 border-2 border-blue-200 rounded-lg z-0 opacity-50 hidden md:block"></div>
+            <div className="absolute -bottom-10 -right-10 w-20 h-20 border-2 border-blue-200 rounded-lg z-0 opacity-50 hidden md:block"></div>
+            
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3 relative z-10">
+              {galleryImages.map((image, index) => (
+                <AnimateOnScroll
+                  key={index}
+                  animation="fade-up"
+                  delay={index * 100 + 500}
+                  className={`
+                    ${index === 0 ? "col-span-2 row-span-2 relative h-64 md:h-96" : "relative h-40 md:h-52"}
+                    overflow-hidden rounded-lg shadow-lg group hover:shadow-xl transition-all duration-300
+                  `}
+                >
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    sizes={index === 0 ? "(max-width: 768px) 100vw, 50vw" : "(max-width: 768px) 50vw, 25vw"}
+                    priority={index <= 2}
+                  />
+                  {/* Overlay gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
+                  
+                  {/* Info overlay che appare al passaggio del mouse */}
+                  <div className="absolute bottom-0 left-0 right-0 p-3 md:p-4 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0">
+                    <h3 className="text-white text-base md:text-lg font-bold drop-shadow-md">{image.title}</h3>
+                    <p className="text-blue-200 text-xs md:text-sm font-medium">{image.alt}</p>
+                  </div>
+                </AnimateOnScroll>
+              ))}
             </div>
-            <h3 className="text-3xl font-bold text-gray-900 mb-6">Mappare Eccellenze</h3>
-            <p className="text-lg text-gray-600 leading-relaxed mb-8">
-              Questa sezione riporta le iniziative che il Gruppo ha realizzato e sta sviluppando in
-              quattro categorie e consente di mappare i luoghi e le persone che fanno interesse nei settori del
-              turismo, food e imprenditoria.
-            </p>
-            <Link href="/progetti">
-              <button
-                className="mt-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white py-3 px-8 rounded-full font-medium shadow-md transition-all duration-300 hover:scale-105 hover:shadow-xl active:scale-95 flex items-center"
-              >
-                Scopri tutti i progetti
-                <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                </svg>
-              </button>
-            </Link>
           </AnimateOnScroll>
-          
-          <AnimateOnScroll animation="fade-right" delay={400} className="order-1 md:order-2 relative group">
-            <div className="relative">
-              <div className="w-full h-64 md:h-96 hover:scale-[1.03] transition-transform duration-300 relative overflow-hidden rounded-xl shadow-2xl">
-                <Image
-                  src={premio}
-                  alt="Mappa delle eccellenze siciliane"
-                  className="object-cover transition-transform duration-700 group-hover:scale-110"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  priority
-                />
-                {/* Overlay gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-60 transition-all duration-300"></div>
+
+          {/* Sezione finale con immagine e CTA */}
+          <div className="grid md:grid-cols-2 gap-16 items-center relative">
+            <div className="absolute -z-10 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[120%] h-80 bg-blue-50/30 rounded-3xl blur-3xl"></div>
+            
+            <AnimateOnScroll animation="fade-left" delay={200} className="order-2 md:order-1 relative z-10">
+              <div className="mb-4">
+                <span className="px-3 py-1 bg-blue-100 text-blue-700 text-xs rounded-full uppercase tracking-wider font-semibold">Il nostro impegno</span>
               </div>
-              <div className="absolute inset-0 rounded-xl border-2 border-blue-100 transform translate-x-4 translate-y-4 -z-10"></div>
-
-
-            </div>
-          </AnimateOnScroll>
+              <h3 className="text-3xl font-bold text-gray-900 mb-6">Scopri tutti i progetti</h3>
+              <p className="text-lg text-gray-600 leading-relaxed mb-8">
+                Esplora tutte le nostre iniziative e scopri come stiamo valorizzando le eccellenze del territorio siciliano attraverso progetti innovativi e coinvolgenti.
+              </p>
+              <Link href="/progetti">
+                <button
+                  className="mt-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white py-3 px-8 rounded-full font-medium shadow-md transition-all duration-300 hover:scale-105 hover:shadow-xl active:scale-95 flex items-center"
+                >
+                  Scopri tutti i progetti
+                  <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                  </svg>
+                </button>
+              </Link>
+            </AnimateOnScroll>
+            
+            <AnimateOnScroll animation="fade-right" delay={400} className="order-1 md:order-2 relative group">
+              <div className="relative">
+                <div className="w-full h-64 md:h-96 hover:scale-[1.03] transition-transform duration-300 relative overflow-hidden rounded-xl shadow-2xl">
+                  <Image
+                    src={premio}
+                    alt="Mappa delle eccellenze siciliane"
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    priority
+                  />
+                  {/* Overlay gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-60 transition-all duration-300"></div>
+                </div>
+                <div className="absolute inset-0 rounded-xl border-2 border-blue-100 transform translate-x-4 translate-y-4 -z-10"></div>
+              </div>
+            </AnimateOnScroll>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 

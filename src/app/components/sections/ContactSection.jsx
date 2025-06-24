@@ -57,7 +57,7 @@ const ContactSection = () => {
                   </div>
                   <div className="ml-6">
                     <h4 className="text-lg font-semibold text-gray-900">Indirizzo</h4>
-                    <p className="text-gray-600 mt-2 leading-relaxed">Via Litterio 54,<br/>90011 Bagheria (PA), Italia</p>
+                    <p className="text-gray-600 mt-2 leading-relaxed">Via Papa Giovanni XXIII, 26,<br/>90011 Bagheria (PA), Italia</p>
                   </div>
                 </div>
                 
@@ -71,7 +71,7 @@ const ContactSection = () => {
                   </div>
                   <div className="ml-6">
                     <h4 className="text-lg font-semibold text-gray-900">Telefono</h4>
-                    <p className="text-gray-600 mt-2">+39 327 1677871</p>
+                    <p className="text-gray-600 mt-2">+39 091 201852</p>
                   </div>
                 </div>
                 

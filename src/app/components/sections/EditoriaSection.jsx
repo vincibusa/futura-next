@@ -49,9 +49,9 @@ const AboutSection = () => {
         <Image
           src={AllFoodSicilyLogo}
           alt="All Food Sicily Logo"
-          width={96}
-          height={96}
-          className="w-24 h-24 object-contain"
+          width={140}
+          height={140}
+          className="w-35 h-35 object-contain"
         />
       ),
     },
@@ -62,9 +62,9 @@ const AboutSection = () => {
         <Image
           src={SiciliaMagLogo}
           alt="Sicilia Mag Logo"
-          width={96}
-          height={96}
-          className="w-24 h-24 object-contain"
+          width={140}
+          height={140}
+          className="w-35 h-35 object-contain"
         />
       ),
     },
@@ -75,9 +75,9 @@ const AboutSection = () => {
         <Image
           src={FermentoPizzaLogo}
           alt="Fermento Pizza Logo"
-          width={96}
-          height={96}
-          className="w-24 h-24 object-contain"
+          width={140}
+          height={140}
+          className="w-35 h-35 object-contain"
         />
       ),
     },
@@ -88,9 +88,9 @@ const AboutSection = () => {
         <Image
           src={TravelNotizieLogo}
           alt="Travel Notizie Logo"
-          width={96}
-          height={96}
-          className="w-24 h-24 object-contain"
+          width={140}
+          height={140}
+          className="w-35 h-35 object-contain"
         />
       ),
     },
@@ -101,9 +101,9 @@ const AboutSection = () => {
         <Image
           src={VinUpLogo}
           alt="Vinup Logo"
-          width={96}
-          height={96}
-          className="w-24 h-24 object-contain"
+          width={140}
+          height={140}
+          className="w-35 h-35 object-contain"
         />
       ),
     },
@@ -144,11 +144,27 @@ const AboutSection = () => {
        
               <div ref={statsRef} className="grid grid-cols-4 gap-6 pt-4 mt-8 border-t border-gray-200">
                 {[
-                  { value: 15000000, label: 'Di visualizzazioni' },
+                  { value: 15000000, label: 'Di visualizzazioni', displayValue: '15M' },
                   { value: 12360, label: 'Articoli pubblicati' },
                   { value: 5, label: 'Testate giornalistiche' },
                   { value: 3, label: 'Fondatori' }
                 ].map((stat, i) => {
+                  // Se abbiamo un displayValue, usiamo quello, altrimenti usiamo il Counter normale
+                  if (stat.displayValue) {
+                    return (
+                      <AnimateOnScroll key={stat.label} animation="fade-up" delay={i * 100 + 600}>
+                        <div className="text-center flex flex-col items-center">
+                          <div className="flex items-baseline justify-center mb-2 h-10">
+                            <span className="text-3xl font-bold text-blue-600">
+                              {startCounting ? stat.displayValue : '0'}
+                            </span>
+                          </div>
+                          <p className="text-sm text-gray-500 leading-tight">{stat.label}</p>
+                        </div>
+                      </AnimateOnScroll>
+                    );
+                  }
+                  
                   const numPlaces = String(stat.value).length;
                   const places = Array.from({ length: numPlaces }, (_, i) => Math.pow(10, i)).reverse();
                   
@@ -263,7 +279,7 @@ const AboutSection = () => {
                 className="group"
               >
                 <div className="transform transition-all duration-300 h-full flex flex-col">
-                  <div className="p-8 flex items-center justify-center border-b border-gray-100 min-h-[120px]">
+                  <div className="p-8 flex items-center justify-center border-b border-gray-100 min-h-[180px]">
                     {newspaper.icon}
                   </div>
                   <div className="p-8 flex-1">

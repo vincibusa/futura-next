@@ -40,9 +40,9 @@ const Footer = () => {
               <Image 
                 src={logo} 
                 alt="Catanzaro & Partners" 
-                className="h-24 mb-4 w-auto"
-                width={240}
-                height={96}
+                className="h-28 mb-4 w-auto sm:h-32"
+                width={280}
+                height={112}
                 priority
               />
             </div>

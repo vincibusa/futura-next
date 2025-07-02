@@ -32,7 +32,7 @@ const TestimonialsSection = () => {
           <div className="w-full border-t border-gray-200" />
         </div>
         <div className="relative flex justify-center">
-          <span className="bg-white px-3 text-red-700">
+          <span className="bg-white px-3 text-blue-600">
             <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19.428 11.072l-3.2-6.4a1 1 0 00-1.78-.22l-1.4 4.2-4.2-1.4a1 1 0 00-1.22.54l-3.2 6.4a1 1 0 001.22 1.22l4.2-1.4 1.4 4.2a1 1 0 001.78.22l3.2-6.4a1 1 0 00-.22-1.22z" />
             </svg>
@@ -48,7 +48,7 @@ const TestimonialsSection = () => {
           <div className="text-center mb-14">
             <AnimateOnScroll animation="fade-up" delay={500}>
               <h3 className="text-2xl md:text-3xl font-bold text-center text-gray-800 mb-12 max-w-4xl mx-auto">
-                Collaboriamo con i <strong className="font-bold text-red-700">migliori brand e istituzioni pubblico private</strong>.
+                Collaboriamo con i <strong className="font-bold text-blue-600">migliori brand e istituzioni pubblico private</strong>.
               </h3>
             </AnimateOnScroll>
           </div>

@@ -127,6 +127,18 @@ const ComfortZoneSection = () => {
 
   return (
     <>
+    <div className="relative">
+        <div className="absolute inset-0 flex items-center" aria-hidden="true">
+          <div className="w-full border-t border-gray-200" />
+        </div>
+        <div className="relative flex justify-center">
+          <span className="bg-white px-3 text-blue-600">
+            <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19.428 11.072l-3.2-6.4a1 1 0 00-1.78-.22l-1.4 4.2-4.2-1.4a1 1 0 00-1.22.54l-3.2 6.4a1 1 0 001.22 1.22l4.2-1.4 1.4 4.2a1 1 0 001.78.22l3.2-6.4a1 1 0 00-.22-1.22z" />
+            </svg>
+          </span>
+        </div>
+      </div>
       <section id="progetti" className="py-20 bg-white relative overflow-hidden">
         <div className="absolute -top-32 -right-32 w-64 h-64 rounded-full bg-blue-100 opacity-30"></div>
         <div className="absolute -bottom-32 -left-32 w-80 h-80 rounded-full bg-blue-100 opacity-40"></div>
@@ -215,113 +227,13 @@ const ComfortZoneSection = () => {
           </div>
         </div>
 
-        <div className="container mx-auto px-4 relative z-10">
-          <AnimateOnScroll animation="fade-up" delay={300}>
-            <h3 className="text-2xl md:text-3xl font-bold text-center text-gray-800 mb-12 max-w-4xl mx-auto">
-              <strong className="font-bold text-blue-700">LE CATEGORIE DEI NOSTRI PROGETTI</strong> mappano le <strong className="font-bold text-blue-700">eccellenze siciliane</strong> in ogni settore del <strong className="font-bold text-blue-700">territorio</strong>.
-            </h3>
-          </AnimateOnScroll>
 
-          <div className="grid md:grid-cols-2 gap-16 items-start mt-16">
-            <div className='flex flex-col items-center justify-center gap-4 text-left h-full'>
-              <AnimateOnScroll animation="fade-right" delay={400}>
-                <h4 className="text-2xl font-bold text-gray-800">
-                  <span className="text-blue-700">Mappare Eccellenze</span> per valorizzare il territorio siciliano
-                </h4>
-              </AnimateOnScroll>
-              <AnimateOnScroll animation="fade-right" delay={550}>
-                <h2 className='text-xl font-bold text-gray-800'>
-                  <strong className="text-black">Iniziative mirate</strong> per riconoscere e promuovere le <strong className="text-blue-700">migliori realtà</strong> del panorama <strong className="text-blue-700">enogastronomico e turistico</strong>.
-                </h2>
-              </AnimateOnScroll>
-            </div>
-
-            <div className="space-y-4 text-lg text-gray-700 leading-relaxed">
-              <AnimateOnScroll animation="fade-left" delay={500}>
-                <p>
-                  I nostri <strong className="font-bold text-blue-700">progetti</strong> nascono dalla volontà di creare una <strong className="font-bold text-blue-700">mappa completa</strong> delle eccellenze siciliane, dal settore food&wine al turismo esperienziale, valorizzando tradizioni e innovazioni del territorio.
-                </p>
-              </AnimateOnScroll>
-              <AnimateOnScroll animation="fade-left" delay={650}>
-                <p>
-                  Attraverso <strong className="font-bold text-blue-700">Guide specializzate</strong>, <strong className="font-bold text-blue-700">Premi di settore</strong>, <strong className="font-bold text-blue-700">Classifiche autorevoli</strong> e <strong className="font-bold text-blue-700">Gran Tour territoriali</strong>, costruiamo un network di connessioni tra produttori, operatori e consumatori.
-                </p>
-              </AnimateOnScroll>
-              <AnimateOnScroll animation="fade-left" delay={800}>
-                <p>
-                  Ogni iniziativa è progettata per generare <strong className="font-bold text-blue-700">valore aggiunto</strong> al territorio, combinando la forza della comunicazione digitale con l'impatto degli eventi dal vivo per massimizzare visibilità e risultati.
-                </p>
-              </AnimateOnScroll>
-            </div>
-          </div>
-        </div>
 
         {/* Sezione Categorie di Progetti */}
         <div className="container mx-auto px-4 relative z-10 mt-24">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-            {projectCategories.map((category, index) => (
-              <AnimateOnScroll 
-                key={category.title} 
-                animation="fade-up" 
-                delay={index * 150 + 400} 
-                className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all p-6 border border-gray-100"
-              >
-                <div className="flex items-center mb-4">
-                  <div className="p-2 bg-blue-50 rounded-lg mr-4">
-                    {category.icon}
-                  </div>
-                  <h4 className="text-xl font-bold text-gray-900">{category.title}</h4>
-                </div>
-                <ul className="space-y-2 ml-2">
-                  {category.projects.map((project, i) => (
-                    <li key={i} className="flex items-center text-gray-700">
-                      <svg className="w-4 h-4 mr-2 text-blue-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                        <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd"></path>
-                      </svg>
-                      {project}
-                    </li>
-                  ))}
-                </ul>
-              </AnimateOnScroll>
-            ))}
-          </div>
 
-          {/* Galleria di immagini con layout migliorato */}
-          <AnimateOnScroll animation="fade-up" delay={400} className="relative mb-16">
-            <div className="absolute -top-10 -left-10 w-20 h-20 border-2 border-blue-200 rounded-lg z-0 opacity-50 hidden md:block"></div>
-            <div className="absolute -bottom-10 -right-10 w-20 h-20 border-2 border-blue-200 rounded-lg z-0 opacity-50 hidden md:block"></div>
-            
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3 relative z-10">
-              {galleryImages.map((image, index) => (
-                <AnimateOnScroll
-                  key={index}
-                  animation="fade-up"
-                  delay={index * 100 + 500}
-                  className={`
-                    ${index === 0 ? "col-span-2 row-span-2 relative h-64 md:h-96" : "relative h-40 md:h-52"}
-                    overflow-hidden rounded-lg shadow-lg group hover:shadow-xl transition-all duration-300
-                  `}
-                >
-                  <Image
-                    src={image.src}
-                    alt={image.alt}
-                    fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-110"
-                    sizes={index === 0 ? "(max-width: 768px) 100vw, 50vw" : "(max-width: 768px) 50vw, 25vw"}
-                    priority={index <= 2}
-                  />
-                  {/* Overlay gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
-                  
-                  {/* Info overlay che appare al passaggio del mouse */}
-                  <div className="absolute bottom-0 left-0 right-0 p-3 md:p-4 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0">
-                    <h3 className="text-white text-base md:text-lg font-bold drop-shadow-md">{image.title}</h3>
-                    <p className="text-blue-200 text-xs md:text-sm font-medium">{image.alt}</p>
-                  </div>
-                </AnimateOnScroll>
-              ))}
-            </div>
-          </AnimateOnScroll>
+
+  
 
           {/* Sezione finale con immagine e CTA */}
           <div className="grid md:grid-cols-2 gap-16 items-center relative">

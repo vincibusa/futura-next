@@ -142,12 +142,17 @@ const AboutSection = () => {
                 </p>
               </AnimateOnScroll>
        
-              <div ref={statsRef} className="grid grid-cols-3 gap-6 pt-4 mt-8 border-t border-gray-200">
+              <div ref={statsRef} className="grid grid-cols-4 gap-6 pt-4 mt-8 border-t border-gray-200">
                 {[
-                  { value: 2020, label: 'Anno di fondazione' },
+                  { value: 15000000, label: 'Di visualizzazioni' },
+                  { value: 12360, label: 'Articoli pubblicati' },
                   { value: 5, label: 'Testate giornalistiche' },
                   { value: 3, label: 'Fondatori' }
-                ].map((stat, i) => (
+                ].map((stat, i) => {
+                  const numPlaces = String(stat.value).length;
+                  const places = Array.from({ length: numPlaces }, (_, i) => Math.pow(10, i)).reverse();
+                  
+                  return (
                   <AnimateOnScroll key={stat.label} animation="fade-up" delay={i * 100 + 600}>
                     <div className="text-center flex flex-col items-center">
                       <div className="flex items-baseline justify-center mb-2 h-10">
@@ -156,7 +161,7 @@ const AboutSection = () => {
                           fontSize={28}
                           textColor="#2563eb"
                           fontWeight="bold"
-                          places={stat.value >= 100 ? [1000, 100, 10, 1] : [10, 1]}
+                          places={places}
                           gap={2}
                           padding={0}
                           gradientHeight={0}
@@ -167,7 +172,7 @@ const AboutSection = () => {
                       <p className="text-sm text-gray-500 leading-tight">{stat.label}</p>
                     </div>
                   </AnimateOnScroll>
-                ))}
+                )})}
               </div>
             </div>
             
@@ -213,7 +218,7 @@ const AboutSection = () => {
         <div className="container mx-auto px-4 relative z-10">
           <AnimateOnScroll animation="fade-up" delay={300}>
             <h3 className="text-2xl md:text-3xl font-bold text-center text-gray-800 mb-12 max-w-4xl mx-auto">
-              <strong className="font-bold text-blue-700">LE NOSTRE TESTATE GIORNALISTICHE</strong> raccontano l'<strong className="font-bold text-blue-700">enogastronomia siciliana</strong> e le sue <strong className="font-bold text-blue-700">eccellenze</strong> con passione e professionalità.
+              <strong className="font-bold text-blue-700">UN GRUPPO EDITORIALE</strong> che racconta <strong className="font-bold text-blue-700">la Sicilia e l'Italia</strong> attraverso <strong className="font-bold text-blue-700">notizie e approfondimenti</strong> con passione e dedizione.
             </h3>
           </AnimateOnScroll>
 
@@ -221,14 +226,10 @@ const AboutSection = () => {
             <div className='flex flex-col items-center justify-center gap-4 text-left h-full'>
               <AnimateOnScroll animation="fade-right" delay={400}>
                 <h4 className="text-2xl font-bold text-gray-800">
-                  Un <span className="text-blue-700">network editoriale</span> che valorizza il territorio siciliano
+                  Un <span className="text-blue-700">network editoriale</span> specializzto sul mondo enogastronomico,turistico e sostenibile
                 </h4>
               </AnimateOnScroll>
-              <AnimateOnScroll animation="fade-right" delay={550}>
-                <h2 className='text-xl font-bold text-gray-800'>
-                  <strong className="text-black">Informazione di qualità</strong> per raccontare la <strong className="text-blue-700">cultura enogastronomica</strong> e le <strong className="text-blue-700">tradizioni del territorio</strong>.
-                </h2>
-              </AnimateOnScroll>
+
             </div>
 
             <div className="space-y-4 text-lg text-gray-700 leading-relaxed">
@@ -244,7 +245,7 @@ const AboutSection = () => {
               </AnimateOnScroll>
               <AnimateOnScroll animation="fade-left" delay={800}>
                 <p>
-                  Attraverso un <strong className="font-bold text-blue-700">approccio digitale innovativo</strong>, raggiungiamo migliaia di lettori appassionati, contribuendo alla valorizzazione e promozione delle tradizioni culinarie e culturali della Sicilia.
+                  Attraverso un <strong className="font-bold text-blue-700">approccio digitale innovativo</strong>, raggiungiamo migliaia di lettori appassionati, contribuendo alla valorizzazione e promozione delle tradizioni culinarie e culturali.
                 </p>
               </AnimateOnScroll>
             </div>

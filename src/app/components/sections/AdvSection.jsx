@@ -145,6 +145,18 @@ const AdvSection = () => {
 
   return (
     <>
+          <div className="relative">
+        <div className="absolute inset-0 flex items-center" aria-hidden="true">
+          <div className="w-full border-t border-gray-200" />
+        </div>
+        <div className="relative flex justify-center">
+          <span className="bg-white px-3 text-blue-600">
+            <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19.428 11.072l-3.2-6.4a1 1 0 00-1.78-.22l-1.4 4.2-4.2-1.4a1 1 0 00-1.22.54l-3.2 6.4a1 1 0 001.22 1.22l4.2-1.4 1.4 4.2a1 1 0 001.78.22l3.2-6.4a1 1 0 00-.22-1.22z" />
+            </svg>
+          </span>
+        </div>
+      </div>
       <section id="adv" className="py-20 bg-white relative overflow-hidden">
         <div className="absolute -top-32 -right-32 w-64 h-64 rounded-full bg-blue-100 opacity-30"></div>
         <div className="absolute -bottom-32 -left-32 w-80 h-80 rounded-full bg-blue-100 opacity-40"></div>
@@ -279,29 +291,7 @@ const AdvSection = () => {
         <div className="container mx-auto px-4 relative z-10 mt-24">
 
 
-          {/* Eventi Grid con TitleCard */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-16">
-            {events.map((event, index) => (
-              <AnimateOnScroll
-                key={event.id}
-                animation="fade-up"
-                delay={index * 100 + 200}
-              >
-                <TitleCard
-                  imageSrc={event.image}
-                  altText={`${event.title} - ${event.description}`}
-                  captionText={event.title}
-                  description={event.description}
-                  containerHeight="320px"
-                  containerWidth="100%"
-                  scaleOnHover={1.05}
-                  rotateAmplitude={8}
-                  showMobileWarning={false}
-                  showTooltip={false}
-                />
-              </AnimateOnScroll>
-            ))}
-          </div>
+
 
           {/* CTA finale */}
           <div className="text-center">

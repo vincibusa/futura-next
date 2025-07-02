@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
-import AnimateOnScroll from '../animation/AnimateOnScroll';
+
 import AnimatedOnScroll from '../animation/AnimatedOnScroll';
 
 // Import delle immagini hero

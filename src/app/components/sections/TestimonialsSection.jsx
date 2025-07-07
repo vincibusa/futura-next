@@ -11,7 +11,7 @@ const TestimonialsSection = () => {
     { id: 6, name: "Moretti Forni", image: "https://firebasestorage.googleapis.com/v0/b/catanzaroepartners-13968.firebasestorage.app/o/MORETTI%20FORNI.png?alt=media&token=241c5092-c056-40cb-874d-9592790d27f4" },
     { id: 7, name: "Riggi", image: "https://firebasestorage.googleapis.com/v0/b/catanzaroepartners-13968.firebasestorage.app/o/RIGGI.png?alt=media&token=2dbc8999-c2c9-4e8d-bc2b-4ed00ee3811b" },
     { id: 8, name: "Sagrim Electrolux", image: "https://firebasestorage.googleapis.com/v0/b/catanzaroepartners-13968.firebasestorage.app/o/SAGRIM%20ELECTROLUX-02.png?alt=media&token=3190592c-e20f-4aa5-b7ef-c26d8c6b9442" },
-    { id: 9, name: "Unione Europea", image: "https://firebasestorage.googleapis.com/v0/b/catanzaroepartners-13968.firebasestorage.app/o/UNIONE%20EUROPEA-02.png?alt=media&token=70d5b417-c3ad-4533-9888-2eaa013d6d10"},
+
     { id: 10, name: "Acqua Panna", image: "https://firebasestorage.googleapis.com/v0/b/catanzaroepartners-13968.firebasestorage.app/o/acqua%20panna-02.png?alt=media&token=11599bf0-7c4c-43eb-9939-b0028abe2d69" },
     { id: 11, name: "All Food Sicily", image: "https://firebasestorage.googleapis.com/v0/b/catanzaroepartners-13968.firebasestorage.app/o/all%20food-02.png?alt=media&token=7c85fa51-20c7-45d3-95c9-11f9263bba07" },
     { id: 12, name: "Caffè Barbera", image: "https://firebasestorage.googleapis.com/v0/b/catanzaroepartners-13968.firebasestorage.app/o/barbera%20logo.png?alt=media&token=b21be495-55fa-42ec-95e9-389e704f4097" },

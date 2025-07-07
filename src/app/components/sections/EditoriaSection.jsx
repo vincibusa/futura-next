@@ -45,83 +45,60 @@ const AboutSection = () => {
     {
       title: 'All Food Sicily',
       description: 'Primo giornale siciliano online ad avere una diffusione capillare, nato nel 2020 sotto la direzione di Salvo Scaduto.',
-      icon: (
-        <Image
-          src={AllFoodSicilyLogo}
-          alt="All Food Sicily Logo"
-          width={140}
-          height={140}
-          className="w-35 h-35 object-contain"
-        />
-      ),
+      logo: AllFoodSicilyLogo,
+      alt: 'Logo della testata giornalistica All Food Sicily',
+      url: 'https://www.allfoodsicily.it' // URL Reale della testata
     },
     {
       title: 'Sicilia Mag',
       description: 'Testata giornalistica dedicata al territorio siciliano, alla sua cultura e alle sue eccellenze.',
-      icon: (
-        <Image
-          src={SiciliaMagLogo}
-          alt="Sicilia Mag Logo"
-          width={140}
-          height={140}
-          className="w-35 h-35 object-contain"
-        />
-      ),
+      logo: SiciliaMagLogo,
+      alt: 'Logo della testata giornalistica Sicilia Mag',
+      url: 'https://www.siciliamag.it' // URL Reale della testata
     },
     {
       title: 'Fermento Pizza',
       description: 'Pubblicazione dedicata al mondo della pizza, alle sue innovazioni e ai suoi protagonisti.',
-      icon: (
-        <Image
-          src={FermentoPizzaLogo}
-          alt="Fermento Pizza Logo"
-          width={140}
-          height={140}
-          className="w-35 h-35 object-contain"
-        />
-      ),
+      logo: FermentoPizzaLogo,
+      alt: 'Logo della testata giornalistica Fermento Pizza',
+      url: 'https://www.fermentopizza.com' // URL Reale della testata
     },
     {
       title: 'Travel Notizie',
       description: 'Giornale online che racconta le tendenze del turismo, i luoghi da scoprire e le esperienze di viaggio.',
-      icon: (
-        <Image
-          src={TravelNotizieLogo}
-          alt="Travel Notizie Logo"
-          width={140}
-          height={140}
-          className="w-35 h-35 object-contain"
-        />
-      ),
+      logo: TravelNotizieLogo,
+      alt: 'Logo della testata giornalistica Travel Notizie',
+      url: 'https://www.travelnotizie.com' // URL Reale della testata
     },
     {
       title: 'Vinup',
       description: 'Testata specializzata nel mondo del vino, con focus sulle eccellenze enologiche siciliane e italiane.',
-      icon: (
-        <Image
-          src={VinUpLogo}
-          alt="Vinup Logo"
-          width={140}
-          height={140}
-          className="w-35 h-35 object-contain"
-        />
-      ),
+      logo: VinUpLogo,
+      alt: 'Logo della testata giornalistica Vinup',
+      url: 'https://www.vinup.it' // URL Reale della testata
     },
   ];
 
-  const galleryImages = [
-    { src: '/premioAllFood.jpeg', alt: 'Premiazione durante l\'evento All Food Sicily, un momento di riconoscimento per l\'eccellenza enogastronomica.' },
-    { src: '/Hero1.jpeg', alt: 'Momento di celebrazione del gruppo editoriale siciliano.' },
-    { src: '/Hero2.jpeg', alt: 'Team del gruppo editoriale durante un evento di presentazione.' },
-    { src: '/Hero3.jpeg', alt: 'Copertina di una delle nostre pubblicazioni editoriali.' },
-    { src: '/cannolo.jpg', alt: 'Cannolo siciliano, simbolo delle eccellenze raccontate dalle nostre testate.' },
-    { src: '/couscous.jpg', alt: 'Couscous siciliano, tradizione culinaria documentata nei nostri giornali.' },
-    { src: '/spumantietna.jpeg', alt: 'Spumanti dell\'Etna, eccellenze enologiche promosse dalle nostre pubblicazioni.' },
-    { src: '/taobuk.jpeg', alt: 'Evento Taobuk, esempio di manifestazione culturale coperta dalle nostre testate.' },
-  ];
+  const newsMediaSchema = newspapers.map(newspaper => ({
+    "@context": "https://schema.org",
+    "@type": "NewsMediaOrganization",
+    "name": newspaper.title,
+    "url": newspaper.url,
+    "logo": `https://futuracompany.it${newspaper.logo.src}`,
+    "description": newspaper.description,
+    "parentOrganization": {
+      "@type": "Organization",
+      "name": "Futura Company",
+      "url": "https://futuracompany.it"
+    }
+  }));
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(newsMediaSchema) }}
+      />
       <section id="editoria" className="py-20 bg-white relative overflow-hidden">
         <div className="absolute -top-32 -right-32 w-64 h-64 rounded-full bg-blue-100 opacity-30"></div>
         <div className="absolute -bottom-32 -left-32 w-80 h-80 rounded-full bg-blue-100 opacity-40"></div>
@@ -278,15 +255,21 @@ const AboutSection = () => {
                 delay={index * 150 + 400}
                 className="group"
               >
-                <div className="transform transition-all duration-300 h-full flex flex-col">
+                <a href={newspaper.url} target="_blank" rel="noopener noreferrer" className="transform transition-all duration-300 h-full flex flex-col">
                   <div className="p-8 flex items-center justify-center border-b border-gray-100 min-h-[180px]">
-                    {newspaper.icon}
+                    <Image
+                      src={newspaper.logo}
+                      alt={newspaper.alt}
+                      width={140}
+                      height={140}
+                      className="w-35 h-35 object-contain"
+                    />
                   </div>
                   <div className="p-8 flex-1">
                     <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors">{newspaper.title}</h3>
                     <p className="text-gray-600 leading-relaxed text-sm">{newspaper.description}</p>
                   </div>
-                </div>
+                </a>
               </AnimateOnScroll>
             ))}
           </div>

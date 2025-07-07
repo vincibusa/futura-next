@@ -14,25 +14,53 @@ const ContactSection = () => {
   
   // Array di social media
   const socialMedia = [
-    { name: 'facebook', url: 'https://facebook.com/' },
-    { name: 'instagram', url: 'https://instagram.com/' },
-    { name: 'linkedin', url: 'https://linkedin.com/' },
-    { name: 'twitter', url: 'https://twitter.com/' }
+    { name: 'facebook', url: 'https://facebook.com/futuracompany' },
+    { name: 'instagram', url: 'https://instagram.com/futuracompany' },
+    { name: 'linkedin', url: 'https://linkedin.com/company/futuracompany' },
   ];
 
+  const contactSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Futura Company",
+    "url": "https://futuracompany.it",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Via Papa Giovanni XXIII, 26",
+      "addressLocality": "Bagheria",
+      "postalCode": "90011",
+      "addressRegion": "PA",
+      "addressCountry": "IT"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+39-091-201852",
+      "contactType": "customer service",
+      "email": "info@futuracompany.it",
+      "areaServed": "IT"
+    },
+    "sameAs": socialMedia.map(s => s.url)
+  };
+
   return (
-    <><div className="relative">
-      <div className="absolute inset-0 flex items-center" aria-hidden="true">
-        <div className="w-full border-t border-gray-200" />
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactSchema) }}
+      />
+      <div className="relative">
+        <div className="absolute inset-0 flex items-center" aria-hidden="true">
+          <div className="w-full border-t border-gray-200" />
+        </div>
+        <div className="relative flex justify-center">
+          <span className="bg-white px-3 text-blue-600">
+            <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19.428 11.072l-3.2-6.4a1 1 0 00-1.78-.22l-1.4 4.2-4.2-1.4a1 1 0 00-1.22.54l-3.2 6.4a1 1 0 001.22 1.22l4.2-1.4 1.4 4.2a1 1 0 001.78.22l3.2-6.4a1 1 0 00-.22-1.22z" />
+            </svg>
+          </span>
+        </div>
       </div>
-      <div className="relative flex justify-center">
-        <span className="bg-white px-3 text-blue-600">
-          <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19.428 11.072l-3.2-6.4a1 1 0 00-1.78-.22l-1.4 4.2-4.2-1.4a1 1 0 00-1.22.54l-3.2 6.4a1 1 0 001.22 1.22l4.2-1.4 1.4 4.2a1 1 0 001.78.22l3.2-6.4a1 1 0 00-.22-1.22z" />
-          </svg>
-        </span>
-      </div>
-    </div><section id="contatti" className="py-24 bg-white relative overflow-hidden">
+      <section id="contatti" className="py-24 bg-white relative overflow-hidden">
         {/* Elementi decorativi */}
         <div className="absolute -top-40 -right-40 w-80 h-80 rounded-full bg-blue-50 opacity-40"></div>
         <div className="absolute -bottom-40 -left-40 w-80 h-80 rounded-full bg-blue-50 opacity-30"></div>
@@ -96,7 +124,7 @@ const ContactSection = () => {
                     </div>
                     <div className="ml-6">
                       <h4 className="text-lg font-semibold text-gray-900">Email</h4>
-                      <p className="text-gray-600 mt-2">catanzaroepartners@gmail.com</p>
+                      <p className="text-gray-600 mt-2">info@futuracompany.it</p>
                     </div>
                   </div>
                 </div>
@@ -208,9 +236,9 @@ const ContactSection = () => {
                         className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded" />
                       <label htmlFor="privacy" className="ml-2 text-gray-700 text-sm">
                         Acconsento al trattamento dei dati personali secondo la{' '}
-                        <Link href="/privacy-policy" className="text-blue-600 hover:underline">
+                        <a href="#" className="text-blue-600 hover:underline">
                           Privacy Policy
-                        </Link>
+                        </a>
                         . *
                       </label>
                     </div>
@@ -232,19 +260,20 @@ const ContactSection = () => {
             <div className="mt-20">
               <div className="bg-gray-200 h-96 rounded-lg overflow-hidden">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3164.032025408837!2d13.490707075808764!3d38.0823894!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1319e61dddfb3f87%3A0x33f010dd4ecd8a92!2sVia%20Litterio%2C%2054%2C%2090011%20Bagheria%20PA!5e0!3m2!1sit!2sit!4v1715279644068!5m2!1sit!2sit"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3143.032025408837!2d13.509453075808764!3d38.0823894!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1319e61dddfb3f87%3A0x33f010dd4ecd8a92!2sVia%20Papa%20Giovanni%20XXIII%2C%2026%2C%2090011%20Bagheria%20PA!5e0!3m2!1sit!2sit!4v1715279644068!5m2!1sit!2sit"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
                   allowFullScreen=""
                   loading="lazy"
-                  title="Mappa sede Catanzaro & Partners"
+                  title="Mappa della sede di Futura Company a Bagheria"
                 ></iframe>
               </div>
             </div>
           </AnimateOnScroll>
         </div>
-      </section></>
+      </section>
+    </>
   );
 };
 

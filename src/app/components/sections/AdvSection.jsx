@@ -63,74 +63,149 @@ const AdvSection = () => {
       title: 'Diospyros Festival',
       description: 'La celebrazione del frutto del kaki, con eventi gastronomici e culturali dedicati.',
       image: diospyros.src,
+      alt: 'Logo del Diospyros Festival, evento dedicato al kaki.',
+      url: 'https://futuracompany.it/#adv'
     },
     {
       id: 2,
       title: 'San Pellegrino Chef Table',
       description: 'Un esclusivo evento gastronomico con i migliori chef del panorama siciliano e nazionale.',
       image: sanpellegrino.src,
+      alt: 'Tavolo elegantemente apparecchiato per il San Pellegrino Chef Table.',
+      url: 'https://futuracompany.it/#adv'
     },
     {
       id: 3,
       title: 'Sagra del Cannolo',
       description: 'La manifestazione dedicata al dolce simbolo della Sicilia, con degustazioni e concorsi.',
       image: cannolo.src,
+      alt: 'Primo piano di un cannolo siciliano croccante con ricotta fresca.',
+      url: 'https://futuracompany.it/#adv'
     },
     {
       id: 4,
       title: 'Sfincione Fest',
       description: 'Festival dedicato allo sfincione, tipica specialità palermitana, con stand e workshop.',
       image: sfincionefest.src,
+      alt: 'Trancio di sfincione palermitano, soffice e saporito.',
+      url: 'https://futuracompany.it/#adv'
     },
     {
       id: 5,
       title: 'Cynara Festival',
       description: 'Evento dedicato al carciofo e alle eccellenze agricole siciliane.',
       image: cynara.src,
+      alt: 'Carciofi freschi in mostra al Cynara Festival.',
+      url: 'https://futuracompany.it/#adv'
     },
     {
       id: 6,
       title: 'Cous Cous Fest',
       description: 'La celebrazione internazionale del cous cous, con chef da tutto il Mediterraneo.',
       image: couscous.src,
+      alt: 'Piatto di cous cous ricco di verdure e spezie al Cous Cous Fest.',
+      url: 'https://futuracompany.it/#adv'
     },
     {
       id: 7,
       title: 'Beer Catania',
       description: 'Festival delle birre artigianali etnee e siciliane, con degustazioni e incontri.',
       image: beercatania.src,
+      alt: 'Boccali di birra artigianale al festival Beer Catania.',
+      url: 'https://futuracompany.it/#adv'
     },
     {
       id: 8,
       title: 'Spumanti dell\'Etna',
       description: 'Evento dedicato alle bollicine prodotte sul vulcano attivo più alto d\'Europa.',
       image: spumantietna.src,
+      alt: 'Calici di spumante dell\'Etna con vista sul vulcano.',
+      url: 'https://futuracompany.it/#adv'
     },
     {
       id: 9,
       title: 'Festival del Cinema 2023',
       description: 'Rassegna cinematografica con proiezioni, incontri e ospiti internazionali.',
       image: cinema.src,
+      alt: 'Schermo cinematografico durante una proiezione al Festival del Cinema.',
+      url: 'https://futuracompany.it/#adv'
     },
     {
       id: 10,
       title: 'Taobuk',
       description: 'Festival letterario internazionale che unisce letteratura, arte e cultura.',
       image: taobuk.src,
+      alt: 'Logo del festival letterario internazionale Taobuk a Taormina.',
+      url: 'https://futuracompany.it/#adv'
     },
     {
       id: 11,
-      title: 'Sfincione Festival',
+      title: 'Sfincione Festival - L\'Originale',
       description: 'La celebrazione della specialità palermitana, con concorsi tra i migliori panificatori.',
       image: sfincionefestival.src,
+      alt: 'Panificatori in gara allo Sfincione Festival, l\'originale.',
+      url: 'https://futuracompany.it/#adv'
     },
     {
       id: 12,
-      title: 'Cannolo Festival',
+      title: 'Cannolo Festival - Edizione Speciale',
       description: 'Manifestazione dedicata al cannolo siciliano, con pasticceri da tutta l\'isola.',
       image: cannolo.src,
+      alt: 'Pasticceri che preparano cannoli durante l\'edizione speciale del Cannolo Festival.',
+      url: 'https://futuracompany.it/#adv'
     },
   ];
+
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Promozione Eventi",
+    "name": "Promozione e Comunicazione di Eventi in Sicilia",
+    "description": "Offriamo servizi di promozione e comunicazione per eventi culturali, gastronomici e artistici in Sicilia, garantendo massima visibilità attraverso la nostra rete editoriale e canali multimediali.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Futura Company",
+      "url": "https://futuracompany.it"
+    },
+    "areaServed": {
+      "@type": "Place",
+      "name": "Sicilia"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Tipologie di Eventi Promossi",
+      "itemListElement": events.map(event => ({
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": event.title
+        }
+      }))
+    }
+  };
+
+  const eventsSchema = events.map(event => ({
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": event.title,
+    "description": event.description,
+    "image": `https://futuracompany.it${event.image}`,
+    "url": event.url,
+    "organizer": {
+      "@type": "Organization",
+      "name": "Futura Company",
+      "url": "https://futuracompany.it"
+    },
+    "location": {
+      "@type": "Place",
+      "name": "Sicilia",
+      "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "IT",
+        "addressCountry": "IT"
+      }
+    }
+  }));
 
   const galleryImages = [
     { src: Hero1.src, alt: 'Evento promozionale Futura Company con partecipanti e organizzatori.' },
@@ -145,7 +220,15 @@ const AdvSection = () => {
 
   return (
     <>
-          <div className="relative">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(eventsSchema) }}
+      />
+      <div className="relative">
         <div className="absolute inset-0 flex items-center" aria-hidden="true">
           <div className="w-full border-t border-gray-200" />
         </div>
@@ -261,9 +344,9 @@ const AdvSection = () => {
                 </h4>
               </AnimateOnScroll>
               <AnimateOnScroll animation="fade-right" delay={550}>
-                <h2 className='text-xl font-bold text-gray-800'>
+                <h3 className='text-xl font-bold text-gray-800'>
                   <strong className="text-black">Copertura completa</strong> per <strong className="text-blue-700">festival</strong>, <strong className="text-blue-700">manifestazioni culturali</strong> e <strong className="text-blue-700">eventi gastronomici</strong> di rilievo.
-                </h2>
+                </h3>
               </AnimateOnScroll>
             </div>
 

@@ -213,6 +213,7 @@ export default function RootLayout({ children }) {
             }),
           }}
         />
+        <meta name="google-site-verification" content="_X9EqX9j1610eHaWPi23JtqHIwwZ2rNqvhdYzAk82oU" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}

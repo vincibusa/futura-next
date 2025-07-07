@@ -6,8 +6,6 @@ import AnimateOnScroll from '../animation/AnimateOnScroll';
 import Counter from '../counter';
 import TitleCard from '../cards/TitleCard';
 
-
-
 const TeamSection = () => {
   const [startCounting, setStartCounting] = useState(false);
   const statsRef = useRef(null);
@@ -77,19 +75,38 @@ const TeamSection = () => {
     }
   ];
 
+  const teamSchema = teamMembers.map(member => ({
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": member.name,
+    "jobTitle": member.role,
+    "image": member.image.startsWith('http') ? member.image : `https://futuracompany.it${member.image}`,
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Futura Company",
+      "url": "https://futuracompany.it"
+    }
+  }));
+
   return (
-    <><div className="relative">
-      <div className="absolute inset-0 flex items-center" aria-hidden="true">
-        <div className="w-full border-t border-gray-200" />
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(teamSchema) }}
+      />
+      <div className="relative">
+        <div className="absolute inset-0 flex items-center" aria-hidden="true">
+          <div className="w-full border-t border-gray-200" />
+        </div>
+        <div className="relative flex justify-center">
+          <span className="bg-white px-3 text-blue-600">
+            <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19.428 11.072l-3.2-6.4a1 1 0 00-1.78-.22l-1.4 4.2-4.2-1.4a1 1 0 00-1.22.54l-3.2 6.4a1 1 0 001.22 1.22l4.2-1.4 1.4 4.2a1 1 0 001.78.22l3.2-6.4a1 1 0 00-.22-1.22z" />
+            </svg>
+          </span>
+        </div>
       </div>
-      <div className="relative flex justify-center">
-        <span className="bg-white px-3 text-blue-600">
-          <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19.428 11.072l-3.2-6.4a1 1 0 00-1.78-.22l-1.4 4.2-4.2-1.4a1 1 0 00-1.22.54l-3.2 6.4a1 1 0 001.22 1.22l4.2-1.4 1.4 4.2a1 1 0 001.78.22l3.2-6.4a1 1 0 00-.22-1.22z" />
-          </svg>
-        </span>
-      </div>
-    </div><section id="team" className="py-20 bg-white relative overflow-hidden">
+      <section id="team" className="py-20 bg-white relative overflow-hidden">
         <div className="absolute -top-32 -right-32 w-64 h-64 rounded-full bg-blue-100 opacity-30"></div>
         <div className="absolute -bottom-32 -left-32 w-80 h-80 rounded-full bg-blue-100 opacity-40"></div>
 
@@ -146,7 +163,7 @@ const TeamSection = () => {
               >
                 <TitleCard
                   imageSrc={member.image}
-                  altText={member.name}
+                  altText={`Foto di ${member.name}, ${member.role} di Futura Company`}
                   captionText={member.name}
                   description={member.role}
                   containerHeight="300px"
@@ -175,7 +192,8 @@ const TeamSection = () => {
             </div>
           </AnimateOnScroll>
         </div>
-      </section></>
+      </section>
+    </>
   );
 };
 

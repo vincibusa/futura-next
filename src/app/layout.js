@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  metadataBase: new URL('https://futuracompany.it'),
+  metadataBase: new URL('https://www.futuracompany.it'),
   title: "Futura Company | Gruppo Editoriale Siciliano - 5 Testate Giornalistiche Online",
   description: "Futura Company è il principale gruppo editoriale siciliano con 5 testate specializzate: All Food Sicily, Sicilia Mag, Fermento Pizza, Travel Notizie e Vinup. Editoria digitale, eventi gastronomici e turismo in Sicilia dal 2020.",
   keywords: [
@@ -50,9 +50,9 @@ export const metadata = {
   referrer: "origin-when-cross-origin",
   manifest: "/manifest.json",
   alternates: {
-    canonical: "https://futuracompany.it",
+    canonical: "https://www.futuracompany.it",
     languages: {
-      'it-IT': 'https://futuracompany.it',
+      'it-IT': 'https://www.futuracompany.it',
     },
   },
   icons: {
@@ -69,7 +69,7 @@ export const metadata = {
   openGraph: {
     type: "website",
     locale: "it_IT",
-    url: "https://futuracompany.it",
+    url: "https://www.futuracompany.it",
     siteName: "Futura Company",
     title: "Futura Company | Gruppo Editoriale Siciliano - 5 Testate Giornalistiche Online",
     description: "Il principale gruppo editoriale siciliano con 5 testate specializzate in enogastronomia, turismo e cultura. Dal 2020 raccontiamo l'eccellenza siciliana attraverso All Food Sicily, Sicilia Mag, Fermento Pizza, Travel Notizie e Vinup.",
@@ -119,7 +119,7 @@ export default function RootLayout({ children }) {
       <head>
         <link rel="manifest" href="/manifest.json" />
         <link rel="icon" href="/favicon.ico" />
-        <link rel="canonical" href="https://futuracompany.it" />
+        <link rel="canonical" href="https://www.futuracompany.it" />
         <meta name="format-detection" content="telephone=no" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
@@ -134,8 +134,8 @@ export default function RootLayout({ children }) {
               "@type": "Organization",
               "name": "Futura Company",
               "alternateName": "Gruppo Editoriale Futura Company",
-              "url": "https://futuracompany.it",
-              "logo": "https://futuracompany.it/logo.png",
+              "url": "https://www.futuracompany.it",
+              "logo": "https://www.futuracompany.it/logo.png",
               "description": "Gruppo editoriale siciliano specializzato in editoria digitale, eventi gastronomici e turismo con 5 testate online",
               "foundingDate": "2020",
               "founders": [

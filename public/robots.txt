@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /api/
 
-Sitemap: https://futuracompany.it/sitemap.xml 
+Sitemap: https://www.futuracompany.it/sitemap.xml 

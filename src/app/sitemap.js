@@ -2,7 +2,7 @@
 export const dynamic = 'force-static';
 
 export default async function sitemap() {
-  const baseUrl = 'https://futuracompany.it';
+  const baseUrl = 'https://www.futuracompany.it';
   const currentDate = new Date().toISOString();
 
   // Definisci le route principali del sito

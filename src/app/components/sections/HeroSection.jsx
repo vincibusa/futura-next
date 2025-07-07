@@ -28,6 +28,22 @@ const HeroSection = () => {
     return () => clearInterval(interval);
   }, [heroImages.length]);
 
+  // ✅ Precarica la prossima immagine per transizioni fluide
+  useEffect(() => {
+    const nextIndex = (currentSlide + 1) % heroImages.length;
+    const link = document.createElement('link');
+    link.rel = 'preload';
+    link.as = 'image';
+    link.href = heroImages[nextIndex].src.src || heroImages[nextIndex].src;
+    document.head.appendChild(link);
+    
+    return () => {
+      if (document.head.contains(link)) {
+        document.head.removeChild(link);
+      }
+    };
+  }, [currentSlide, heroImages]);
+
   return (
     <section id="hero" className="relative bg-gray-900 text-white h-screen flex items-center overflow-hidden">
       {/* Overlay con gradiente */}
@@ -47,8 +63,11 @@ const HeroSection = () => {
               alt={image.alt}
               fill
               className="object-cover"
-              priority={index === 0}
-              quality={90}
+              priority={index === 0} // ✅ Solo la prima immagine è priority
+              quality={85} // ✅ Qualità ottimizzata (da 90 a 85)
+              sizes="100vw" // ✅ Sizes ottimizzato per hero full-width
+              placeholder="blur" // ✅ Placeholder blur per UX migliore
+              blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
             />
           </div>
         ))}

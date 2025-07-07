@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 export const metadata = {
-  title: "Pagina non trovata | Catanzaro & Partners",
+  title: "Pagina non trovata | Futura Company",
   description: "La pagina che stai cercando non esiste o è stata rimossa.",
 };
 

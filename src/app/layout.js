@@ -73,23 +73,13 @@ export const metadata = {
     siteName: "Futura Company",
     title: "Futura Company | Gruppo Editoriale Siciliano - 5 Testate Giornalistiche Online",
     description: "Il principale gruppo editoriale siciliano con 5 testate specializzate in enogastronomia, turismo e cultura. Dal 2020 raccontiamo l'eccellenza siciliana attraverso All Food Sicily, Sicilia Mag, Fermento Pizza, Travel Notizie e Vinup.",
-    images: [
-      {
-        url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Futura Company - Gruppo Editoriale Siciliano",
-        type: "image/jpeg",
-      },
-    ],
   },
   twitter: {
-    card: "summary_large_image",
+    card: "summary",
     site: "@futuracompany",
     creator: "@futuracompany",
     title: "Futura Company | Gruppo Editoriale Siciliano",
     description: "Il principale gruppo editoriale siciliano con 5 testate specializzate in enogastronomia, turismo e cultura siciliana.",
-    images: ["/og-image.jpg"],
   },
   robots: {
     index: true,

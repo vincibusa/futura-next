@@ -14,9 +14,9 @@ const HeroSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   
   const heroImages = [
-    { src: Hero1, alt: "Hero Image 1" },
-    { src: Hero2, alt: "Hero Image 2" },
-    { src: Hero3, alt: "Hero Image 3" }
+    { src: Hero1, alt: "Futura Company - Gruppo editoriale siciliano specializzato in editoria digitale" },
+    { src: Hero2, alt: "Team Futura Company - Professionisti dell'editoria e comunicazione in Sicilia" },
+    { src: Hero3, alt: "Uffici Futura Company - Sede del gruppo editoriale a Bagheria, Sicilia" }
   ];
 
   // Auto-scroll del carosello ogni 5 secondi
@@ -78,13 +78,13 @@ const HeroSection = () => {
         <div className="max-w-3xl">
           <AnimatedOnScroll animation="fade-in-up" delay={200}>
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Trasformiamo le idee in risultati tangibili
+              <span className="text-blue-400">Futura Company</span> - Gruppo Editoriale Siciliano
             </h1>
           </AnimatedOnScroll>
           
           <AnimatedOnScroll animation="fade-in-up" delay={400}>
             <p className="text-xl md:text-2xl mb-10 text-gray-200">
-              Sviluppiamo i tuoi progetti con creatività e innovazione per far crescere il tuo business.
+              Il principale gruppo editoriale siciliano con 5 testate specializzate in enogastronomia, turismo e cultura.
             </p>
           </AnimatedOnScroll>
           

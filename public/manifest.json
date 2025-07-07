@@ -1,20 +1,20 @@
 {
-  "name": "Catanzaro & Partners",
-  "short_name": "C&P",
-  "description": "Agenzia specializzata in sviluppo web, digital marketing e soluzioni tecnologiche innovative",
+  "name": "Futura Company",
+  "short_name": "Futura",
+  "description": "Gruppo editoriale siciliano specializzato in editoria digitale, eventi gastronomici e turismo con 5 testate online",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#000000",
+  "theme_color": "#2563eb",
   "icons": [
     {
-      "src": "/icons/icon-192x192.png",
-      "sizes": "192x192",
+      "src": "/favicon-32x32.png",
+      "sizes": "32x32",
       "type": "image/png"
     },
     {
-      "src": "/icons/icon-512x512.png",
-      "sizes": "512x512",
+      "src": "/favicon-32x32.png", 
+      "sizes": "192x192",
       "type": "image/png"
     }
   ]

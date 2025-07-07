@@ -105,9 +105,7 @@ export const metadata = {
     },
   },
   verification: {
-    google: "your-google-verification-code",
-    yandex: "your-yandex-verification-code",
-    yahoo: "your-yahoo-verification-code",
+    google: "_X9EqX9j1610eHaWPi23JtqHIwwZ2rNqvhdYzAk82oU",
   },
   other: {
     'geo.region': 'IT-82',

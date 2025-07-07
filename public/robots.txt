@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /api/
 
-Sitemap: https://catanzaroepartners.it/sitemap.xml 
+Sitemap: https://futuracompany.it/sitemap.xml 

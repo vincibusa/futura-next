@@ -1,33 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://catanzaroepartners.it/</loc>
-    <lastmod>2023-11-23</lastmod>
-    <changefreq>monthly</changefreq>
+    <loc>https://futuracompany.it/</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://catanzaroepartners.it/servizi</loc>
-    <lastmod>2023-11-23</lastmod>
+    <loc>https://futuracompany.it/#chi-siamo</loc>
+    <lastmod>2024-12-19</lastmod>
     <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://futuracompany.it/#servizi</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://futuracompany.it/#adv</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://catanzaroepartners.it/about</loc>
-    <lastmod>2023-11-23</lastmod>
-    <changefreq>monthly</changefreq>
+    <loc>https://futuracompany.it/#progetti</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://catanzaroepartners.it/portfolio</loc>
-    <lastmod>2023-11-23</lastmod>
+    <loc>https://futuracompany.it/#team</loc>
+    <lastmod>2024-12-19</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://catanzaroepartners.it/contatti</loc>
-    <lastmod>2023-11-23</lastmod>
+    <loc>https://futuracompany.it/#contatti</loc>
+    <lastmod>2024-12-19</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
 </urlset> 

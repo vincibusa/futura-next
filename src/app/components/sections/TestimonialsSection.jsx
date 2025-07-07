@@ -23,6 +23,47 @@ const TestimonialsSection = () => {
     { id: 18, name: "Mariano Durante", image: "https://firebasestorage.googleapis.com/v0/b/catanzaroepartners-13968.firebasestorage.app/o/mariano%20durante-02.png?alt=media&token=76d4ed7f-d99d-4551-a570-f60506b3a35c" },
     { id: 19, name: "Mediacom", image: "https://firebasestorage.googleapis.com/v0/b/catanzaroepartners-13968.firebasestorage.app/o/mediacom-02.png?alt=media&token=c18a7458-974f-4320-93c9-fcba272a3f48" },
     { id: 20, name: "Sprint", image: "https://firebasestorage.googleapis.com/v0/b/catanzaroepartners-13968.firebasestorage.app/o/sprint-02.png?alt=media&token=d3afb69a-c165-4840-8e54-40c5dd20e945" },
+    { id: 21, name: "Donna fugata", image: "https://www.donnafugata.it/wp-content/uploads/2022/09/Logo-Completo.jpg" },
+    { id: 22, name: "San Pellegrino", image: "https://us.store.sanpellegrino.com/cdn/shop/files/230428_SANPE_Logo_SPellegrino_RGB.png?v=1698796178&width=600" },
+    { id: 23, name: "Duca di Salaparuta", image: "https://winearound.imgix.net/img/pictures/picture_logo_65b7c83e6a8f9964b84d4727_1709823312844.png?fit=cover&w=600&h=600&fm=png" },
+    { id: 24, name: "Ricocrem", image: "https://www.ricocrem.it/wp-content/uploads/2019/06/Logo_Nuovo-1.jpg" },
+    { id: 25, name: "Gout", image: "https://www.goutristorazione.it/wp-content/uploads/2022/05/gout-footer.png" },
+    { id: 26, name: "Ke Palle", image: "https://www.kepalle.it/wp-content/uploads/2020/09/kepalle-logo_favicon.png" },
+    { id: 27, name: "Pomodoro di Pachino", image: "https://www.igppachino.it/wp-content/uploads/2021/09/Logo@2x-2.png" },
+    { id: 28, name: "Intesa San Paolo", image: "https://upload.wikimedia.org/wikipedia/commons/5/51/Intesa_Sanpaolo_logo.svg" },
+    { id: 29, name: "Doc Sicilia", image: "https://siciliadoc.wine/wp-content/uploads/2021/12/logo_siciliadoc_it-1.png" },
+    { id: 30, name: "Sapori dei vini", image: "https://www.winerytastingsicily.com/images/strade-del-vino/strade-del-vino-valle-dei-templi.jpg" },
+    { id: 31, name: "Damir", image: "https://palermomediterranea.it/wp-content/uploads/2023/05/Raggruppa-916-e1686059419181.png" },
+    { id: 32, name: "Milazzo", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Milazzo-Stemma.svg/1200px-Milazzo-Stemma.svg.png" },
+    { id: 33, name: "Alcantare", image: "https://upload.wikimedia.org/wikipedia/it/d/d2/Mojo_Alcantara-Stemma.png" },
+    { id: 34, name: "Brugnano", image: "https://www.millesuoli.it/img/m/53.jpg" },
+    { id: 35, name: "Nicosia", image: "https://www.tenutenicosia.it/wp-content/uploads/2016/08/Logo_Nicosia_istituzionale-1.png" },
+    { id: 36, name: "Taobuk", image: "https://taobuk-it.cdn-immedia.net/wp-content/uploads/2024/06/sponsor-1-500x500.jpg" },
+    { id: 37, name: "Cous Cous Fest", image: "https://wallinone.tv/wp/wp-content/uploads/2017/09/logo-cous-cous-fest.png" },
+    { id: 38, name: "Spumanti dell'Etna", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSY8QFcaK3sSUHXOjGe0A2lZwRy6_QVPfVxCA&s" },
+    { id: 39, name: "Val Paradiso", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFaN9tw1ZxSiyA1uYB1iPQj0h31TCEngpiiQ&s" },
+    { id: 40, name: "Menu", image: "https://www.menu.it/img/logo-menu.png" },
+    { id: 41, name: "Consorzio di Bronte", image: "https://www.consorziodos.it/wp-content/uploads/2024/02/Logo-Pistacchio-di-Bronte-.webp" },
+    { id: 42, name: "Rattenuti", image: "https://interactiveanddesign.com/images/logos/thumb250x150/logo68-08092020232151.png" },
+    { id: 43, name: "Villa Dafne", image: "https://www.lebontadivilladafne.it/img/cms/dafne.png" },
+    { id: 44, name: "Biga", image: "https://bigageniofarina.it/wp-content/uploads/2024/01/biga-1.webp" },
+    { id: 45, name: "Saccharum", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQs5OlJfzknX3VIxgKcRAjiNVkWPO2NG0L4pA&s" },
+    { id: 46, name: "Magatama", image: "https://www.magatama.it/wp-content/uploads/2023/06/logofooter.png" },
+    { id: 47, name: "Ammodo", image: "https://www.ammodopizzeria.it/wp-content/uploads/2023/01/Ammodo-di-Daniele-Vaccarella-SEO.jpg" },
+    { id: 48, name: "Fiasconaro", image: "https://www.fiasconaro.com/wp-content/uploads/2024/06/Fiasconaro_logo.png" },
+    { id: 49, name: "Vino Etna", image: "https://www.stradadelvinodelletna.it/wp-content/uploads/2024/02/logo-svse.png" },
+    { id: 50, name: "Moak", image: "https://www.ilpost.it/wp-content/uploads/2017/07/logo_moak.jpg" },
+    { id: 51, name: "Ass", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQm3hw1tq1zLhHMu-FPFPgTipsrj_mGDfokRQ&s" },
+    { id: 52, name: "Ass2", image: "https://cdn.formazionecommercialisti.org/images/enti/logo%20assessorato%20attivit%C3%A0%20produttive%20Palermo.png" },
+    { id: 53, name: "Elenka", image: "https://cdn.prod.website-files.com/5c1bc9351a733274310fb234/5f688ce841ab252e8fe334f7_logo%20elenka%202018-01.png" },
+    { id: 54, name: "Mangias", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-rO7ouEJPZIiP0omhQsReWCY0WDk89LnXGQ&s" },
+    { id: 55, name: "Molini del ponte", image: "https://emporiosicilia.it/cdn/shop/collections/bbad828b6fd172289dc779a7fbab955d.jpg?v=1680603734" },
+
+
+
+
+
+
   ];
 
   const sponsorSchema = {

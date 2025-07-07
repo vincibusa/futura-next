@@ -1,24 +1,21 @@
+import dynamic from 'next/dynamic';
 import HeroSection from './components/sections/HeroSection';
-import AboutSection from './components/sections/EditoriaSection';
 
-import ComfortZoneSection from './components/sections/ComfortZoneSection';
-
-import TeamSection from './components/sections/TeamSection';
-import ContactSection from './components/sections/ContactSection';
-import TestimonialsSection from './components/sections/TestimonialsSection';
-import AdvSection from './components/sections/AdvSection';
+// Dynamically import all sections below the fold for performance optimization
+const AboutSection = dynamic(() => import('./components/sections/EditoriaSection'));
+const ComfortZoneSection = dynamic(() => import('./components/sections/ComfortZoneSection'));
+const TeamSection = dynamic(() => import('./components/sections/TeamSection'));
+const ContactSection = dynamic(() => import('./components/sections/ContactSection'));
+const TestimonialsSection = dynamic(() => import('./components/sections/TestimonialsSection'));
+const AdvSection = dynamic(() => import('./components/sections/AdvSection'));
 
 const HomePage = () => {
   return (
     <>
-
       <HeroSection />
       <AboutSection />
       <AdvSection />
       <ComfortZoneSection />
-
-
-
       <TeamSection />
       <TestimonialsSection />
       <ContactSection />

@@ -236,9 +236,9 @@ const ContactSection = () => {
                         className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded" />
                       <label htmlFor="privacy" className="ml-2 text-gray-700 text-sm">
                         Acconsento al trattamento dei dati personali secondo la{' '}
-                        <a href="#" className="text-blue-600 hover:underline">
+                        <Link href="/privacy-policy" className="text-blue-600 hover:underline">
                           Privacy Policy
-                        </a>
+                        </Link>
                         . *
                       </label>
                     </div>

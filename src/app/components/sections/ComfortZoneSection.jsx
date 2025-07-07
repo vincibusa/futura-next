@@ -10,18 +10,16 @@ const ComfortZoneSection = () => {
   const [startCounting, setStartCounting] = useState(false);
   const statsRef = useRef(null);
 
-  // Usa IntersectionObserver per rilevare quando le statistiche sono visibili
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting && !startCounting) {
-          // Aggiungi un piccolo delay per un effetto più naturale
           setTimeout(() => {
             setStartCounting(true);
           }, 300);
         }
       },
-      { threshold: 0.3 } // Il contatore parte quando il 30% della sezione è visibile
+      { threshold: 0.3 }
     );
 
     const currentRef = statsRef.current;
@@ -36,98 +34,45 @@ const ComfortZoneSection = () => {
     };
   }, [startCounting]);
 
-  // Immagini per la galleria - mantenuta la stessa struttura
-  const galleryImages = [
-    {
-      src: 'https://firebasestorage.googleapis.com/v0/b/catanzaroepartners-13968.firebasestorage.app/o/1.jpeg?alt=media&token=f341a015-0672-4224-aa0e-799efd5d9d07',
-      alt: 'Vista panoramica di un villaggio costiero con montagna vulcanica',
-      title: 'Gran Tour - Ventimiglia di Sicilia',
-    },
-    {
-      src: 'https://firebasestorage.googleapis.com/v0/b/catanzaroepartners-13968.firebasestorage.app/o/3.jpeg?alt=media&token=efbc570c-d542-4553-9f98-b89869d90414',
-      alt: 'Sfincione siciliano, specialità gastronomica',
-      title: 'Migliori Street Food Sicilia',
-    },
-    {
-      src: 'https://firebasestorage.googleapis.com/v0/b/catanzaroepartners-13968.firebasestorage.app/o/2.jpeg?alt=media&token=7b378b8a-b47f-4a5b-aab7-6523a82e99ed',
-      alt: 'Vigneti siciliani con Etna sullo sfondo',
-      title: 'Premio All Food Sicily',
-    },
-    {
-      src: 'https://firebasestorage.googleapis.com/v0/b/catanzaroepartners-13968.firebasestorage.app/o/4.jpeg?alt=media&token=b99a58f4-ccb1-4de6-802d-50e8d7a7b949',
-      alt: 'Porto con barche e case sulla costa',
-      title: 'Gran Tour - Misilmeri',
-    },
-    {
-      src: 'https://firebasestorage.googleapis.com/v0/b/catanzaroepartners-13968.firebasestorage.app/o/5.jpeg?alt=media&token=426ce523-4f2c-4753-8287-eda79693dfcc',
-      alt: 'Classifica annuale dei più influenti',
-      title: 'I Più Potenti della Sicilia',
-    },
-    {
-      src: 'https://firebasestorage.googleapis.com/v0/b/catanzaroepartners-13968.firebasestorage.app/o/6.jpeg?alt=media&token=1da55fdc-c942-4ce4-bb31-bf5c307d1d54',
-      alt: 'Premiazione delle migliori pizzerie',
-      title: 'Migliori Pizzerie della Sicilia',
-    },
-    {
-      src: 'https://firebasestorage.googleapis.com/v0/b/catanzaroepartners-13968.firebasestorage.app/o/7.jpeg?alt=media&token=8a09303a-49a1-404b-a865-9a46d22c6428',
-      alt: 'Birrificio artigianale siciliano',
-      title: 'Migliori Birrifici di Sicilia',
-    },
-    {
-      src: 'https://firebasestorage.googleapis.com/v0/b/catanzaroepartners-13968.firebasestorage.app/o/8.jpeg?alt=media&token=8cca35ea-17bf-4bc9-a1fd-1804fe21d8ab',
-      alt: 'Agriturismo tra le campagne siciliane',
-      title: 'Miglior Agriturismo di Sicilia',
-    },
-    {
-      src: 'https://firebasestorage.googleapis.com/v0/b/catanzaroepartners-13968.firebasestorage.app/o/9.jpeg?alt=media&token=a4e1d15c-83e0-4770-8e86-38a720c5e08b',
-      alt: 'Borgo siciliano al tramonto',
-      title: 'Miglior Borgo di Sicilia',
-    },
+  const initiatives = [
+    { name: 'Gran Tour - Ventimiglia di Sicilia', description: 'Un tour alla scoperta delle bellezze di Ventimiglia di Sicilia.' },
+    { name: 'Migliori Street Food Sicilia', description: 'Una guida ai migliori cibi di strada della Sicilia.' },
+    { name: 'Premio All Food Sicily', description: 'Un premio che celebra le eccellenze enogastronomiche siciliane.' },
+    { name: 'Gran Tour - Misilmeri', description: 'Un tour esplorativo del territorio di Misilmeri.' },
+    { name: 'I Più Potenti della Sicilia', description: 'Una classifica annuale delle personalità più influenti in Sicilia.' },
+    { name: 'Migliori Pizzerie della Sicilia', description: 'Una guida alle pizzerie da non perdere in Sicilia.' },
+    { name: 'Migliori Birrifici di Sicilia', description: 'Una selezione dei migliori birrifici artigianali siciliani.' },
+    { name: 'Miglior Agriturismo di Sicilia', description: 'Un riconoscimento per l\'eccellenza nell\'ospitalità rurale.' },
+    { name: 'Miglior Borgo di Sicilia', description: 'Un premio per il borgo più affascinante e accogliente della Sicilia.' },
   ];
 
-  // Categorie di progetti
-  const projectCategories = [
-    {
-      title: "Guide",
-      projects: ["Miglior Birrifici di Sicilia", "Miglior Street Food Sicilia"],
-      icon: (
-        <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
-        </svg>
-      )
-    },
-    {
-      title: "Premi",
-      projects: ["Migliori Pizzerie della Sicilia", "Miglior Agriturismo di Sicilia", "Miglior Borgo di Sicilia", "Premio All Food Sicily"],
-      icon: (
-        <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
-        </svg>
-      )
-    },
-    {
-      title: "Classifiche",
-      projects: ["I Più Potenti della Sicilia"],
-      icon: (
-        <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
-        </svg>
-      )
-    },
-    {
-      title: "Gran Tour",
-      projects: ["Ventimiglia di Sicilia", "Misilmeri"],
-      icon: (
-        <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-        </svg>
-      )
-    }
-  ];
+  const initiativesSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Iniziative e Progetti di Futura Company",
+    "description": "Guide, premi, classifiche e tour organizzati per valorizzare le eccellenze siciliane.",
+    "itemListElement": initiatives.map((item, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "item": {
+        "@type": "CreativeWork",
+        "name": item.name,
+        "description": item.description,
+        "publisher": {
+          "@type": "Organization",
+          "name": "Futura Company"
+        }
+      }
+    }))
+  };
 
   return (
     <>
-    <div className="relative">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(initiativesSchema) }}
+      />
+      <div className="relative">
         <div className="absolute inset-0 flex items-center" aria-hidden="true">
           <div className="w-full border-t border-gray-200" />
         </div>
@@ -227,14 +172,8 @@ const ComfortZoneSection = () => {
           </div>
         </div>
 
-
-
         {/* Sezione Categorie di Progetti */}
         <div className="container mx-auto px-4 relative z-10 mt-24">
-
-
-  
-
           {/* Sezione finale con immagine e CTA */}
           <div className="grid md:grid-cols-2 gap-16 items-center relative">
             <div className="absolute -z-10 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[120%] h-80 bg-blue-50/30 rounded-3xl blur-3xl"></div>
@@ -245,9 +184,9 @@ const ComfortZoneSection = () => {
               </div>
               <h3 className="text-3xl font-bold text-gray-900 mb-6">Scopri tutti i progetti</h3>
               <p className="text-lg text-gray-600 leading-relaxed mb-8">
-                Esplora tutte le nostre iniziative e scopri come stiamo valorizzando le eccellenze del territorio siciliano attraverso progetti innovativi e coinvolgenti.
+                Esplora tutte le nostre iniziative e scopri how we are enhancing the excellences of the Sicilian territory through innovative and engaging projects.
               </p>
-              <Link href="/progetti">
+              <Link href="#progetti">
                 <button
                   className="mt-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white py-3 px-8 rounded-full font-medium shadow-md transition-all duration-300 hover:scale-105 hover:shadow-xl active:scale-95 flex items-center"
                 >
@@ -268,7 +207,6 @@ const ComfortZoneSection = () => {
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                     fill
                     sizes="(max-width: 768px) 100vw, 50vw"
-                    priority
                   />
                   {/* Overlay gradient */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-60 transition-all duration-300"></div>

@@ -3,6 +3,7 @@ import dynamic from 'next/dynamic';
 import "./globals.css";
 import Header from "./components/layout/Header";
 import CookieBanner from "./components/gdpr/CookieBanner";
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 const Footer = dynamic(() => import("./components/layout/Footer"));
 
@@ -213,6 +214,7 @@ export default function RootLayout({ children }) {
         {children}
         <Footer />
         <CookieBanner />
+        <SpeedInsights/>
       </body>
     </html>
   );

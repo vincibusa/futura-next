@@ -2,6 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import dynamic from 'next/dynamic';
 import "./globals.css";
 import Header from "./components/layout/Header";
+import CookieBanner from "./components/gdpr/CookieBanner";
 
 const Footer = dynamic(() => import("./components/layout/Footer"));
 
@@ -211,6 +212,7 @@ export default function RootLayout({ children }) {
         <Header />
         {children}
         <Footer />
+        <CookieBanner />
       </body>
     </html>
   );

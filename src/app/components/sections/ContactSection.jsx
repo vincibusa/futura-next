@@ -1,8 +1,19 @@
+'use client';
 import Link from 'next/link';
+import { useState } from 'react';
 import AnimatedOnScroll from '../animation/AnimatedOnScroll';
 import AnimateOnScroll from '../animation/AnimateOnScroll';
+import FormConsent from '../gdpr/FormConsent';
 
 const ContactSection = () => {
+  const [consent, setConsent] = useState({
+    contact: false,
+    newsletter: false,
+    events: false,
+    marketing: false
+  });
+
+  const [formErrors, setFormErrors] = useState({});
   const services = [
     'Branding',
     'Event',
@@ -226,27 +237,20 @@ const ContactSection = () => {
                     ></textarea>
                   </div>
 
-                  <div className="mb-8">
-                    <div className="flex items-center">
-                      <input
-                        id="privacy"
-                        name="privacy"
-                        type="checkbox"
-                        required
-                        className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded" />
-                      <label htmlFor="privacy" className="ml-2 text-gray-700 text-sm">
-                        Acconsento al trattamento dei dati personali secondo la{' '}
-                        <Link href="/privacy-policy" className="text-blue-600 hover:underline">
-                          Privacy Policy
-                        </Link>
-                        . *
-                      </label>
-                    </div>
-                  </div>
+                  <FormConsent
+                    onConsentChange={setConsent}
+                    required={true}
+                    showNewsletter={true}
+                    showEvents={true}
+                    className="mb-6"
+                  />
+
+                  <input type="hidden" name="consent" value={JSON.stringify(consent)} />
 
                   <button
                     type="submit"
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg font-medium transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
+                    disabled={!consent.contact}
+                    className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg font-medium transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] disabled:bg-gray-400 disabled:cursor-not-allowed disabled:scale-100"
                   >
                     Invia messaggio
                   </button>

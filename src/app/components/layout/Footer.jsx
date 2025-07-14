@@ -178,11 +178,21 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-blue-900 mt-10 pt-6">
-          <div className="flex flex-col md:flex-row justify-center items-center">
+          <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-300 text-sm">
-              © {currentYear} Catanzaro & Partners. Tutti i diritti riservati.
+              © {currentYear} Futura Company - Gruppo Editoriale Siciliano. Tutti i diritti riservati.
             </p>
-
+            <div className="flex space-x-6 mt-4 md:mt-0">
+              <Link href="/privacy-policy" className="text-gray-300 hover:text-blue-400 text-sm transition-colors">
+                Privacy Policy
+              </Link>
+              <Link href="/cookie-policy" className="text-gray-300 hover:text-blue-400 text-sm transition-colors">
+                Cookie Policy
+              </Link>
+              <Link href="/gestione-consensi" className="text-gray-300 hover:text-blue-400 text-sm transition-colors">
+                Gestione Consensi
+              </Link>
+            </div>
           </div>
         </div>
       </div>

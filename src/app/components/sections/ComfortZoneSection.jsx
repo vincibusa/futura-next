@@ -106,9 +106,9 @@ const ComfortZoneSection = () => {
        
               <div ref={statsRef} className="grid grid-cols-3 gap-6 pt-4 mt-8 border-t border-gray-200">
                 {[
-                  { value: 4, label: 'Categorie di progetti' },
-                  { value: 9, label: 'Iniziative attive' },
-                  { value: 50, label: 'Eccellenze premiate' }
+                  { value: 4, label: 'Progetto' },
+                  { value: 60, label: 'Iniziative attivate' },
+                  { value: 420, label: 'Eccellenze premiate' }
                 ].map((stat, i) => (
                   <AnimateOnScroll key={stat.label} animation="fade-up" delay={i * 100 + 600}>
                     <div className="text-center flex flex-col items-center">
@@ -118,7 +118,7 @@ const ComfortZoneSection = () => {
                           fontSize={28}
                           textColor="#2563eb"
                           fontWeight="bold"
-                          places={stat.value >= 10 ? [10, 1] : [1]}
+                          places={stat.value >= 100 ? [100, 10, 1] : stat.value >= 10 ? [10, 1] : [1]}
                           gap={2}
                           padding={0}
                           gradientHeight={0}
@@ -135,14 +135,10 @@ const ComfortZoneSection = () => {
             
             {/* Colonna destra - Testo */}
             <div className="space-y-4">
-              <AnimateOnScroll animation="fade-right" delay={300}>
-                <p className="text-lg text-gray-700 leading-relaxed">
-                  Questa sezione riporta le <strong className="font-bold text-blue-700">iniziative</strong> che il Gruppo ha realizzato e sta sviluppando in <strong className="font-bold text-blue-700">quattro categorie</strong> e consente di mappare i luoghi e le persone che fanno interesse nei settori del <strong className="font-bold text-blue-700">turismo, food e imprenditoria</strong>.
-                </p>
-              </AnimateOnScroll>
+
               <AnimateOnScroll animation="fade-right" delay={450}>
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  Le nostre <strong className="font-bold text-blue-700">Guide</strong> raccontano le eccellenze del territorio, i <strong className="font-bold text-blue-700">Premi</strong> riconoscono le migliori realtà, le <strong className="font-bold text-blue-700">Classifiche</strong> mappano i protagonisti del settore e i <strong className="font-bold text-blue-700">Gran Tour</strong> valorizzano i territori.
+                Le <strong className="font-bold text-blue-700">iniziative</strong> del gruppo si sviluppano  nelle nostre <strong className="font-bold text-blue-700">Guide</strong> che raccontano le eccellenze del territorio, i <strong className="font-bold text-blue-700">Premi</strong> che gratificano il lavoro di tante eccellenze, le <strong className="font-bold text-blue-700">Classifiche</strong> che mappano i protagonisti del settore e i <strong className="font-bold text-blue-700">Gran Tour</strong> , mini eventi che promuovono e valorizzano i territori.
                 </p>
               </AnimateOnScroll>
               <AnimateOnScroll animation="fade-right" delay={600}>
@@ -184,7 +180,7 @@ const ComfortZoneSection = () => {
               </div>
               <h3 className="text-3xl font-bold text-gray-900 mb-6">Scopri tutti i progetti</h3>
               <p className="text-lg text-gray-600 leading-relaxed mb-8">
-                Esplora tutte le nostre iniziative e scopri how we are enhancing the excellences of the Sicilian territory through innovative and engaging projects.
+                Esplora tutte le nostre iniziative
               </p>
               <Link href="#progetti">
                 <button

@@ -78,39 +78,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Colonna 3 - Servizi */}
-          <div>
-            <h3 className="text-xl font-bold mb-4">I Nostri Servizi</h3>
-            <div className="w-12 h-1 bg-blue-500 mb-4"></div>
-            <ul className="space-y-2">
-              {[
-                { name: 'Branding', path: '/servizi/branding' },
-                { name: 'Event', path: '/servizi/event' },
-                { name: 'Marketing', path: '/servizi/marketing' },
-                { name: 'Web e Multimedia', path: '/servizi/web-multimedia' },
-                { name: 'Food Concept', id: 'comfort-zone' },
-                { name: 'Talent Partner', id: 'comfort-zone' }
-              ].map((service) => (
-                <li key={service.name}>
-                  {service.path ? (
-                    <Link
-                      href={service.path}
-                      className="text-gray-300 hover:text-blue-400 transition-colors duration-300"
-                    >
-                      {service.name}
-                    </Link>
-                  ) : (
-                    <button
-                      onClick={() => scrollToSection(service.id)}
-                      className="text-gray-300 hover:text-blue-400 transition-colors duration-300"
-                    >
-                      {service.name}
-                    </button>
-                  )}
-                </li>
-              ))}
-            </ul>
-          </div>
+
 
           {/* Colonna 4 - Contatti */}
           <div>

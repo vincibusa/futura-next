@@ -58,7 +58,7 @@ const TeamSection = () => {
     {
       id: 4,
       name: 'Emma Governali',
-      role: 'Coordinatrice di Relazione',
+      role: 'Coordinatrice di Redazione',
       image: '/emma.jpeg'
     },
     {

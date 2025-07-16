@@ -119,12 +119,12 @@ const AboutSection = () => {
                 </p>
               </AnimateOnScroll>
        
-              <div ref={statsRef} className="grid grid-cols-4 gap-6 pt-4 mt-8 border-t border-gray-200">
+              <div ref={statsRef} className="grid grid-cols-3 gap-6 pt-4 mt-8 border-t border-gray-200">
                 {[
                   { value: 15000000, label: 'Di visualizzazioni', displayValue: '15M' },
                   { value: 12360, label: 'Articoli pubblicati' },
                   { value: 5, label: 'Testate giornalistiche' },
-                  { value: 3, label: 'Fondatori' }
+
                 ].map((stat, i) => {
                   // Se abbiamo un displayValue, usiamo quello, altrimenti usiamo il Counter normale
                   if (stat.displayValue) {

@@ -250,7 +250,7 @@ const AdvSection = () => {
             <div>
               <AnimateOnScroll animation="fade-down" delay={300}>
                 <h2 className="text-3xl md:text-3xl font-bold text-blue-700 mb-4">
-                  I Nostri Eventi Promossi
+                 Un'ottima occasione per promuovere aziende di successo
                 </h2>
               </AnimateOnScroll>
 
@@ -262,26 +262,27 @@ const AdvSection = () => {
        
               <div ref={statsRef} className="grid grid-cols-3 gap-6 pt-4 mt-8 border-t border-gray-200">
                 {[
-                  { value: 1000000, label: 'Lettori giornalieri' },
-                  { value: 12, label: 'Eventi promossi' },
-                  { value: 5, label: 'Canali editoriali' }
+                  { value: 45000, label: 'Lettori giornalieri' },
+                  { value: 16, label: 'Articoli giornalieri' },
+                  { value: 110, label: 'Aziende seguite' },
+              
                 ].map((stat, i) => (
                   <AnimateOnScroll key={stat.label} animation="fade-up" delay={i * 100 + 600}>
                     <div className="text-center flex flex-col items-center">
                       <div className="flex items-baseline justify-center mb-2 h-10">
                         <Counter
                           value={startCounting ? stat.value : 0}
-                          fontSize={stat.value >= 1000000 ? 20 : 28}
+                          fontSize={stat.value >= 10000 ? 20 : 28}
                           textColor="#2563eb"
                           fontWeight="bold"
-                          places={stat.value >= 1000000 ? [1000000, 100000, 10000, 1000, 100, 10, 1] : stat.value >= 10 ? [10, 1] : [1]}
+                          places={stat.value >= 10000 ? [10000, 1000, 100, 10, 1] : stat.value >= 10 ? [10, 1] : [1]}
                           gap={2}
                           padding={0}
                           gradientHeight={0}
                           gradientFrom="transparent"
                           gradientTo="transparent"
                           containerStyle={{ display: 'flex', alignItems: 'baseline' }} />
-                        {stat.value >= 1000000 && <span className="text-blue-600 font-bold text-xl ml-1">+</span>}
+                        {stat.value >= 10000 && <span className="text-blue-600 font-bold text-xl ml-1">+</span>}
                       </div>
                       <p className="text-sm text-gray-500 leading-tight">{stat.label}</p>
                     </div>
@@ -304,7 +305,7 @@ const AdvSection = () => {
               </AnimateOnScroll>
               <AnimateOnScroll animation="fade-right" delay={600}>
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  I nostri <strong className="font-bold text-blue-700">canali multimediali</strong> rappresentano una piattaforma ideale per la promozione di <strong className="font-bold text-blue-700">eventi, festival e manifestazioni</strong>, garantendo un'ampia copertura e un pubblico altamente profilato.
+                  I nostri <strong className="font-bold text-blue-700">canali multimediali</strong> rappresentano una piattaforma ideale per la promozione di <strong className="font-bold text-blue-700">aziende pubbliche e private</strong>, garantendo un'ampia copertura e un pubblico altamente profilato.
                 </p>
               </AnimateOnScroll>
               <AnimateOnScroll animation="fade-right" delay={750}>

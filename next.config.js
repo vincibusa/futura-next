@@ -39,7 +39,8 @@ const nextConfig = {
       'cdn.prod.website-files.com',
       'emporiosicilia.it',
       'www.territorioeturismo.it',
-      'loghi-famosi.com'
+      'loghi-famosi.com',
+      'www.feedback.it'
     ],
     minimumCacheTTL: 31536000,
   },

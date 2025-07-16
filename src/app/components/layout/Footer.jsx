@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 
 import Image from 'next/image';
-import logo from '../../assets/images/logo.png';
+import logo2 from '../../assets/images/logo2.png';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -38,7 +38,7 @@ const Footer = () => {
           <div className='flex flex-col items-center justify-center'>
             <div className="mb-4 flex items-center justify-center"> 
               <Image 
-                src={logo} 
+                src={logo2} 
                 alt="Catanzaro & Partners" 
                 className="h-28 mb-4 w-auto sm:h-32"
                 width={280}

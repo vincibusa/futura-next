@@ -37,7 +37,9 @@ const nextConfig = {
       'www.ilpost.it',
       'cdn.formazionecommercialisti.org',
       'cdn.prod.website-files.com',
-      'emporiosicilia.it'
+      'emporiosicilia.it',
+      'www.territorioeturismo.it',
+      'loghi-famosi.com'
     ],
     minimumCacheTTL: 31536000,
   },
